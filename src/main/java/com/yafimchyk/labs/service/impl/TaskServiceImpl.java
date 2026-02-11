@@ -1,6 +1,7 @@
 package com.yafimchyk.labs.service.impl;
 
 import com.yafimchyk.labs.dto.TaskResponseDto;
+import com.yafimchyk.labs.exception.TaskException;
 import com.yafimchyk.labs.mapper.TaskMapper;
 import com.yafimchyk.labs.model.Task;
 import com.yafimchyk.labs.repository.TaskRepository;
@@ -24,7 +25,7 @@ public class TaskServiceImpl implements TaskService {
     Optional<Task> taskOptional = taskRepository.findById(id);
 
     if (taskOptional.isEmpty()) {
-      throw new RuntimeException("Task not found");
+      throw new TaskException("Task not found");
     }
 
     return taskMapper.toDto(taskOptional.get());
@@ -34,7 +35,7 @@ public class TaskServiceImpl implements TaskService {
   public TaskResponseDto getTaskByTitle(String title) {
     Optional<Task> taskOptional = taskRepository.findByTitle(title);
     if (taskOptional.isEmpty()) {
-      throw new RuntimeException("Task not found");
+      throw new TaskException("Task not found");
     }
 
     return taskMapper.toDto(taskOptional.get());
