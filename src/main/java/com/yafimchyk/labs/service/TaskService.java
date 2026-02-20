@@ -1,25 +1,27 @@
 package com.yafimchyk.labs.service;
 
-import com.yafimchyk.labs.dto.TaskResponseDto;
+import com.yafimchyk.labs.dto.request.TaskCreationDto;
+import com.yafimchyk.labs.dto.request.TaskRequestDto;
+import com.yafimchyk.labs.dto.response.TaskResponseDto;
+import com.yafimchyk.labs.model.Task;
 
-/**
- * Service for working with tasks.
- */
+import java.util.List;
+
 public interface TaskService {
 
-  /**
-   * Get task by id.
-   *
-   * @param id task identifier
-   * @return task response
-   */
-  TaskResponseDto getTaskById(Long id);
+    List<TaskResponseDto> getAllTasks();
 
-  /**
-   * Get task by title.
-   *
-   * @param title task title
-   * @return task response
-   */
-  TaskResponseDto getTaskByTitle(String title);
+    TaskResponseDto getTaskById(Long id);
+
+    TaskResponseDto getTaskByTitle(String title);
+
+    TaskResponseDto createTask(Long projectId, TaskRequestDto request);
+
+    TaskResponseDto updateTaskById(Long id, TaskRequestDto request);
+
+    void deleteTaskById(Long id);
+
+    List<TaskResponseDto> getTasksByProjectId(Long projectId);
+
+    TaskResponseDto createTaskWoTx(Long projectId, TaskCreationDto request);
 }
