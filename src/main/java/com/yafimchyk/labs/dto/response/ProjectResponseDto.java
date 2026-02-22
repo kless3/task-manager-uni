@@ -1,6 +1,5 @@
 package com.yafimchyk.labs.dto.response;
 
-import com.yafimchyk.labs.model.Task;
 import com.yafimchyk.labs.model.enums.ProjectStatus;
 
 import java.time.LocalDateTime;

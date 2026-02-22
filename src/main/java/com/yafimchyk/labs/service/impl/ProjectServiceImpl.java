@@ -6,13 +6,16 @@ import com.yafimchyk.labs.exception.DuplicateResourceException;
 import com.yafimchyk.labs.exception.ResourceNotFoundException;
 import com.yafimchyk.labs.mapper.ProjectMapper;
 import com.yafimchyk.labs.model.Project;
+import com.yafimchyk.labs.model.enums.ProjectStatus;
 import com.yafimchyk.labs.repository.ProjectRepository;
 import com.yafimchyk.labs.service.ProjectService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -80,6 +83,57 @@ public class ProjectServiceImpl implements ProjectService {
                 .orElseThrow(() -> new ResourceNotFoundException(PROJECT_NOT_FOUND + id));
 
         projectRepository.delete(targetProject);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<ProjectResponseDto> getFilteredProjects(
+            ProjectStatus status,
+            Set<String> labels,
+            boolean includedExpired
+    ) {
+
+        LocalDateTime currentDate;
+        if (includedExpired) {
+            currentDate = LocalDateTime.MIN;
+        } else {
+            currentDate = LocalDateTime.now();
+        }
+
+        List<Project> projects = projectRepository.findProjectsByStatusAndLabels(
+                status,
+                labels,
+                currentDate
+        );
+
+        return projects.stream()
+                .map(projectMapper::toDto)
+                .toList();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<ProjectResponseDto> getFilteredProjectsNative(
+            ProjectStatus status,
+            Set<String> labelTitles,
+            boolean includedExpired) {
+
+        LocalDateTime currentDate;
+        if (includedExpired) {
+            currentDate = LocalDateTime.MIN;
+        } else {
+            currentDate = LocalDateTime.now();
+        }
+
+        List<Project> projects = projectRepository.findProjectsByStatusAndLabelsNative(
+                status.name(),
+                labelTitles.stream().toList(),
+                currentDate
+        );
+
+        return projects.stream()
+                .map(projectMapper::toDto)
+                .toList();
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.yafimchyk.labs.controller;
 
 import com.yafimchyk.labs.dto.request.ProjectRequestDto;
 import com.yafimchyk.labs.dto.response.ProjectResponseDto;
+import com.yafimchyk.labs.model.enums.ProjectStatus;
 import com.yafimchyk.labs.service.ProjectService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -14,9 +15,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/api/v1/projects")
@@ -52,5 +55,23 @@ public class ProjectController {
     public ResponseEntity<Void> deleteProject(@PathVariable Long id) {
         projectService.deleteProjectById(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/filter")
+    public ResponseEntity<List<ProjectResponseDto>> getFilteredProjects(
+            @RequestParam ProjectStatus status,
+            @RequestParam Set<String> labelTitles,
+            @RequestParam(defaultValue = "false") boolean includedExpired
+    ) {
+        return ResponseEntity.ok(projectService.getFilteredProjects(status, labelTitles, includedExpired));
+    }
+
+    @GetMapping("/filter/native")
+    public ResponseEntity<List<ProjectResponseDto>> getFilteredProjectsNative(
+            @RequestParam ProjectStatus status,
+            @RequestParam Set<String> labelTitles,
+            @RequestParam(defaultValue = "false") boolean includedExpired
+    ) {
+        return ResponseEntity.ok(projectService.getFilteredProjectsNative(status, labelTitles, includedExpired));
     }
 }

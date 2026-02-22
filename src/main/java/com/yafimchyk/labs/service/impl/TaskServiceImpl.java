@@ -6,7 +6,6 @@ import com.yafimchyk.labs.dto.response.TaskResponseDto;
 import com.yafimchyk.labs.exception.InitiatedProblemException;
 import com.yafimchyk.labs.exception.ResourceNotFoundException;
 import com.yafimchyk.labs.mapper.TaskMapper;
-import com.yafimchyk.labs.model.Comment;
 import com.yafimchyk.labs.model.Label;
 import com.yafimchyk.labs.model.Project;
 import com.yafimchyk.labs.model.Task;
@@ -125,7 +124,7 @@ public class TaskServiceImpl implements TaskService {
             throw new InitiatedProblemException(INITIATED_PROBLEM);
         }
 
-        Comment comment = commentService.createCommentEntity(savedTask.getId(), request.commentContent());
+        commentService.createCommentEntity(savedTask.getId(), request.commentContent());
 
         return taskMapper.toDto(savedTask);
     }

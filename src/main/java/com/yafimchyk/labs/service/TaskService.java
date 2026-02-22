@@ -3,7 +3,6 @@ package com.yafimchyk.labs.service;
 import com.yafimchyk.labs.dto.request.TaskCreationDto;
 import com.yafimchyk.labs.dto.request.TaskRequestDto;
 import com.yafimchyk.labs.dto.response.TaskResponseDto;
-import com.yafimchyk.labs.model.Task;
 
 import java.util.List;
 
