@@ -1,4 +1,24 @@
-# Ефимчик Максим Владимирович
-# Трекер задаач
+# Task Manager (Spring Boot)
 
-https://sonarcloud.io/project/overview&id=kless3_task-manager-uni
+Система управления задачами, построенная на базе Spring Framework. Проект представляет собой RESTful API для организации рабочих процессов, управления приоритетами и отслеживания жизненного цикла задач.
+
+## Технологический стек
+
+* **Runtime:** Java 21
+* **Framework:** Spring Boot 4.x (Spring Data JPA, Spring Web)
+* **Database:** PostgreSQL
+* **Build Tool:** Maven
+* **Documentation:** OpenAPI / Swagger
+
+## Функциональные возможности
+
+* Управление задачами (CRUD операции).
+* Категоризация задач по приоритетам и статусам.
+* Фильтрация выборки по параметрам.
+* Валидация входных данных.
+* Обработка исключений и стандартизированные ответы API.
+
+## Качество кода (SonarQube)
+
+Проект проходит регулярный статический анализ кода с использованием **SonarQube** для обеспечения высоких стандартов разработки.
+* **Публичный отчет:** [Посмотреть результаты на SonarCloud](https://sonarcloud.io/summary/overall?id=kless3_task-manager-uni&branch=main)
