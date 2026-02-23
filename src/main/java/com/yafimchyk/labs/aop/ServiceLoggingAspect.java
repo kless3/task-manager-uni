@@ -13,6 +13,8 @@ import org.springframework.util.StopWatch;
 @Component
 public class ServiceLoggingAspect {
 
+    private static final String ERROR_EXECUTING_METHOD = "Error executing method!";
+
     private static final Logger logger = LoggerFactory.getLogger(ServiceLoggingAspect.class);
 
     @Pointcut("within(@org.springframework.stereotype.Service *)")
@@ -50,7 +52,7 @@ public class ServiceLoggingAspect {
 
         } catch (Exception e) {
             logger.error("Ошибка при выполнении метода {}: {}", fullMethodName, e.getMessage(), e);
-            throw e;
+            throw new RuntimeException(ERROR_EXECUTING_METHOD);
         }
     }
 }

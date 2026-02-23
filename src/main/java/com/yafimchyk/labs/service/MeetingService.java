@@ -3,7 +3,6 @@ package com.yafimchyk.labs.service;
 import com.yafimchyk.labs.dto.request.MeetingBulkRequestDto;
 import com.yafimchyk.labs.dto.request.MeetingRequestDto;
 import com.yafimchyk.labs.dto.response.MeetingResponseDto;
-import com.yafimchyk.labs.model.Meeting;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

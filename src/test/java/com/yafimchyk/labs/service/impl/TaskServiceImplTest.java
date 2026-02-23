@@ -31,7 +31,6 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.anyLong;
 import static org.mockito.Mockito.anyString;
 import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.eq;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -243,7 +242,7 @@ class TaskServiceImplTest {
         assertThat(result.id()).isEqualTo(taskId);
         verify(taskRepository, times(2)).save(any(Task.class));
         verify(labelService, times(1)).createLabelEntity("Test Label");
-        verify(commentService, times(1)).createCommentEntity(eq(taskId), eq("Test Comment"));
+        verify(commentService, times(1)).createCommentEntity(taskId, "Test Comment");
     }
 
     @Test
@@ -313,7 +312,7 @@ class TaskServiceImplTest {
         assertThat(result.id()).isEqualTo(taskId);
         verify(taskRepository, times(2)).save(any(Task.class));
         verify(labelService, times(1)).createLabelEntity("Test Label");
-        verify(commentService, times(1)).createCommentEntity(eq(taskId), eq("Test Comment"));
+        verify(commentService, times(1)).createCommentEntity(taskId, "Test Comment");
     }
 
     @Test
