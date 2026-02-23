@@ -10,16 +10,23 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
 @Tag(name = "Meeting Controller", description = "Управление встречами проектов")
 public interface MeetingControllerApi {
 
-    @Operation(summary = "Получить все встречи с пагинацией")
+    @Operation(summary = "Получить все встречи с пагинацией",
+            description = "Возвращает страницу со встречами. Поддерживает сортировку по любому полю.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Список встреч получен")
+            @ApiResponse(responseCode = "200", description = "Список встреч успешно получен")
     })
     @GetMapping
     ResponseEntity<Page<MeetingResponseDto>> getAllMeetings(
@@ -29,17 +36,19 @@ public interface MeetingControllerApi {
             @Parameter(description = "Размер страницы", example = "3")
             @RequestParam(defaultValue = "3") int size,
 
-            @Parameter(description = "Поле для сортировки", example = "id")
+            @Parameter(description = "Поле для сортировки", example = "meetingDate")
             @RequestParam(defaultValue = "id") String sortBy,
 
-            @Parameter(description = "Направление сортировки (true - по возрастанию, false - по убыванию)", example = "true")
+            @Parameter(description = "Направление сортировки (true - по возрастанию, false - по убыванию)",
+                    example = "false")
             @RequestParam(defaultValue = "true") boolean ascending
     );
 
-    @Operation(summary = "Получить встречу по ID")
+    @Operation(summary = "Получить встречу по ID",
+            description = "Возвращает детальную информацию о встрече по её идентификатору")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Встреча найдена"),
-            @ApiResponse(responseCode = "404", description = "Встреча не найдена")
+            @ApiResponse(responseCode = "404", description = "Встреча с указанным ID не найдена")
     })
     @GetMapping("/{id}")
     ResponseEntity<MeetingResponseDto> getMeetingById(
@@ -47,10 +56,11 @@ public interface MeetingControllerApi {
             @PathVariable Long id
     );
 
-    @Operation(summary = "Получить все встречи по ID проекта")
+    @Operation(summary = "Получить все встречи по ID проекта",
+            description = "Возвращает список всех встреч, принадлежащих указанному проекту")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Список встреч получен"),
-            @ApiResponse(responseCode = "404", description = "Проект не найден")
+            @ApiResponse(responseCode = "200", description = "Список встреч успешно получен"),
+            @ApiResponse(responseCode = "404", description = "Проект с указанным ID не найден")
     })
     @GetMapping("/byProject/{projectId}")
     ResponseEntity<List<MeetingResponseDto>> getMeetingsByProjectId(
@@ -58,26 +68,28 @@ public interface MeetingControllerApi {
             @PathVariable Long projectId
     );
 
-    @Operation(summary = "Создать новую встречу для проекта")
+    @Operation(summary = "Создать новую встречу для проекта",
+            description = "Создает встречу с указанными параметрами в существующем проекте")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Встреча успешно создана"),
-            @ApiResponse(responseCode = "400", description = "Неверные данные"),
-            @ApiResponse(responseCode = "404", description = "Проект не найден")
+            @ApiResponse(responseCode = "400", description = "Неверные данные запроса (ошибка валидации)"),
+            @ApiResponse(responseCode = "404", description = "Проект с указанным ID не найден")
     })
     @PostMapping("/project/{projectId}")
     ResponseEntity<MeetingResponseDto> createMeeting(
             @Parameter(description = "ID проекта", required = true, example = "1")
             @PathVariable Long projectId,
 
-            @Parameter(description = "Данные встречи", required = true)
+            @Parameter(description = "Данные для создания встречи", required = true)
             @Valid @RequestBody MeetingRequestDto request
     );
 
-    @Operation(summary = "Обновить существующую встречу")
+    @Operation(summary = "Обновить существующую встречу",
+            description = "Полностью обновляет данные встречи по её ID")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Встреча обновлена"),
-            @ApiResponse(responseCode = "400", description = "Неверные данные"),
-            @ApiResponse(responseCode = "404", description = "Встреча не найдена")
+            @ApiResponse(responseCode = "200", description = "Встреча успешно обновлена"),
+            @ApiResponse(responseCode = "400", description = "Неверные данные запроса (ошибка валидации)"),
+            @ApiResponse(responseCode = "404", description = "Встреча с указанным ID не найдена")
     })
     @PutMapping("/{id}")
     ResponseEntity<MeetingResponseDto> updateMeeting(
@@ -88,10 +100,11 @@ public interface MeetingControllerApi {
             @Valid @RequestBody MeetingRequestDto request
     );
 
-    @Operation(summary = "Удалить встречу по ID")
+    @Operation(summary = "Удалить встречу по ID",
+            description = "Безвозвратно удаляет встречу")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "204", description = "Встреча успешно удалена"),
-            @ApiResponse(responseCode = "404", description = "Встреча не найдена")
+            @ApiResponse(responseCode = "404", description = "Встреча с указанным ID не найдена")
     })
     @DeleteMapping("/{id}")
     ResponseEntity<Void> deleteMeeting(

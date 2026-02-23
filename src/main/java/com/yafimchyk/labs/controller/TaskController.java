@@ -69,11 +69,19 @@ public class TaskController implements TaskControllerApi {
         return ResponseEntity.noContent().build();
     }
 
-    @PostMapping("/project/{projectId}/wotx")
+    @PostMapping("/project/{projectId}/woTx")
     public ResponseEntity<TaskResponseDto> createTaskWoTx(
             @PathVariable Long projectId,
             @RequestBody TaskCreationDto request) {
         TaskResponseDto createdTask = taskService.createTaskWoTx(projectId, request);
+        return new ResponseEntity<>(createdTask, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/project/{projectId}/withTx")
+    public ResponseEntity<TaskResponseDto> createTaskWithTx(
+            @PathVariable Long projectId,
+            @RequestBody TaskCreationDto request) {
+        TaskResponseDto createdTask = taskService.createTaskWithTx(projectId, request);
         return new ResponseEntity<>(createdTask, HttpStatus.CREATED);
     }
 

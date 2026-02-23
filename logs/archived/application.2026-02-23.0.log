@@ -1,0 +1,256 @@
+2026-02-23 23:29:03.316 [main] INFO  com.yafimchyk.labs.LabsApplication - Starting LabsApplication using Java 21.0.10 with PID 8277 (/home/kless/IdeaProjects/labs/target/classes started by kless in /home/kless/IdeaProjects/labs)
+2026-02-23 23:29:03.317 [main] DEBUG com.yafimchyk.labs.LabsApplication - Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-02-23 23:29:03.317 [main] INFO  com.yafimchyk.labs.LabsApplication - No active profile set, falling back to 1 default profile: "default"
+2026-02-23 23:29:03.818 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-23 23:29:03.856 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 33 ms. Found 5 JPA repository interfaces.
+2026-02-23 23:29:04.190 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-02-23 23:29:04.196 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-02-23 23:29:04.197 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-23 23:29:04.197 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-02-23 23:29:04.224 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 881 ms
+2026-02-23 23:29:04.621 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-23 23:29:04.641 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-02-23 23:29:04.722 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@17c34e62
+2026-02-23 23:29:04.723 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-02-23 23:29:05.412 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-23 23:29:05.478 [main] INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-23 23:29:06.093 [main] WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-23 23:29:06.431 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-02-23 23:29:06.442 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-02-23 23:29:06.447 [main] INFO  com.yafimchyk.labs.LabsApplication - Started LabsApplication in 3.494 seconds (process running for 3.924)
+2026-02-23 23:29:06.449 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-02-23 23:29:06.449 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-02-23 23:29:12.584 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-23 23:29:12.584 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-02-23 23:29:12.585 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-02-23 23:29:12.612 [http-nio-8080-exec-2] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: LabelServiceImpl.getAllLabels с аргументами: []
+2026-02-23 23:29:12.677 [http-nio-8080-exec-2] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод LabelServiceImpl.getAllLabels выполнился за 65 мс
+2026-02-23 23:29:25.099 [http-nio-8080-exec-3] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: LabelServiceImpl.getAllLabels с аргументами: []
+2026-02-23 23:29:25.100 [http-nio-8080-exec-3] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод LabelServiceImpl.getAllLabels выполнился за 1 мс
+2026-02-23 23:29:29.570 [http-nio-8080-exec-4] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: LabelServiceImpl.getAllLabels с аргументами: []
+2026-02-23 23:29:29.571 [http-nio-8080-exec-4] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод LabelServiceImpl.getAllLabels выполнился за 0 мс
+2026-02-23 23:29:32.810 [http-nio-8080-exec-5] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: LabelServiceImpl.getAllLabels с аргументами: []
+2026-02-23 23:29:32.810 [http-nio-8080-exec-5] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод LabelServiceImpl.getAllLabels выполнился за 0 мс
+2026-02-23 23:29:37.077 [http-nio-8080-exec-6] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: LabelServiceImpl.getAllLabels с аргументами: []
+2026-02-23 23:29:37.077 [http-nio-8080-exec-6] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод LabelServiceImpl.getAllLabels выполнился за 0 мс
+2026-02-23 23:29:48.240 [SpringApplicationShutdownHook] INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-23 23:29:48.241 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-02-23 23:29:48.245 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-23 23:29:48.246 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-02-23 23:29:48.250 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-02-23 23:29:50.593 [main] INFO  com.yafimchyk.labs.LabsApplication - Starting LabsApplication using Java 21.0.10 with PID 8504 (/home/kless/IdeaProjects/labs/target/classes started by kless in /home/kless/IdeaProjects/labs)
+2026-02-23 23:29:50.594 [main] DEBUG com.yafimchyk.labs.LabsApplication - Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-02-23 23:29:50.595 [main] INFO  com.yafimchyk.labs.LabsApplication - No active profile set, falling back to 1 default profile: "default"
+2026-02-23 23:29:51.127 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-23 23:29:51.167 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 34 ms. Found 5 JPA repository interfaces.
+2026-02-23 23:29:51.492 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-02-23 23:29:51.499 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-02-23 23:29:51.500 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-23 23:29:51.500 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-02-23 23:29:51.527 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 906 ms
+2026-02-23 23:29:51.925 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-23 23:29:51.945 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-02-23 23:29:52.025 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5dc9d25a
+2026-02-23 23:29:52.026 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-02-23 23:29:52.768 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-23 23:29:52.837 [main] INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-23 23:29:53.470 [main] WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-23 23:29:53.827 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-02-23 23:29:53.840 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-02-23 23:29:53.844 [main] INFO  com.yafimchyk.labs.LabsApplication - Started LabsApplication in 3.585 seconds (process running for 3.997)
+2026-02-23 23:29:53.846 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-02-23 23:29:53.846 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-02-23 23:30:00.555 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-23 23:30:00.555 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-02-23 23:30:00.557 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-02-23 23:30:00.586 [http-nio-8080-exec-2] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: LabelServiceImpl.getAllLabels с аргументами: []
+2026-02-23 23:30:00.651 [http-nio-8080-exec-2] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод LabelServiceImpl.getAllLabels выполнился за 64 мс
+2026-02-23 23:30:08.826 [http-nio-8080-exec-3] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: LabelServiceImpl.getAllLabels с аргументами: []
+2026-02-23 23:30:08.826 [http-nio-8080-exec-3] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод LabelServiceImpl.getAllLabels выполнился за 0 мс
+2026-02-23 23:30:12.013 [http-nio-8080-exec-4] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: LabelServiceImpl.getAllLabels с аргументами: []
+2026-02-23 23:30:12.014 [http-nio-8080-exec-4] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод LabelServiceImpl.getAllLabels выполнился за 0 мс
+2026-02-23 23:30:19.784 [http-nio-8080-exec-5] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:30:19.811 [http-nio-8080-exec-5] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 27 мс
+2026-02-23 23:30:21.649 [http-nio-8080-exec-6] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:30:21.652 [http-nio-8080-exec-6] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 3 мс
+2026-02-23 23:30:23.532 [http-nio-8080-exec-7] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:30:23.535 [http-nio-8080-exec-7] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 3 мс
+2026-02-23 23:30:25.329 [http-nio-8080-exec-8] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:30:25.333 [http-nio-8080-exec-8] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 3 мс
+2026-02-23 23:30:27.291 [http-nio-8080-exec-9] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:30:27.294 [http-nio-8080-exec-9] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 3 мс
+2026-02-23 23:30:32.780 [http-nio-8080-exec-10] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:30:32.785 [http-nio-8080-exec-10] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 5 мс
+2026-02-23 23:30:35.902 [http-nio-8080-exec-1] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:30:35.905 [http-nio-8080-exec-1] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 3 мс
+2026-02-23 23:30:40.708 [http-nio-8080-exec-2] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:30:40.712 [http-nio-8080-exec-2] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 3 мс
+2026-02-23 23:30:42.790 [http-nio-8080-exec-3] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:30:42.795 [http-nio-8080-exec-3] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 4 мс
+2026-02-23 23:30:52.233 [http-nio-8080-exec-4] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:30:52.237 [http-nio-8080-exec-4] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 3 мс
+2026-02-23 23:31:05.891 [http-nio-8080-exec-5] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getMeetingById с аргументами: [5345354]
+2026-02-23 23:31:05.897 [http-nio-8080-exec-5] ERROR c.y.labs.aop.ServiceLoggingAspect - Ошибка при выполнении метода MeetingServiceImpl.getMeetingById: Meeting not found with id: 5345354
+com.yafimchyk.labs.exception.ResourceNotFoundException: Meeting not found with id: 5345354
+	at com.yafimchyk.labs.service.impl.MeetingServiceImpl.lambda$getMeetingById$0(MeetingServiceImpl.java:53)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at com.yafimchyk.labs.service.impl.MeetingServiceImpl.getMeetingById(MeetingServiceImpl.java:53)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:82)
+	at com.yafimchyk.labs.aop.ServiceLoggingAspect.logExecutionTime(ServiceLoggingAspect.java:34)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:648)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:630)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
+	at com.yafimchyk.labs.service.impl.MeetingServiceImpl$$SpringCGLIB$$0.getMeetingById(<generated>)
+	at com.yafimchyk.labs.controller.MeetingController.getMeetingById(MeetingController.java:40)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1003)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:892)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:622)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1778)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-02-23 23:31:19.671 [http-nio-8080-exec-6] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:31:19.676 [http-nio-8080-exec-6] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 4 мс
+2026-02-23 23:38:25.804 [SpringApplicationShutdownHook] INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-23 23:38:25.806 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-02-23 23:38:25.809 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-23 23:38:25.810 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-02-23 23:38:25.812 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-02-23 23:38:27.384 [main] INFO  com.yafimchyk.labs.LabsApplication - Starting LabsApplication using Java 21.0.10 with PID 9057 (/home/kless/IdeaProjects/labs/target/classes started by kless in /home/kless/IdeaProjects/labs)
+2026-02-23 23:38:27.385 [main] DEBUG com.yafimchyk.labs.LabsApplication - Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-02-23 23:38:27.386 [main] INFO  com.yafimchyk.labs.LabsApplication - No active profile set, falling back to 1 default profile: "default"
+2026-02-23 23:38:27.883 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-23 23:38:27.921 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 33 ms. Found 5 JPA repository interfaces.
+2026-02-23 23:38:28.251 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-02-23 23:38:28.258 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-02-23 23:38:28.259 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-23 23:38:28.259 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-02-23 23:38:28.286 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 874 ms
+2026-02-23 23:38:28.683 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-23 23:38:28.704 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-02-23 23:38:28.783 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7c02b3cb
+2026-02-23 23:38:28.784 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-02-23 23:38:29.472 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-23 23:38:29.537 [main] INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-23 23:38:30.141 [main] WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-23 23:38:30.480 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-02-23 23:38:30.492 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-02-23 23:38:30.496 [main] INFO  com.yafimchyk.labs.LabsApplication - Started LabsApplication in 3.418 seconds (process running for 3.824)
+2026-02-23 23:38:30.498 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-02-23 23:38:30.498 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-02-23 23:38:51.058 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-23 23:38:51.058 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-02-23 23:38:51.059 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-02-23 23:38:51.094 [http-nio-8080-exec-2] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:38:51.165 [http-nio-8080-exec-2] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 71 мс
+2026-02-23 23:38:54.728 [http-nio-8080-exec-3] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:38:54.733 [http-nio-8080-exec-3] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 4 мс
+2026-02-23 23:59:00.655 [http-nio-8080-exec-6] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:59:00.661 [http-nio-8080-exec-6] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 6 мс
+2026-02-23 23:59:05.914 [http-nio-8080-exec-7] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:59:05.918 [http-nio-8080-exec-7] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 3 мс
+2026-02-23 23:59:08.890 [http-nio-8080-exec-8] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:59:08.894 [http-nio-8080-exec-8] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 3 мс
+2026-02-23 23:59:09.596 [http-nio-8080-exec-9] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:59:09.600 [http-nio-8080-exec-9] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 4 мс
+2026-02-23 23:59:10.233 [http-nio-8080-exec-10] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:59:10.236 [http-nio-8080-exec-10] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 3 мс
+2026-02-23 23:59:10.886 [http-nio-8080-exec-1] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:59:10.889 [http-nio-8080-exec-1] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 3 мс
+2026-02-23 23:59:15.765 [http-nio-8080-exec-2] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:59:15.769 [http-nio-8080-exec-2] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 4 мс
+2026-02-23 23:59:16.441 [http-nio-8080-exec-3] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:59:16.444 [http-nio-8080-exec-3] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 3 мс
+2026-02-23 23:59:18.173 [http-nio-8080-exec-4] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:59:18.178 [http-nio-8080-exec-4] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 4 мс
+2026-02-23 23:59:19.596 [http-nio-8080-exec-5] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:59:19.601 [http-nio-8080-exec-5] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 4 мс
+2026-02-23 23:59:22.275 [http-nio-8080-exec-6] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:59:22.280 [http-nio-8080-exec-6] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 4 мс
+2026-02-23 23:59:25.749 [http-nio-8080-exec-7] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:59:25.752 [http-nio-8080-exec-7] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 3 мс
+2026-02-23 23:59:27.670 [http-nio-8080-exec-8] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:59:27.676 [http-nio-8080-exec-8] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 5 мс
+2026-02-23 23:59:29.229 [http-nio-8080-exec-9] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:59:29.233 [http-nio-8080-exec-9] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 4 мс
+2026-02-23 23:59:30.905 [http-nio-8080-exec-10] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:59:30.910 [http-nio-8080-exec-10] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 5 мс
+2026-02-23 23:59:33.079 [http-nio-8080-exec-1] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:59:33.084 [http-nio-8080-exec-1] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 4 мс
+2026-02-23 23:59:35.046 [http-nio-8080-exec-2] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:59:35.052 [http-nio-8080-exec-2] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 6 мс
+2026-02-23 23:59:37.001 [http-nio-8080-exec-3] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:59:37.007 [http-nio-8080-exec-3] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 6 мс
+2026-02-23 23:59:38.703 [http-nio-8080-exec-4] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:59:38.710 [http-nio-8080-exec-4] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 7 мс
+2026-02-23 23:59:41.136 [http-nio-8080-exec-5] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:59:41.142 [http-nio-8080-exec-5] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 5 мс
+2026-02-23 23:59:42.926 [http-nio-8080-exec-6] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:59:42.932 [http-nio-8080-exec-6] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 5 мс
+2026-02-23 23:59:45.143 [http-nio-8080-exec-7] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:59:45.148 [http-nio-8080-exec-7] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 5 мс
+2026-02-23 23:59:46.934 [http-nio-8080-exec-8] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:59:46.940 [http-nio-8080-exec-8] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 5 мс
+2026-02-23 23:59:49.141 [http-nio-8080-exec-9] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:59:49.149 [http-nio-8080-exec-9] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 8 мс
+2026-02-23 23:59:53.326 [http-nio-8080-exec-10] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:59:53.329 [http-nio-8080-exec-10] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 3 мс
+2026-02-23 23:59:55.179 [http-nio-8080-exec-1] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:59:55.183 [http-nio-8080-exec-1] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 4 мс
+2026-02-23 23:59:56.613 [http-nio-8080-exec-2] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:59:56.618 [http-nio-8080-exec-2] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 4 мс
+2026-02-23 23:59:58.175 [http-nio-8080-exec-3] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:59:58.180 [http-nio-8080-exec-3] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 4 мс
+2026-02-23 23:59:59.701 [http-nio-8080-exec-4] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
+2026-02-23 23:59:59.708 [http-nio-8080-exec-4] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 7 мс

@@ -129,4 +129,31 @@ public class TaskServiceImpl implements TaskService {
         return taskMapper.toDto(savedTask);
     }
 
+    @Override
+    @Transactional
+    public TaskResponseDto createTaskWithTx(Long projectId, TaskCreationDto request) {
+
+        Project projectEntity = projectService.getProjectEntityById(projectId);
+
+        Task task = new Task();
+        task.setProject(projectEntity);
+        task.setDescription(request.taskDescription());
+        task.setTitle(request.taskTitle());
+        Task savedTask = taskRepository.save(task);
+
+        Label labelEntity = labelService.createLabelEntity(request.labelTitle());
+
+        savedTask.getLabels().add(labelEntity);
+        labelEntity.getTasks().add(savedTask);
+        taskRepository.save(savedTask);
+
+        if (request.initiateProblem()) {
+            throw new InitiatedProblemException(INITIATED_PROBLEM);
+        }
+
+        commentService.createCommentEntity(savedTask.getId(), request.commentContent());
+
+        return taskMapper.toDto(savedTask);
+    }
+
 }

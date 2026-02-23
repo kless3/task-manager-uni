@@ -1,5 +1,6 @@
 package com.yafimchyk.labs.service;
 
+import com.yafimchyk.labs.dto.request.MeetingBulkRequestDto;
 import com.yafimchyk.labs.dto.request.MeetingRequestDto;
 import com.yafimchyk.labs.dto.response.MeetingResponseDto;
 import com.yafimchyk.labs.model.Meeting;
@@ -21,5 +22,7 @@ public interface MeetingService {
     void deleteMeeting(Long id);
 
     List<MeetingResponseDto> getMeetingsByProjectId(Long projectId);
+
+    List<MeetingResponseDto> bulkCreateMeetings(Long projectId, MeetingBulkRequestDto bulkRequest);
 
 }

@@ -23,4 +23,6 @@ public interface TaskService {
     List<TaskResponseDto> getTasksByProjectId(Long projectId);
 
     TaskResponseDto createTaskWoTx(Long projectId, TaskCreationDto request);
+
+    TaskResponseDto createTaskWithTx(Long projectId, TaskCreationDto request);
 }

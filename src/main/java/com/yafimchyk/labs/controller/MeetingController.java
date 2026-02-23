@@ -1,6 +1,7 @@
 package com.yafimchyk.labs.controller;
 
 import com.yafimchyk.labs.controller.api.MeetingControllerApi;
+import com.yafimchyk.labs.dto.request.MeetingBulkRequestDto;
 import com.yafimchyk.labs.dto.request.MeetingRequestDto;
 import com.yafimchyk.labs.dto.response.MeetingResponseDto;
 import com.yafimchyk.labs.service.MeetingService;
@@ -12,7 +13,15 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -64,5 +73,13 @@ public class MeetingController implements MeetingControllerApi {
     public ResponseEntity<Void> deleteMeeting(@PathVariable Long id) {
         meetingService.deleteMeeting(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/project/{projectId}/bulk")
+    public ResponseEntity<List<MeetingResponseDto>> bulkCreateMeetings(
+            @PathVariable Long projectId,
+            @Valid @RequestBody MeetingBulkRequestDto request
+    ) {
+        return new ResponseEntity<>(meetingService.bulkCreateMeetings(projectId, request), HttpStatus.CREATED);
     }
 }
