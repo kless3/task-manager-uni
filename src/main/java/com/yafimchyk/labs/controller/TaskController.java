@@ -1,5 +1,6 @@
 package com.yafimchyk.labs.controller;
 
+import com.yafimchyk.labs.controller.api.TaskControllerApi;
 import com.yafimchyk.labs.dto.request.TaskCreationDto;
 import com.yafimchyk.labs.dto.request.TaskRequestDto;
 import com.yafimchyk.labs.dto.response.TaskResponseDto;
@@ -23,7 +24,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/tasks")
 @RequiredArgsConstructor
-public class TaskController {
+public class TaskController implements TaskControllerApi {
 
     private final TaskService taskService;
 

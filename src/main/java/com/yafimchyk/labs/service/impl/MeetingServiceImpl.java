@@ -2,7 +2,6 @@ package com.yafimchyk.labs.service.impl;
 
 import com.yafimchyk.labs.dto.request.MeetingRequestDto;
 import com.yafimchyk.labs.dto.response.MeetingResponseDto;
-import com.yafimchyk.labs.exception.DuplicateResourceException;
 import com.yafimchyk.labs.exception.ResourceNotFoundException;
 import com.yafimchyk.labs.mapper.MeetingMapper;
 import com.yafimchyk.labs.model.Meeting;
@@ -11,9 +10,11 @@ import com.yafimchyk.labs.repository.MeetingRepository;
 import com.yafimchyk.labs.service.MeetingService;
 import com.yafimchyk.labs.service.ProjectService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import org.springframework.data.domain.*;
 import java.util.List;
 
 @Service
@@ -40,10 +41,9 @@ public class MeetingServiceImpl implements MeetingService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<MeetingResponseDto> getAllMeetings() {
-        return meetingRepository.findAll().stream()
-                .map(meetingMapper::toDto)
-                .toList();
+    public Page<MeetingResponseDto> getAllMeetings(Pageable pageable) {
+        return meetingRepository.findAll(pageable)
+                .map(meetingMapper::toDto);
     }
 
     @Override

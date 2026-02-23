@@ -21,6 +21,4 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
     @EntityGraph(attributePaths = {"comments", "labels"})
     List<Task> findAllWithGraph();
 
-
-
 }

@@ -1,5 +1,6 @@
 package com.yafimchyk.labs.controller;
 
+import com.yafimchyk.labs.controller.api.CommentControllerApi;
 import com.yafimchyk.labs.dto.request.CommentRequestDto;
 import com.yafimchyk.labs.dto.response.CommentResponseDto;
 import com.yafimchyk.labs.service.CommentService;
@@ -21,7 +22,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/comments")
 @RequiredArgsConstructor
-public class CommentController {
+public class CommentController implements CommentControllerApi {
 
     private final CommentService commentService;
 

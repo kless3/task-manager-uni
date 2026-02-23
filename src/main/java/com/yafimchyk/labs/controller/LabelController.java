@@ -1,5 +1,6 @@
 package com.yafimchyk.labs.controller;
 
+import com.yafimchyk.labs.controller.api.LabelControllerApi;
 import com.yafimchyk.labs.dto.request.LabelRequestDto;
 import com.yafimchyk.labs.dto.response.LabelResponseDto;
 import com.yafimchyk.labs.service.LabelService;
@@ -21,7 +22,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/labels")
 @RequiredArgsConstructor
-public class LabelController {
+public class LabelController implements LabelControllerApi {
 
     private final LabelService labelService;
 

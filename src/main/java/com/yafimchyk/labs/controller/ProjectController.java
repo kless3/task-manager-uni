@@ -1,5 +1,6 @@
 package com.yafimchyk.labs.controller;
 
+import com.yafimchyk.labs.controller.api.ProjectControllerApi;
 import com.yafimchyk.labs.dto.request.ProjectRequestDto;
 import com.yafimchyk.labs.dto.response.ProjectResponseDto;
 import com.yafimchyk.labs.model.enums.ProjectStatus;
@@ -24,7 +25,7 @@ import java.util.Set;
 @RestController
 @RequestMapping("/api/v1/projects")
 @RequiredArgsConstructor
-public class ProjectController {
+public class ProjectController implements ProjectControllerApi {
 
     private final ProjectService projectService;
 

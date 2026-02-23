@@ -2,6 +2,9 @@ package com.yafimchyk.labs.service;
 
 import com.yafimchyk.labs.dto.request.MeetingRequestDto;
 import com.yafimchyk.labs.dto.response.MeetingResponseDto;
+import com.yafimchyk.labs.model.Meeting;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -9,7 +12,7 @@ public interface MeetingService {
 
     MeetingResponseDto createMeeting(Long projectId, MeetingRequestDto request);
 
-    List<MeetingResponseDto> getAllMeetings();
+    Page<MeetingResponseDto> getAllMeetings(Pageable pageable);
 
     MeetingResponseDto getMeetingById(Long id);
 
