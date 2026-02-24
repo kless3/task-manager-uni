@@ -39,6 +39,11 @@ public class ProjectController implements ProjectControllerApi {
         return ResponseEntity.ok(projectService.getProjectById(id));
     }
 
+    @GetMapping("/status")
+    public ResponseEntity<List<ProjectResponseDto>> getProjectsByStatus(@RequestParam ProjectStatus status){
+        return ResponseEntity.ok(projectService.getProjectsByStatus(status));
+    }
+
     @PostMapping
     public ResponseEntity<ProjectResponseDto> createProject(@Valid @RequestBody ProjectRequestDto request) {
         ProjectResponseDto createdProject = projectService.createProject(request);

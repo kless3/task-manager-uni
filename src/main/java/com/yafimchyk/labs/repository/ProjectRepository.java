@@ -16,6 +16,8 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
 
     boolean existsByTitle(String title);
 
+    List<Project> findByStatus(ProjectStatus status);
+
     @Query("SELECT DISTINCT p FROM Project p "
             + "LEFT JOIN p.tasks t "
             + "LEFT JOIN t.labels l "

@@ -1,5 +1,6 @@
 package com.yafimchyk.labs.aop;
 
+import com.yafimchyk.labs.exception.LoggingException;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -52,7 +53,7 @@ public class ServiceLoggingAspect {
 
         } catch (Exception e) {
             logger.error("Ошибка при выполнении метода {}: {}", fullMethodName, e.getMessage(), e);
-            throw new RuntimeException(ERROR_EXECUTING_METHOD);
+            throw new LoggingException(ERROR_EXECUTING_METHOD);
         }
     }
 }

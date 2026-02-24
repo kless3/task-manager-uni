@@ -10,6 +10,8 @@ import java.util.Set;
 
 public interface ProjectService {
 
+    List<ProjectResponseDto> getProjectsByStatus(ProjectStatus status);
+
     List<ProjectResponseDto> getAllProjects();
 
     ProjectResponseDto getProjectById(Long id);

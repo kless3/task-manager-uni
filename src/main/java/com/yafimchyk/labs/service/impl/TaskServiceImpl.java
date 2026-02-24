@@ -59,18 +59,6 @@ public class TaskServiceImpl implements TaskService {
         return taskMapper.toDto(task);
     }
 
-    @Override
-    @Transactional
-    public TaskResponseDto createTask(Long projectId, TaskRequestDto request) {
-
-        Project projectEntity = projectService.getProjectEntityById(projectId);
-        Task task = taskMapper.toEntity(request);
-
-        task.setProject(projectEntity);
-        Task savedTask = taskRepository.save(task);
-
-        return taskMapper.toDto(savedTask);
-    }
 
     @Override
     @Transactional
@@ -102,36 +90,33 @@ public class TaskServiceImpl implements TaskService {
                 .map(taskMapper::toDto)
                 .toList();
     }
+
     @Override
-    public TaskResponseDto createTaskWoTx(Long projectId, TaskCreationDto request) {
+    @Transactional
+    public TaskResponseDto createTask(Long projectId, TaskRequestDto request) {
 
-        Project projectEntity = getProjectEntity(projectId);
+        Project projectEntity = projectService.getProjectEntityById(projectId);
+        Task task = taskMapper.toEntity(request);
 
-        Task task = new Task();
         task.setProject(projectEntity);
-        task.setDescription(request.taskDescription());
-        task.setTitle(request.taskTitle());
         Task savedTask = taskRepository.save(task);
 
-        Label labelEntity = labelService.createLabelEntity(request.labelTitle());
-
-        savedTask.getLabels().add(labelEntity);
-        labelEntity.getTasks().add(savedTask);
-        taskRepository.save(savedTask);
-
-        if (request.initiateProblem()) {
-            throw new InitiatedProblemException(INITIATED_PROBLEM);
-        }
-
-        commentService.createCommentEntity(savedTask.getId(), request.commentContent());
-
         return taskMapper.toDto(savedTask);
+    }
+
+
+    @Override
+    public TaskResponseDto createTaskWoTx(Long projectId, TaskCreationDto request) {
+        return createTaskInternal(projectId, request, false);
     }
 
     @Override
     @Transactional
     public TaskResponseDto createTaskWithTx(Long projectId, TaskCreationDto request) {
+        return createTaskInternal(projectId, request, true);
+    }
 
+    private TaskResponseDto createTaskInternal(Long projectId, TaskCreationDto request, boolean withTransaction) {
         Project projectEntity = getProjectEntity(projectId);
 
         Task task = new Task();
