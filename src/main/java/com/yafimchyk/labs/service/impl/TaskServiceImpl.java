@@ -107,16 +107,16 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public TaskResponseDto createTaskWoTx(Long projectId, TaskCreationDto request) {
-        return createTaskInternal(projectId, request, false);
+        return createTaskInternal(projectId, request);
     }
 
     @Override
     @Transactional
     public TaskResponseDto createTaskWithTx(Long projectId, TaskCreationDto request) {
-        return createTaskInternal(projectId, request, true);
+        return createTaskInternal(projectId, request);
     }
 
-    private TaskResponseDto createTaskInternal(Long projectId, TaskCreationDto request, boolean withTransaction) {
+    private TaskResponseDto createTaskInternal(Long projectId, TaskCreationDto request) {
         Project projectEntity = getProjectEntity(projectId);
 
         Task task = new Task();
