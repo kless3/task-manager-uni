@@ -102,11 +102,10 @@ public class TaskServiceImpl implements TaskService {
                 .map(taskMapper::toDto)
                 .toList();
     }
-
     @Override
     public TaskResponseDto createTaskWoTx(Long projectId, TaskCreationDto request) {
 
-        Project projectEntity = projectService.getProjectEntityById(projectId);
+        Project projectEntity = getProjectEntity(projectId);
 
         Task task = new Task();
         task.setProject(projectEntity);
@@ -133,7 +132,7 @@ public class TaskServiceImpl implements TaskService {
     @Transactional
     public TaskResponseDto createTaskWithTx(Long projectId, TaskCreationDto request) {
 
-        Project projectEntity = projectService.getProjectEntityById(projectId);
+        Project projectEntity = getProjectEntity(projectId);
 
         Task task = new Task();
         task.setProject(projectEntity);
@@ -156,4 +155,7 @@ public class TaskServiceImpl implements TaskService {
         return taskMapper.toDto(savedTask);
     }
 
+    private Project getProjectEntity(Long projectId) {
+        return projectService.getProjectEntityById(projectId);
+    }
 }
