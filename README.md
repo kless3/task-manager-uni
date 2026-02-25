@@ -44,7 +44,7 @@ API предоставляет полный набор эндпоинтов дл
 - **Java**
 - **Spring Boot**
 - **Spring Data JPA / Hibernate**
-- **PostgreSQL
+- **PostgreSQL**
 - **JPQL / Native Queries**
 - **Maven**
 - **Postman**
