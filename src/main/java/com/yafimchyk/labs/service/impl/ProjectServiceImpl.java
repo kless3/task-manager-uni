@@ -47,7 +47,7 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<ProjectResponseDto> getProjectsByStatus(ProjectStatus status){
+    public List<ProjectResponseDto> getProjectsByStatus(ProjectStatus status) {
         List<Project> projects = projectRepository.findByStatus(status);
         return projects.stream()
                 .map(projectMapper::toDto)

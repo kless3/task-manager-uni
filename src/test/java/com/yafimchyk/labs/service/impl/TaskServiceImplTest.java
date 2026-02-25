@@ -100,7 +100,7 @@ class TaskServiceImplTest {
         when(taskRepository.findAllWithGraph()).thenReturn(List.of(task));
         when(taskMapper.toDto(task)).thenReturn(taskResponseDto);
 
-        List<TaskResponseDto> result = taskService.getAllTasks();
+        List<TaskResponseDto> result = taskService.getAllTasksWithGraph();
 
         assertThat(result).hasSize(1);
         assertThat(result.get(0).id()).isEqualTo(taskId);

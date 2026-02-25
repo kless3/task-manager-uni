@@ -8,7 +8,9 @@ import java.util.List;
 
 public interface TaskService {
 
-    List<TaskResponseDto> getAllTasks();
+    List<TaskResponseDto> getAllTasksWithGraph();
+
+    List<TaskResponseDto> getAllTasksWoGraph();
 
     TaskResponseDto getTaskById(Long id);
 

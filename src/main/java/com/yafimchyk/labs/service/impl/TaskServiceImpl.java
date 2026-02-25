@@ -35,8 +35,16 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<TaskResponseDto> getAllTasks() {
+    public List<TaskResponseDto> getAllTasksWithGraph() {
         return taskRepository.findAllWithGraph().stream()
+                .map(taskMapper::toDto)
+                .toList();
+    }
+
+    @Override
+    @Transactional
+    public List<TaskResponseDto> getAllTasksWoGraph() {
+        return taskRepository.findAll().stream()
                 .map(taskMapper::toDto)
                 .toList();
     }

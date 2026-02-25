@@ -30,7 +30,12 @@ public class TaskController implements TaskControllerApi {
 
     @GetMapping
     public ResponseEntity<List<TaskResponseDto>> getAllTasks() {
-        return ResponseEntity.ok(taskService.getAllTasks());
+        return ResponseEntity.ok(taskService.getAllTasksWithGraph());
+    }
+
+    @GetMapping("/woGraph")
+    public ResponseEntity<List<TaskResponseDto>> getAllTasksWoGraph() {
+        return ResponseEntity.ok(taskService.getAllTasksWoGraph());
     }
 
     @GetMapping("/{id}")

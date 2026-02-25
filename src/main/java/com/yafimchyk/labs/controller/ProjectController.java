@@ -40,7 +40,7 @@ public class ProjectController implements ProjectControllerApi {
     }
 
     @GetMapping("/status")
-    public ResponseEntity<List<ProjectResponseDto>> getProjectsByStatus(@RequestParam ProjectStatus status){
+    public ResponseEntity<List<ProjectResponseDto>> getProjectsByStatus(@RequestParam ProjectStatus status) {
         return ResponseEntity.ok(projectService.getProjectsByStatus(status));
     }
 
