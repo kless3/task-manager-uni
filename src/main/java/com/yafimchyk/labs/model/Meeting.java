@@ -35,7 +35,7 @@ public class Meeting {
     @Column(name = "meeting_date", nullable = false)
     private LocalDateTime meetingDate;
 
-    @Column(name = "notes")
+    @Column(name = "description")
     private String description;
 
     @ManyToOne(fetch = FetchType.LAZY)
