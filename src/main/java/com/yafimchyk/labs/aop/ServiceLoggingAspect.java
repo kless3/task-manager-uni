@@ -53,7 +53,7 @@ public class ServiceLoggingAspect {
 
         } catch (Exception e) {
             logger.error("Ошибка при выполнении метода {}: {}", fullMethodName, e.getMessage(), e);
-            throw new LoggingException(ERROR_EXECUTING_METHOD);
+            throw e;
         }
     }
 }

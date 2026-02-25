@@ -96,23 +96,14 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<ProjectResponseDto> getFilteredProjects(
+    public List<ProjectResponseDto> findProjectsByStatusDeadlineAndLabelJPQL(
             ProjectStatus status,
-            Set<String> labels,
-            boolean includedExpired
-    ) {
+            LocalDateTime startDate,
+            LocalDateTime endDate,
+            String labelTitle) {
 
-        LocalDateTime currentDate;
-        if (includedExpired) {
-            currentDate = LocalDateTime.MIN;
-        } else {
-            currentDate = LocalDateTime.now();
-        }
-
-        List<Project> projects = projectRepository.findProjectsByStatusAndLabels(
-                status,
-                labels,
-                currentDate
+        List<Project> projects = projectRepository.findProjectsByStatusDeadlineAndLabelJPQL(
+                status, startDate, endDate, labelTitle
         );
 
         return projects.stream()
@@ -122,22 +113,14 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<ProjectResponseDto> getFilteredProjectsNative(
+    public List<ProjectResponseDto> findProjectsByStatusDeadlineAndLabelNative(
             ProjectStatus status,
-            Set<String> labelTitles,
-            boolean includedExpired) {
+            LocalDateTime startDate,
+            LocalDateTime endDate,
+            String labelTitle) {
 
-        LocalDateTime currentDate;
-        if (includedExpired) {
-            currentDate = LocalDateTime.MIN;
-        } else {
-            currentDate = LocalDateTime.now();
-        }
-
-        List<Project> projects = projectRepository.findProjectsByStatusAndLabelsNative(
-                status.name(),
-                labelTitles.stream().toList(),
-                currentDate
+        List<Project> projects = projectRepository.findProjectsByStatusDeadlineAndLabelNative(
+                status.name(), startDate, endDate, labelTitle
         );
 
         return projects.stream()

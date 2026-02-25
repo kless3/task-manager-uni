@@ -7,6 +7,7 @@ import com.yafimchyk.labs.model.enums.ProjectStatus;
 import com.yafimchyk.labs.service.ProjectService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 
@@ -63,21 +65,27 @@ public class ProjectController implements ProjectControllerApi {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/filter")
-    public ResponseEntity<List<ProjectResponseDto>> getFilteredProjects(
+    @GetMapping("/search/complex/jpql")
+    public ResponseEntity<List<ProjectResponseDto>> searchProjectsComplexJPQL(
             @RequestParam ProjectStatus status,
-            @RequestParam Set<String> labelTitles,
-            @RequestParam(defaultValue = "false") boolean includedExpired
-    ) {
-        return ResponseEntity.ok(projectService.getFilteredProjects(status, labelTitles, includedExpired));
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime startDate,
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime endDate,
+            @RequestParam String labelTitle) {
+
+        return ResponseEntity.ok(projectService.findProjectsByStatusDeadlineAndLabelJPQL(
+                status, startDate, endDate, labelTitle
+        ));
     }
 
-    @GetMapping("/filter/native")
-    public ResponseEntity<List<ProjectResponseDto>> getFilteredProjectsNative(
+    @GetMapping("/search/complex/native")
+    public ResponseEntity<List<ProjectResponseDto>> searchProjectsComplexNative(
             @RequestParam ProjectStatus status,
-            @RequestParam Set<String> labelTitles,
-            @RequestParam(defaultValue = "false") boolean includedExpired
-    ) {
-        return ResponseEntity.ok(projectService.getFilteredProjectsNative(status, labelTitles, includedExpired));
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime startDate,
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime endDate,
+            @RequestParam String labelTitle) {
+
+        return ResponseEntity.ok(projectService.findProjectsByStatusDeadlineAndLabelNative(
+                status, startDate, endDate, labelTitle
+        ));
     }
 }

@@ -5,6 +5,7 @@ import com.yafimchyk.labs.dto.response.ProjectResponseDto;
 import com.yafimchyk.labs.model.Project;
 import com.yafimchyk.labs.model.enums.ProjectStatus;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 
@@ -22,16 +23,18 @@ public interface ProjectService {
 
     void deleteProjectById(Long id);
 
-    List<ProjectResponseDto> getFilteredProjects(
+    List<ProjectResponseDto> findProjectsByStatusDeadlineAndLabelJPQL(
             ProjectStatus status,
-            Set<String> labelTitle,
-            boolean includedExpired
+            LocalDateTime startDate,
+            LocalDateTime endDate,
+            String labelTitle
     );
 
-    List<ProjectResponseDto> getFilteredProjectsNative(
+    List<ProjectResponseDto> findProjectsByStatusDeadlineAndLabelNative(
             ProjectStatus status,
-            Set<String> labelTitles,
-            boolean includedExpired
+            LocalDateTime startDate,
+            LocalDateTime endDate,
+            String labelTitle
     );
 
     Project getProjectEntityById(Long id);
