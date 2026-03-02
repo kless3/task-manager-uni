@@ -75,11 +75,19 @@ public class MeetingController implements MeetingControllerApi {
         return ResponseEntity.noContent().build();
     }
 
-    @PostMapping("/project/{projectId}/bulk")
-    public ResponseEntity<List<MeetingResponseDto>> bulkCreateMeetings(
+    @PostMapping("/project/{projectId}/bulk/withTx")
+    public ResponseEntity<List<MeetingResponseDto>> bulkCreateMeetingsWithTx(
             @PathVariable Long projectId,
             @Valid @RequestBody MeetingBulkRequestDto request
     ) {
-        return new ResponseEntity<>(meetingService.bulkCreateMeetings(projectId, request), HttpStatus.CREATED);
+        return new ResponseEntity<>(meetingService.bulkCreateWithTx(projectId, request), HttpStatus.CREATED);
+    }
+
+    @PostMapping("/project/{projectId}/bulk/woTx")
+    public ResponseEntity<List<MeetingResponseDto>> bulkCreateMeetingsWoTx(
+            @PathVariable Long projectId,
+            @Valid @RequestBody MeetingBulkRequestDto request
+    ) {
+        return new ResponseEntity<>(meetingService.bulkCreateWoTx(projectId, request), HttpStatus.CREATED);
     }
 }

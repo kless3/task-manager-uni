@@ -17,6 +17,8 @@ public record MeetingBulkRequestDto(
         @NotEmpty(message = "Meetings list cannot be empty")
         @Size(max = 10, message = "Cannot create more than 10 meetings at once")
         @Valid
-        List<MeetingRequestDto> meetings
+        List<MeetingRequestDto> meetings,
+
+        boolean initiatedProblem
 ) {
 }

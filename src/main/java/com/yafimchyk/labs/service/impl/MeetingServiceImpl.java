@@ -3,6 +3,7 @@ package com.yafimchyk.labs.service.impl;
 import com.yafimchyk.labs.dto.request.MeetingBulkRequestDto;
 import com.yafimchyk.labs.dto.request.MeetingRequestDto;
 import com.yafimchyk.labs.dto.response.MeetingResponseDto;
+import com.yafimchyk.labs.exception.InitiatedProblemException;
 import com.yafimchyk.labs.exception.ResourceNotFoundException;
 import com.yafimchyk.labs.mapper.MeetingMapper;
 import com.yafimchyk.labs.model.Meeting;
@@ -16,6 +17,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -24,6 +26,7 @@ public class MeetingServiceImpl implements MeetingService {
 
     private static final String MEETING_NOT_FOUND = "Meeting not found with id: ";
     private static final String MEETING_ALREADY_EXISTS = "Meeting already exists!";
+    private static final String INITIATED_PROBLEM = "Initiated problem was called!";
 
     private final ProjectService projectService;
     private final MeetingRepository meetingRepository;
@@ -85,23 +88,37 @@ public class MeetingServiceImpl implements MeetingService {
                 .toList();
     }
 
-    @Override
     @Transactional
+    public List<MeetingResponseDto> bulkCreateWithTx(Long projectId, MeetingBulkRequestDto bulkRequestDto) {
+        return bulkCreateMeetings(projectId, bulkRequestDto);
+    }
+
+    public List<MeetingResponseDto> bulkCreateWoTx(Long projectId, MeetingBulkRequestDto bulkRequestDto) {
+        return bulkCreateMeetings(projectId, bulkRequestDto);
+    }
+
     public List<MeetingResponseDto> bulkCreateMeetings(Long projectId, MeetingBulkRequestDto bulkRequest) {
 
         Project projectEntity = projectService.getProjectEntityById(projectId);
         List<MeetingRequestDto> requests = bulkRequest.meetings();
 
-        List<Meeting> meetings = requests.stream()
-                .map(request -> {
-                    Meeting meeting = meetingMapper.toEntity(request);
-                    meeting.setProject(projectEntity);
-                    return meeting;
-                })
-                .toList();
+        List<Meeting> meetings = new ArrayList<>();
 
-        List<Meeting> savedMeetings = meetingRepository.saveAll(meetings);
-        return savedMeetings.stream()
+        int counter = 0;
+        for (MeetingRequestDto request : requests) {
+
+            if (bulkRequest.initiatedProblem() && counter == 1) {
+                throw new InitiatedProblemException(INITIATED_PROBLEM);
+            }
+
+            Meeting meeting = meetingMapper.toEntity(request);
+            meeting.setProject(projectEntity);
+            Meeting savedMeeting = meetingRepository.save(meeting);
+            meetings.add(savedMeeting);
+            counter++;
+        }
+
+        return meetings.stream()
                 .map(meetingMapper::toDto)
                 .toList();
     }

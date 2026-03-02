@@ -22,6 +22,8 @@ public interface MeetingService {
 
     List<MeetingResponseDto> getMeetingsByProjectId(Long projectId);
 
-    List<MeetingResponseDto> bulkCreateMeetings(Long projectId, MeetingBulkRequestDto bulkRequest);
+    List<MeetingResponseDto> bulkCreateWithTx(Long projectId, MeetingBulkRequestDto bulkRequestDto);
+
+    List<MeetingResponseDto> bulkCreateWoTx(Long projectId, MeetingBulkRequestDto bulkRequestDto);
 
 }
