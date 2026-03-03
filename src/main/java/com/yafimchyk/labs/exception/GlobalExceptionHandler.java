@@ -18,7 +18,7 @@ public class GlobalExceptionHandler {
 
     private static final String VALIDATION_FAIL = "Validation failed";
     private static final String UNEXPECTED_ERROR = "An unexpected error occurred";
-    private static final String INITIATED_PROBLEM = "Initiated problem was called!";
+    private static final String LOGGING_ERROR = "Logging error: ";
 
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleResourceNotFound(ResourceNotFoundException ex) {
@@ -66,7 +66,7 @@ public class GlobalExceptionHandler {
 
         ErrorResponse errorResponse = new ErrorResponse(
                 HttpStatus.CONFLICT.value(),
-                INITIATED_PROBLEM,
+                ex.getMessage(),
                 LocalDateTime.now()
         );
         return new ResponseEntity<>(errorResponse, HttpStatus.CONFLICT);
@@ -74,20 +74,9 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(LoggingException.class)
     public ResponseEntity<ErrorResponse> handleLoggingException(LoggingException ex) {
-        Throwable cause = ex.getCause();
-
-        if (cause instanceof ResourceNotFoundException) {
-            ErrorResponse errorResponse = new ErrorResponse(
-                    HttpStatus.NOT_FOUND.value(),
-                    cause.getMessage(),
-                    LocalDateTime.now()
-            );
-            return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
-        }
-
         ErrorResponse errorResponse = new ErrorResponse(
                 HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                "Logging error: " + ex.getMessage(),
+                LOGGING_ERROR + ex.getMessage(),
                 LocalDateTime.now()
         );
         return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -97,7 +86,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorResponse> handleGenericException(Exception ex) {
         ErrorResponse errorResponse = new ErrorResponse(
                 HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                UNEXPECTED_ERROR,
+                UNEXPECTED_ERROR + ex.getMessage(),
                 LocalDateTime.now()
         );
         return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);

@@ -1,109 +1,79 @@
-2026-02-24 00:00:01.244 [http-nio-8080-exec-5] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
-2026-02-24 00:00:01.253 [http-nio-8080-exec-5] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 9 мс
-2026-02-24 00:18:20.746 [SpringApplicationShutdownHook] INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2026-02-24 00:18:20.749 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
-2026-02-24 00:18:20.755 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-02-24 00:18:20.758 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-02-24 00:18:20.760 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2026-02-24 00:19:21.607 [main] INFO  com.yafimchyk.labs.LabsApplication - Starting LabsApplication using Java 21.0.10 with PID 12677 (/home/kless/IdeaProjects/labs/target/classes started by kless in /home/kless/IdeaProjects/labs)
-2026-02-24 00:19:21.610 [main] DEBUG com.yafimchyk.labs.LabsApplication - Running with Spring Boot v4.0.2, Spring v7.0.3
-2026-02-24 00:19:21.611 [main] INFO  com.yafimchyk.labs.LabsApplication - No active profile set, falling back to 1 default profile: "default"
-2026-02-24 00:19:22.535 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-02-24 00:19:22.606 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 62 ms. Found 5 JPA repository interfaces.
-2026-02-24 00:19:23.249 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2026-02-24 00:19:23.264 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2026-02-24 00:19:23.266 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-02-24 00:19:23.267 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.15]
-2026-02-24 00:19:23.331 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1666 ms
-2026-02-24 00:19:24.122 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-02-24 00:19:24.159 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-02-24 00:19:24.304 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7378c4a4
-2026-02-24 00:19:24.306 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-02-24 00:19:25.721 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-02-24 00:19:25.841 [main] INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-02-24 00:19:26.687 [main] WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-02-24 00:19:27.152 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
-2026-02-24 00:19:27.162 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2026-02-24 00:19:27.167 [main] INFO  com.yafimchyk.labs.LabsApplication - Started LabsApplication in 6.213 seconds (process running for 6.984)
-2026-02-24 00:19:27.169 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
-2026-02-24 00:19:27.169 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
-2026-02-24 00:20:10.579 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-02-24 00:20:10.579 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-02-24 00:20:10.581 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
-2026-02-24 00:20:38.136 [http-nio-8080-exec-4] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.bulkCreateMeetings с аргументами: [1, MeetingBulkRequestDto[meetings=[MeetingRequestDto[title=Планирование спринта 5, meetingDate=2024-06-01T10:00, description=Планирование задач на следующий спринт], MeetingRequestDto[title=Ежедневный стендап, meetingDate=2024-07-02T09:30, description=Утренняя синхронизация команды], MeetingRequestDto[title=Демо спринта, meetingDate=2024-08-05T15:00, description=Демонстрация результатов заказчику]]]]
-2026-02-24 00:20:38.161 [http-nio-8080-exec-4] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: ProjectServiceImpl.getProjectEntityById с аргументами: [1]
-2026-02-24 00:20:38.247 [http-nio-8080-exec-4] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод ProjectServiceImpl.getProjectEntityById выполнился за 86 мс
-2026-02-24 00:20:38.328 [http-nio-8080-exec-4] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.bulkCreateMeetings выполнился за 192 мс
-2026-02-24 00:20:46.729 [http-nio-8080-exec-5] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
-2026-02-24 00:20:46.834 [http-nio-8080-exec-5] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 104 мс
-2026-02-24 00:21:20.435 [http-nio-8080-exec-6] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.bulkCreateMeetings с аргументами: [1, MeetingBulkRequestDto[meetings=[MeetingRequestDto[title=Планирование спринта 51, meetingDate=2024-06-01T10:00, description=Планирование задач на следующий спринт], MeetingRequestDto[title=Ежедневный стендап1, meetingDate=2024-07-02T09:30, description=Утренняя синхронизация команды], MeetingRequestDto[title=Демо спринта1, meetingDate=2024-08-05T15:00, description=Демонстрация результатов заказчику]]]]
-2026-02-24 00:21:20.437 [http-nio-8080-exec-6] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: ProjectServiceImpl.getProjectEntityById с аргументами: [1]
-2026-02-24 00:21:20.440 [http-nio-8080-exec-6] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод ProjectServiceImpl.getProjectEntityById выполнился за 3 мс
-2026-02-24 00:21:20.453 [http-nio-8080-exec-6] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.bulkCreateMeetings выполнился за 18 мс
-2026-02-24 00:21:26.929 [http-nio-8080-exec-7] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: id: ASC]]
-2026-02-24 00:21:26.936 [http-nio-8080-exec-7] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 6 мс
-2026-02-24 01:07:36.895 [SpringApplicationShutdownHook] INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2026-02-24 01:07:36.899 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
-2026-02-24 01:07:36.906 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-02-24 01:07:36.909 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-02-24 01:07:36.914 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2026-02-24 01:07:41.834 [main] INFO  com.yafimchyk.labs.LabsApplication - Starting LabsApplication using Java 21.0.10 with PID 17591 (/home/kless/IdeaProjects/labs/target/classes started by kless in /home/kless/IdeaProjects/labs)
-2026-02-24 01:07:41.837 [main] DEBUG com.yafimchyk.labs.LabsApplication - Running with Spring Boot v4.0.2, Spring v7.0.3
-2026-02-24 01:07:41.838 [main] INFO  com.yafimchyk.labs.LabsApplication - No active profile set, falling back to 1 default profile: "default"
-2026-02-24 01:07:42.780 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-02-24 01:07:42.857 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 67 ms. Found 5 JPA repository interfaces.
-2026-02-24 01:07:43.485 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2026-02-24 01:07:43.499 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2026-02-24 01:07:43.501 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-02-24 01:07:43.501 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.15]
-2026-02-24 01:07:43.556 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1663 ms
-2026-02-24 01:07:44.352 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-02-24 01:07:44.394 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-02-24 01:07:44.546 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@59a3eaf7
-2026-02-24 01:07:44.548 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-02-24 01:07:45.860 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-02-24 01:07:45.974 [main] INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-02-24 01:07:46.826 [main] WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-02-24 01:07:47.204 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
-2026-02-24 01:07:47.214 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2026-02-24 01:07:47.218 [main] INFO  com.yafimchyk.labs.LabsApplication - Started LabsApplication in 6.009 seconds (process running for 6.742)
-2026-02-24 01:07:47.220 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
-2026-02-24 01:07:47.220 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
-2026-02-24 01:08:08.982 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-02-24 01:08:08.982 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-02-24 01:08:08.985 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
-2026-02-24 01:08:09.175 [http-nio-8080-exec-1] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: TaskServiceImpl.createTaskWithTx с аргументами: [1, TaskCreationDto[taskTitle=Task without TX, taskDescription=Description, labelTitle=Important, commentContent=This is a comment for the task, initiateProblem=true]]
-2026-02-24 01:08:09.183 [http-nio-8080-exec-1] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: ProjectServiceImpl.getProjectEntityById с аргументами: [1]
-2026-02-24 01:08:09.279 [http-nio-8080-exec-1] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод ProjectServiceImpl.getProjectEntityById выполнился за 96 мс
-2026-02-24 01:08:09.339 [http-nio-8080-exec-1] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: LabelServiceImpl.createLabelEntity с аргументами: [Important]
-2026-02-24 01:08:09.481 [http-nio-8080-exec-1] ERROR c.y.labs.aop.ServiceLoggingAspect - Ошибка при выполнении метода LabelServiceImpl.createLabelEntity: Label already exists!
-com.yafimchyk.labs.exception.DuplicateResourceException: Label already exists!
-	at com.yafimchyk.labs.service.impl.LabelServiceImpl.createLabelEntity(LabelServiceImpl.java:110)
+2026-03-03 19:51:19.101 [main] INFO  com.yafimchyk.labs.LabsApplication - Starting LabsApplication using Java 23.0.1 with PID 9380 (C:\Users\Maksim\Desktop\labs_yo_yo\target\classes started by Maksim in C:\Users\Maksim\Desktop\labs_yo_yo)
+2026-03-03 19:51:19.101 [main] DEBUG com.yafimchyk.labs.LabsApplication - Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-03-03 19:51:19.106 [main] INFO  com.yafimchyk.labs.LabsApplication - No active profile set, falling back to 1 default profile: "default"
+2026-03-03 19:51:20.048 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-03 19:51:20.112 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 56 ms. Found 5 JPA repository interfaces.
+2026-03-03 19:51:20.875 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-03-03 19:51:20.887 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-03-03 19:51:20.889 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-03-03 19:51:20.889 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-03-03 19:51:20.953 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1793 ms
+2026-03-03 19:51:21.770 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-03 19:51:21.800 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-03-03 19:51:22.352 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2c4be45f
+2026-03-03 19:51:22.354 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-03-03 19:51:23.963 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-03 19:51:24.155 [main] INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-03 19:51:25.453 [main] WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-03 19:51:25.947 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-03-03 19:51:25.961 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-03-03 19:51:25.967 [main] INFO  com.yafimchyk.labs.LabsApplication - Started LabsApplication in 7.421 seconds (process running for 8.304)
+2026-03-03 19:51:25.969 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-03-03 19:51:25.969 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-03-03 19:51:38.957 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-03 19:51:38.957 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-03-03 19:51:38.959 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-03-03 19:51:52.716 [http-nio-8080-exec-2] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 416 ms
+2026-03-03 19:57:14.902 [http-nio-8080-exec-4] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getMeetingById с аргументами: [1]
+2026-03-03 19:57:14.982 [http-nio-8080-exec-4] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getMeetingById выполнился за 82 мс
+2026-03-03 19:57:17.713 [http-nio-8080-exec-3] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getMeetingById с аргументами: [1]
+2026-03-03 19:57:17.715 [http-nio-8080-exec-3] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getMeetingById выполнился за 2 мс
+2026-03-03 19:57:19.717 [http-nio-8080-exec-6] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getMeetingById с аргументами: [1]
+2026-03-03 19:57:19.718 [http-nio-8080-exec-6] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getMeetingById выполнился за 1 мс
+2026-03-03 20:14:59.322 [SpringApplicationShutdownHook] INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-03 20:14:59.327 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-03-03 20:14:59.336 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-03 20:14:59.338 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-03-03 20:14:59.340 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-03-03 20:15:03.160 [main] INFO  com.yafimchyk.labs.LabsApplication - Starting LabsApplication using Java 23.0.1 with PID 304 (C:\Users\Maksim\Desktop\labs_yo_yo\target\classes started by Maksim in C:\Users\Maksim\Desktop\labs_yo_yo)
+2026-03-03 20:15:03.163 [main] DEBUG com.yafimchyk.labs.LabsApplication - Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-03-03 20:15:03.163 [main] INFO  com.yafimchyk.labs.LabsApplication - No active profile set, falling back to 1 default profile: "default"
+2026-03-03 20:15:03.830 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-03 20:15:03.884 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 44 ms. Found 5 JPA repository interfaces.
+2026-03-03 20:15:04.336 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-03-03 20:15:04.336 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-03-03 20:15:04.336 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-03-03 20:15:04.336 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-03-03 20:15:04.383 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1177 ms
+2026-03-03 20:15:04.974 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-03 20:15:05.001 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-03-03 20:15:05.128 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6ed7b9c5
+2026-03-03 20:15:05.128 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-03-03 20:15:06.102 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-03 20:15:06.190 [main] INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-03 20:15:07.031 [main] WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-03 20:15:07.456 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-03-03 20:15:07.480 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-03-03 20:15:07.482 [main] INFO  com.yafimchyk.labs.LabsApplication - Started LabsApplication in 4.761 seconds (process running for 5.358)
+2026-03-03 20:15:07.482 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-03-03 20:15:07.488 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-03-03 20:15:25.496 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-03 20:15:25.496 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-03-03 20:15:25.497 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-03-03 20:15:42.989 [http-nio-8080-exec-4] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: TaskServiceImpl.createTask с аргументами: [1, TaskRequestDto[title=Новая задача, description=Описание новой задачи]]
+2026-03-03 20:15:42.990 [http-nio-8080-exec-4] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: ProjectServiceImpl.getProjectEntityById с аргументами: [1]
+2026-03-03 20:15:43.030 [http-nio-8080-exec-4] ERROR c.y.labs.aop.ServiceLoggingAspect - Ошибка при выполнении метода ProjectServiceImpl.getProjectEntityById: Project not found with id: 1
+com.yafimchyk.labs.exception.ResourceNotFoundException: Project not found with id: 1
+	at com.yafimchyk.labs.service.impl.ProjectServiceImpl.lambda$7(ProjectServiceImpl.java:135)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at com.yafimchyk.labs.service.impl.ProjectServiceImpl.getProjectEntityById(ProjectServiceImpl.java:135)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
 	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:82)
-	at com.yafimchyk.labs.aop.ServiceLoggingAspect.logExecutionTime(ServiceLoggingAspect.java:34)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:648)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:630)
-	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:96)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
-	at com.yafimchyk.labs.service.impl.LabelServiceImpl$$SpringCGLIB$$0.createLabelEntity(<generated>)
-	at com.yafimchyk.labs.service.impl.TaskServiceImpl.createTaskWithTx(TaskServiceImpl.java:144)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
-	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:82)
-	at com.yafimchyk.labs.aop.ServiceLoggingAspect.logExecutionTime(ServiceLoggingAspect.java:34)
+	at com.yafimchyk.labs.aop.ServiceLoggingAspect.logExecutionTime(ServiceLoggingAspect.java:38)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:648)
@@ -117,8 +87,30 @@ com.yafimchyk.labs.exception.DuplicateResourceException: Label already exists!
 	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:96)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
-	at com.yafimchyk.labs.service.impl.TaskServiceImpl$$SpringCGLIB$$0.createTaskWithTx(<generated>)
-	at com.yafimchyk.labs.controller.TaskController.createTaskWithTx(TaskController.java:84)
+	at com.yafimchyk.labs.service.impl.ProjectServiceImpl$$SpringCGLIB$$0.getProjectEntityById(<generated>)
+	at com.yafimchyk.labs.service.impl.TaskServiceImpl.createTask(TaskServiceImpl.java:106)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:82)
+	at com.yafimchyk.labs.aop.ServiceLoggingAspect.logExecutionTime(ServiceLoggingAspect.java:38)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:648)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:630)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
+	at com.yafimchyk.labs.service.impl.TaskServiceImpl$$SpringCGLIB$$0.createTask(<generated>)
+	at com.yafimchyk.labs.controller.TaskController.createTask(TaskController.java:60)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
@@ -161,35 +153,10 @@ com.yafimchyk.labs.exception.DuplicateResourceException: Label already exists!
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-2026-02-24 01:08:09.491 [http-nio-8080-exec-1] ERROR c.y.labs.aop.ServiceLoggingAspect - Ошибка при выполнении метода TaskServiceImpl.createTaskWithTx: Label already exists!
-com.yafimchyk.labs.exception.DuplicateResourceException: Label already exists!
-	at com.yafimchyk.labs.service.impl.LabelServiceImpl.createLabelEntity(LabelServiceImpl.java:110)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
-	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:82)
-	at com.yafimchyk.labs.aop.ServiceLoggingAspect.logExecutionTime(ServiceLoggingAspect.java:34)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:648)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:630)
-	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:96)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
-	at com.yafimchyk.labs.service.impl.LabelServiceImpl$$SpringCGLIB$$0.createLabelEntity(<generated>)
-	at com.yafimchyk.labs.service.impl.TaskServiceImpl.createTaskWithTx(TaskServiceImpl.java:144)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
-	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:82)
-	at com.yafimchyk.labs.aop.ServiceLoggingAspect.logExecutionTime(ServiceLoggingAspect.java:34)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+2026-03-03 20:15:43.038 [http-nio-8080-exec-4] ERROR c.y.labs.aop.ServiceLoggingAspect - Ошибка при выполнении метода TaskServiceImpl.createTask: Error executing method!
+com.yafimchyk.labs.exception.LoggingException: Error executing method!
+	at com.yafimchyk.labs.aop.ServiceLoggingAspect.logExecutionTime(ServiceLoggingAspect.java:56)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:648)
@@ -203,8 +170,30 @@ com.yafimchyk.labs.exception.DuplicateResourceException: Label already exists!
 	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:96)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
-	at com.yafimchyk.labs.service.impl.TaskServiceImpl$$SpringCGLIB$$0.createTaskWithTx(<generated>)
-	at com.yafimchyk.labs.controller.TaskController.createTaskWithTx(TaskController.java:84)
+	at com.yafimchyk.labs.service.impl.ProjectServiceImpl$$SpringCGLIB$$0.getProjectEntityById(<generated>)
+	at com.yafimchyk.labs.service.impl.TaskServiceImpl.createTask(TaskServiceImpl.java:106)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:82)
+	at com.yafimchyk.labs.aop.ServiceLoggingAspect.logExecutionTime(ServiceLoggingAspect.java:38)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:648)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:630)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
+	at com.yafimchyk.labs.service.impl.TaskServiceImpl$$SpringCGLIB$$0.createTask(<generated>)
+	at com.yafimchyk.labs.controller.TaskController.createTask(TaskController.java:60)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
@@ -247,39 +236,21 @@ com.yafimchyk.labs.exception.DuplicateResourceException: Label already exists!
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-2026-02-24 01:08:16.396 [http-nio-8080-exec-3] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: TaskServiceImpl.createTaskWithTx с аргументами: [1, TaskCreationDto[taskTitle=Task without TX1111, taskDescription=Description1111, labelTitle=Important, commentContent=This is a comment for the task, initiateProblem=true]]
-2026-02-24 01:08:16.397 [http-nio-8080-exec-3] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: ProjectServiceImpl.getProjectEntityById с аргументами: [1]
-2026-02-24 01:08:16.401 [http-nio-8080-exec-3] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод ProjectServiceImpl.getProjectEntityById выполнился за 3 мс
-2026-02-24 01:08:16.405 [http-nio-8080-exec-3] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: LabelServiceImpl.createLabelEntity с аргументами: [Important]
-2026-02-24 01:08:16.410 [http-nio-8080-exec-3] ERROR c.y.labs.aop.ServiceLoggingAspect - Ошибка при выполнении метода LabelServiceImpl.createLabelEntity: Label already exists!
-com.yafimchyk.labs.exception.DuplicateResourceException: Label already exists!
-	at com.yafimchyk.labs.service.impl.LabelServiceImpl.createLabelEntity(LabelServiceImpl.java:110)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+2026-03-03 20:15:55.207 [http-nio-8080-exec-6] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: TaskServiceImpl.createTask с аргументами: [1, TaskRequestDto[title=Новая задача, description=Описание новой задачи]]
+2026-03-03 20:15:55.208 [http-nio-8080-exec-6] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: ProjectServiceImpl.getProjectEntityById с аргументами: [1]
+2026-03-03 20:15:55.210 [http-nio-8080-exec-6] ERROR c.y.labs.aop.ServiceLoggingAspect - Ошибка при выполнении метода ProjectServiceImpl.getProjectEntityById: Project not found with id: 1
+com.yafimchyk.labs.exception.ResourceNotFoundException: Project not found with id: 1
+	at com.yafimchyk.labs.service.impl.ProjectServiceImpl.lambda$7(ProjectServiceImpl.java:135)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at com.yafimchyk.labs.service.impl.ProjectServiceImpl.getProjectEntityById(ProjectServiceImpl.java:135)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
 	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:82)
-	at com.yafimchyk.labs.aop.ServiceLoggingAspect.logExecutionTime(ServiceLoggingAspect.java:34)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:648)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:630)
-	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:96)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
-	at com.yafimchyk.labs.service.impl.LabelServiceImpl$$SpringCGLIB$$0.createLabelEntity(<generated>)
-	at com.yafimchyk.labs.service.impl.TaskServiceImpl.createTaskWithTx(TaskServiceImpl.java:144)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
-	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:82)
-	at com.yafimchyk.labs.aop.ServiceLoggingAspect.logExecutionTime(ServiceLoggingAspect.java:34)
+	at com.yafimchyk.labs.aop.ServiceLoggingAspect.logExecutionTime(ServiceLoggingAspect.java:38)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:648)
@@ -293,8 +264,30 @@ com.yafimchyk.labs.exception.DuplicateResourceException: Label already exists!
 	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:96)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
-	at com.yafimchyk.labs.service.impl.TaskServiceImpl$$SpringCGLIB$$0.createTaskWithTx(<generated>)
-	at com.yafimchyk.labs.controller.TaskController.createTaskWithTx(TaskController.java:84)
+	at com.yafimchyk.labs.service.impl.ProjectServiceImpl$$SpringCGLIB$$0.getProjectEntityById(<generated>)
+	at com.yafimchyk.labs.service.impl.TaskServiceImpl.createTask(TaskServiceImpl.java:106)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:82)
+	at com.yafimchyk.labs.aop.ServiceLoggingAspect.logExecutionTime(ServiceLoggingAspect.java:38)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:648)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:630)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
+	at com.yafimchyk.labs.service.impl.TaskServiceImpl$$SpringCGLIB$$0.createTask(<generated>)
+	at com.yafimchyk.labs.controller.TaskController.createTask(TaskController.java:60)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
@@ -337,35 +330,10 @@ com.yafimchyk.labs.exception.DuplicateResourceException: Label already exists!
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-2026-02-24 01:08:16.413 [http-nio-8080-exec-3] ERROR c.y.labs.aop.ServiceLoggingAspect - Ошибка при выполнении метода TaskServiceImpl.createTaskWithTx: Label already exists!
-com.yafimchyk.labs.exception.DuplicateResourceException: Label already exists!
-	at com.yafimchyk.labs.service.impl.LabelServiceImpl.createLabelEntity(LabelServiceImpl.java:110)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
-	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:82)
-	at com.yafimchyk.labs.aop.ServiceLoggingAspect.logExecutionTime(ServiceLoggingAspect.java:34)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:648)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:630)
-	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:96)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
-	at com.yafimchyk.labs.service.impl.LabelServiceImpl$$SpringCGLIB$$0.createLabelEntity(<generated>)
-	at com.yafimchyk.labs.service.impl.TaskServiceImpl.createTaskWithTx(TaskServiceImpl.java:144)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
-	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:82)
-	at com.yafimchyk.labs.aop.ServiceLoggingAspect.logExecutionTime(ServiceLoggingAspect.java:34)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+2026-03-03 20:15:55.213 [http-nio-8080-exec-6] ERROR c.y.labs.aop.ServiceLoggingAspect - Ошибка при выполнении метода TaskServiceImpl.createTask: Error executing method!
+com.yafimchyk.labs.exception.LoggingException: Error executing method!
+	at com.yafimchyk.labs.aop.ServiceLoggingAspect.logExecutionTime(ServiceLoggingAspect.java:56)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:648)
@@ -379,8 +347,30 @@ com.yafimchyk.labs.exception.DuplicateResourceException: Label already exists!
 	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:96)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
-	at com.yafimchyk.labs.service.impl.TaskServiceImpl$$SpringCGLIB$$0.createTaskWithTx(<generated>)
-	at com.yafimchyk.labs.controller.TaskController.createTaskWithTx(TaskController.java:84)
+	at com.yafimchyk.labs.service.impl.ProjectServiceImpl$$SpringCGLIB$$0.getProjectEntityById(<generated>)
+	at com.yafimchyk.labs.service.impl.TaskServiceImpl.createTask(TaskServiceImpl.java:106)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:82)
+	at com.yafimchyk.labs.aop.ServiceLoggingAspect.logExecutionTime(ServiceLoggingAspect.java:38)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:648)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:630)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
+	at com.yafimchyk.labs.service.impl.TaskServiceImpl$$SpringCGLIB$$0.createTask(<generated>)
+	at com.yafimchyk.labs.controller.TaskController.createTask(TaskController.java:60)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
@@ -423,1061 +413,67 @@ com.yafimchyk.labs.exception.DuplicateResourceException: Label already exists!
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-2026-02-24 01:08:22.468 [http-nio-8080-exec-4] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: TaskServiceImpl.createTaskWithTx с аргументами: [1, TaskCreationDto[taskTitle=Task without TX1111, taskDescription=Description1111, labelTitle=Important1111, commentContent=This is a comment for the task, initiateProblem=true]]
-2026-02-24 01:08:22.468 [http-nio-8080-exec-4] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: ProjectServiceImpl.getProjectEntityById с аргументами: [1]
-2026-02-24 01:08:22.471 [http-nio-8080-exec-4] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод ProjectServiceImpl.getProjectEntityById выполнился за 2 мс
-2026-02-24 01:08:22.474 [http-nio-8080-exec-4] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: LabelServiceImpl.createLabelEntity с аргументами: [Important1111]
-2026-02-24 01:08:22.479 [http-nio-8080-exec-4] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод LabelServiceImpl.createLabelEntity выполнился за 5 мс
-2026-02-24 01:08:22.483 [http-nio-8080-exec-4] ERROR c.y.labs.aop.ServiceLoggingAspect - Ошибка при выполнении метода TaskServiceImpl.createTaskWithTx: Initiated problem was called!
-com.yafimchyk.labs.exception.InitiatedProblemException: Initiated problem was called!
-	at com.yafimchyk.labs.service.impl.TaskServiceImpl.createTaskWithTx(TaskServiceImpl.java:151)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
-	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:82)
-	at com.yafimchyk.labs.aop.ServiceLoggingAspect.logExecutionTime(ServiceLoggingAspect.java:34)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:648)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:630)
-	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:96)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
-	at com.yafimchyk.labs.service.impl.TaskServiceImpl$$SpringCGLIB$$0.createTaskWithTx(<generated>)
-	at com.yafimchyk.labs.controller.TaskController.createTaskWithTx(TaskController.java:84)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1003)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:903)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:649)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1778)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-2026-02-24 01:09:27.387 [http-nio-8080-exec-7] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: TaskServiceImpl.createTaskWithTx с аргументами: [1, TaskCreationDto[taskTitle=Task without TX1111, taskDescription=Description1111, labelTitle=Important1111, commentContent=This is a comment for the task, initiateProblem=false]]
-2026-02-24 01:09:27.387 [http-nio-8080-exec-7] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: ProjectServiceImpl.getProjectEntityById с аргументами: [1]
-2026-02-24 01:09:27.390 [http-nio-8080-exec-7] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод ProjectServiceImpl.getProjectEntityById выполнился за 2 мс
-2026-02-24 01:09:27.393 [http-nio-8080-exec-7] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: LabelServiceImpl.createLabelEntity с аргументами: [Important1111]
-2026-02-24 01:09:27.399 [http-nio-8080-exec-7] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод LabelServiceImpl.createLabelEntity выполнился за 6 мс
-2026-02-24 01:09:27.401 [http-nio-8080-exec-7] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: CommentServiceImpl.createCommentEntity с аргументами: [6, This is a comment for the task]
-2026-02-24 01:09:27.401 [http-nio-8080-exec-7] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: TaskEntityServiceImpl.getTaskEntityById с аргументами: [6]
-2026-02-24 01:09:27.405 [http-nio-8080-exec-7] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод TaskEntityServiceImpl.getTaskEntityById выполнился за 3 мс
-2026-02-24 01:09:27.413 [http-nio-8080-exec-7] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод CommentServiceImpl.createCommentEntity выполнился за 12 мс
-2026-02-24 01:09:27.414 [http-nio-8080-exec-7] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод TaskServiceImpl.createTaskWithTx выполнился за 27 мс
-2026-02-24 01:09:47.604 [http-nio-8080-exec-8] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: TaskServiceImpl.createTaskWithTx с аргументами: [1, TaskCreationDto[taskTitle=Task without TX1111, taskDescription=Description1111, labelTitle=2, commentContent=This is a comment for the task, initiateProblem=false]]
-2026-02-24 01:09:47.604 [http-nio-8080-exec-8] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: ProjectServiceImpl.getProjectEntityById с аргументами: [1]
-2026-02-24 01:09:47.608 [http-nio-8080-exec-8] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод ProjectServiceImpl.getProjectEntityById выполнился за 3 мс
-2026-02-24 01:09:47.611 [http-nio-8080-exec-8] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: LabelServiceImpl.createLabelEntity с аргументами: [2]
-2026-02-24 01:09:47.615 [http-nio-8080-exec-8] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод LabelServiceImpl.createLabelEntity выполнился за 4 мс
-2026-02-24 01:09:47.616 [http-nio-8080-exec-8] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: CommentServiceImpl.createCommentEntity с аргументами: [7, This is a comment for the task]
-2026-02-24 01:09:47.616 [http-nio-8080-exec-8] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: TaskEntityServiceImpl.getTaskEntityById с аргументами: [7]
-2026-02-24 01:09:47.617 [http-nio-8080-exec-8] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод TaskEntityServiceImpl.getTaskEntityById выполнился за 0 мс
-2026-02-24 01:09:47.619 [http-nio-8080-exec-8] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод CommentServiceImpl.createCommentEntity выполнился за 2 мс
-2026-02-24 01:09:47.619 [http-nio-8080-exec-8] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод TaskServiceImpl.createTaskWithTx выполнился за 15 мс
-2026-02-24 01:09:52.834 [http-nio-8080-exec-9] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: TaskServiceImpl.createTaskWithTx с аргументами: [1, TaskCreationDto[taskTitle=Task without TX1111, taskDescription=Description1111, labelTitle=2, commentContent=This is a comment for the task, initiateProblem=true]]
-2026-02-24 01:09:52.835 [http-nio-8080-exec-9] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: ProjectServiceImpl.getProjectEntityById с аргументами: [1]
-2026-02-24 01:09:52.840 [http-nio-8080-exec-9] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод ProjectServiceImpl.getProjectEntityById выполнился за 5 мс
-2026-02-24 01:09:52.844 [http-nio-8080-exec-9] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: LabelServiceImpl.createLabelEntity с аргументами: [2]
-2026-02-24 01:09:52.847 [http-nio-8080-exec-9] ERROR c.y.labs.aop.ServiceLoggingAspect - Ошибка при выполнении метода LabelServiceImpl.createLabelEntity: Label already exists!
-com.yafimchyk.labs.exception.DuplicateResourceException: Label already exists!
-	at com.yafimchyk.labs.service.impl.LabelServiceImpl.createLabelEntity(LabelServiceImpl.java:110)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
-	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:82)
-	at com.yafimchyk.labs.aop.ServiceLoggingAspect.logExecutionTime(ServiceLoggingAspect.java:34)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:648)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:630)
-	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:96)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
-	at com.yafimchyk.labs.service.impl.LabelServiceImpl$$SpringCGLIB$$0.createLabelEntity(<generated>)
-	at com.yafimchyk.labs.service.impl.TaskServiceImpl.createTaskWithTx(TaskServiceImpl.java:144)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
-	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:82)
-	at com.yafimchyk.labs.aop.ServiceLoggingAspect.logExecutionTime(ServiceLoggingAspect.java:34)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:648)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:630)
-	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:96)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
-	at com.yafimchyk.labs.service.impl.TaskServiceImpl$$SpringCGLIB$$0.createTaskWithTx(<generated>)
-	at com.yafimchyk.labs.controller.TaskController.createTaskWithTx(TaskController.java:84)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1003)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:903)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:649)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1778)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-2026-02-24 01:09:52.848 [http-nio-8080-exec-9] ERROR c.y.labs.aop.ServiceLoggingAspect - Ошибка при выполнении метода TaskServiceImpl.createTaskWithTx: Label already exists!
-com.yafimchyk.labs.exception.DuplicateResourceException: Label already exists!
-	at com.yafimchyk.labs.service.impl.LabelServiceImpl.createLabelEntity(LabelServiceImpl.java:110)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
-	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:82)
-	at com.yafimchyk.labs.aop.ServiceLoggingAspect.logExecutionTime(ServiceLoggingAspect.java:34)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:648)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:630)
-	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:96)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
-	at com.yafimchyk.labs.service.impl.LabelServiceImpl$$SpringCGLIB$$0.createLabelEntity(<generated>)
-	at com.yafimchyk.labs.service.impl.TaskServiceImpl.createTaskWithTx(TaskServiceImpl.java:144)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
-	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:82)
-	at com.yafimchyk.labs.aop.ServiceLoggingAspect.logExecutionTime(ServiceLoggingAspect.java:34)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:648)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:630)
-	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:96)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
-	at com.yafimchyk.labs.service.impl.TaskServiceImpl$$SpringCGLIB$$0.createTaskWithTx(<generated>)
-	at com.yafimchyk.labs.controller.TaskController.createTaskWithTx(TaskController.java:84)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1003)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:903)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:649)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1778)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-2026-02-24 01:10:02.547 [http-nio-8080-exec-10] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: TaskServiceImpl.createTaskWithTx с аргументами: [1, TaskCreationDto[taskTitle=Task without 1, taskDescription=Description1111, labelTitle=2, commentContent=This is a comment for the task, initiateProblem=true]]
-2026-02-24 01:10:02.547 [http-nio-8080-exec-10] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: ProjectServiceImpl.getProjectEntityById с аргументами: [1]
-2026-02-24 01:10:02.550 [http-nio-8080-exec-10] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод ProjectServiceImpl.getProjectEntityById выполнился за 2 мс
-2026-02-24 01:10:02.552 [http-nio-8080-exec-10] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: LabelServiceImpl.createLabelEntity с аргументами: [2]
-2026-02-24 01:10:02.554 [http-nio-8080-exec-10] ERROR c.y.labs.aop.ServiceLoggingAspect - Ошибка при выполнении метода LabelServiceImpl.createLabelEntity: Label already exists!
-com.yafimchyk.labs.exception.DuplicateResourceException: Label already exists!
-	at com.yafimchyk.labs.service.impl.LabelServiceImpl.createLabelEntity(LabelServiceImpl.java:110)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
-	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:82)
-	at com.yafimchyk.labs.aop.ServiceLoggingAspect.logExecutionTime(ServiceLoggingAspect.java:34)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:648)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:630)
-	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:96)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
-	at com.yafimchyk.labs.service.impl.LabelServiceImpl$$SpringCGLIB$$0.createLabelEntity(<generated>)
-	at com.yafimchyk.labs.service.impl.TaskServiceImpl.createTaskWithTx(TaskServiceImpl.java:144)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
-	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:82)
-	at com.yafimchyk.labs.aop.ServiceLoggingAspect.logExecutionTime(ServiceLoggingAspect.java:34)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:648)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:630)
-	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:96)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
-	at com.yafimchyk.labs.service.impl.TaskServiceImpl$$SpringCGLIB$$0.createTaskWithTx(<generated>)
-	at com.yafimchyk.labs.controller.TaskController.createTaskWithTx(TaskController.java:84)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1003)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:903)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:649)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1778)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-2026-02-24 01:10:02.555 [http-nio-8080-exec-10] ERROR c.y.labs.aop.ServiceLoggingAspect - Ошибка при выполнении метода TaskServiceImpl.createTaskWithTx: Label already exists!
-com.yafimchyk.labs.exception.DuplicateResourceException: Label already exists!
-	at com.yafimchyk.labs.service.impl.LabelServiceImpl.createLabelEntity(LabelServiceImpl.java:110)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
-	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:82)
-	at com.yafimchyk.labs.aop.ServiceLoggingAspect.logExecutionTime(ServiceLoggingAspect.java:34)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:648)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:630)
-	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:96)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
-	at com.yafimchyk.labs.service.impl.LabelServiceImpl$$SpringCGLIB$$0.createLabelEntity(<generated>)
-	at com.yafimchyk.labs.service.impl.TaskServiceImpl.createTaskWithTx(TaskServiceImpl.java:144)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
-	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:82)
-	at com.yafimchyk.labs.aop.ServiceLoggingAspect.logExecutionTime(ServiceLoggingAspect.java:34)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:648)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:630)
-	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:96)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
-	at com.yafimchyk.labs.service.impl.TaskServiceImpl$$SpringCGLIB$$0.createTaskWithTx(<generated>)
-	at com.yafimchyk.labs.controller.TaskController.createTaskWithTx(TaskController.java:84)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1003)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:903)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:649)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1778)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-2026-02-24 01:34:06.797 [SpringApplicationShutdownHook] INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2026-02-24 01:34:06.800 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
-2026-02-24 01:34:06.806 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-02-24 01:34:06.809 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-02-24 01:34:06.813 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2026-02-24 01:34:11.924 [main] INFO  com.yafimchyk.labs.LabsApplication - Starting LabsApplication using Java 21.0.10 with PID 22481 (/home/kless/IdeaProjects/labs/target/classes started by kless in /home/kless/IdeaProjects/labs)
-2026-02-24 01:34:11.926 [main] DEBUG com.yafimchyk.labs.LabsApplication - Running with Spring Boot v4.0.2, Spring v7.0.3
-2026-02-24 01:34:11.927 [main] INFO  com.yafimchyk.labs.LabsApplication - No active profile set, falling back to 1 default profile: "default"
-2026-02-24 01:34:12.872 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-02-24 01:34:12.951 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 69 ms. Found 5 JPA repository interfaces.
-2026-02-24 01:34:13.601 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2026-02-24 01:34:13.614 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2026-02-24 01:34:13.616 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-02-24 01:34:13.616 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.15]
-2026-02-24 01:34:13.673 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1690 ms
-2026-02-24 01:34:14.451 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-02-24 01:34:14.490 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-02-24 01:34:14.661 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7c02b3cb
-2026-02-24 01:34:14.663 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-02-24 01:34:16.021 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-02-24 01:34:16.130 [main] INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-02-24 01:34:17.000 [main] WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-02-24 01:34:17.386 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
-2026-02-24 01:34:17.395 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2026-02-24 01:34:17.399 [main] INFO  com.yafimchyk.labs.LabsApplication - Started LabsApplication in 6.061 seconds (process running for 6.804)
-2026-02-24 01:34:17.401 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
-2026-02-24 01:34:17.401 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
-2026-02-24 01:34:23.653 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-02-24 01:34:23.654 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-02-24 01:34:23.656 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
-2026-02-24 01:34:24.780 [http-nio-8080-exec-4] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 703 ms
-2026-02-24 01:41:23.018 [http-nio-8080-exec-8] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: ProjectServiceImpl.getAllProjects с аргументами: []
-2026-02-24 01:41:23.180 [http-nio-8080-exec-8] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод ProjectServiceImpl.getAllProjects выполнился за 162 мс
-2026-02-24 01:41:40.179 [http-nio-8080-exec-9] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 0, size 3, sort: meetingDate: DESC]]
-2026-02-24 01:41:40.222 [http-nio-8080-exec-9] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 43 мс
-2026-02-24 01:41:47.832 [http-nio-8080-exec-10] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getAllMeetings с аргументами: [Page request [number: 3, size 3, sort: meetingDate: DESC]]
-2026-02-24 01:41:47.840 [http-nio-8080-exec-10] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getAllMeetings выполнился за 8 мс
-2026-02-24 01:41:56.865 [http-nio-8080-exec-1] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.getMeetingById с аргументами: [1]
-2026-02-24 01:41:56.878 [http-nio-8080-exec-1] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.getMeetingById выполнился за 12 мс
-2026-02-24 01:42:04.450 [http-nio-8080-exec-2] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: ProjectServiceImpl.getAllProjects с аргументами: []
-2026-02-24 01:42:04.470 [http-nio-8080-exec-2] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод ProjectServiceImpl.getAllProjects выполнился за 19 мс
-2026-02-24 01:42:10.058 [http-nio-8080-exec-3] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: ProjectServiceImpl.getFilteredProjectsNative с аргументами: [COMPLETED, [TASK], true]
-2026-02-24 01:42:10.124 [http-nio-8080-exec-3] ERROR c.y.labs.aop.ServiceLoggingAspect - Ошибка при выполнении метода ProjectServiceImpl.getFilteredProjectsNative: JDBC exception executing SQL [ERROR: timestamp out of range: "169087565-03-15 04:51:43+03"
-  Where: unnamed portal parameter $3 = '...'] [SELECT DISTINCT p.* FROM projects p LEFT JOIN tasks t ON p.id = t.project_id LEFT JOIN task_labels tl ON t.id = tl.task_id LEFT JOIN labels l ON tl.label_id = l.id WHERE p.status = ? AND l.title IN (?) AND p.deadline > ?]; SQL [SELECT DISTINCT p.* FROM projects p LEFT JOIN tasks t ON p.id = t.project_id LEFT JOIN task_labels tl ON t.id = tl.task_id LEFT JOIN labels l ON tl.label_id = l.id WHERE p.status = ? AND l.title IN (?) AND p.deadline > ?]
-org.springframework.dao.DataIntegrityViolationException: JDBC exception executing SQL [ERROR: timestamp out of range: "169087565-03-15 04:51:43+03"
-  Where: unnamed portal parameter $3 = '...'] [SELECT DISTINCT p.* FROM projects p LEFT JOIN tasks t ON p.id = t.project_id LEFT JOIN task_labels tl ON t.id = tl.task_id LEFT JOIN labels l ON tl.label_id = l.id WHERE p.status = ? AND l.title IN (?) AND p.deadline > ?]; SQL [SELECT DISTINCT p.* FROM projects p LEFT JOIN tasks t ON p.id = t.project_id LEFT JOIN task_labels tl ON t.id = tl.task_id LEFT JOIN labels l ON tl.label_id = l.id WHERE p.status = ? AND l.title IN (?) AND p.deadline > ?]
-	at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.convertHibernateAccessException(HibernateExceptionTranslator.java:172)
-	at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.convertHibernateAccessException(HibernateExceptionTranslator.java:131)
-	at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.translateExceptionIfPossible(HibernateExceptionTranslator.java:105)
-	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:199)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:556)
-	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61)
-	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:346)
-	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:157)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:137)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:222)
-	at jdk.proxy2/jdk.proxy2.$Proxy167.findProjectsByStatusAndLabelsNative(Unknown Source)
-	at com.yafimchyk.labs.service.impl.ProjectServiceImpl.getFilteredProjectsNative(ProjectServiceImpl.java:128)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
-	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:82)
-	at com.yafimchyk.labs.aop.ServiceLoggingAspect.logExecutionTime(ServiceLoggingAspect.java:34)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:648)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:630)
-	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:96)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
-	at com.yafimchyk.labs.service.impl.ProjectServiceImpl$$SpringCGLIB$$0.getFilteredProjectsNative(<generated>)
-	at com.yafimchyk.labs.controller.ProjectController.getFilteredProjectsNative(ProjectController.java:76)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1003)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:892)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:622)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1778)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-Caused by: org.hibernate.exception.DataException: JDBC exception executing SQL [ERROR: timestamp out of range: "169087565-03-15 04:51:43+03"
-  Where: unnamed portal parameter $3 = '...'] [SELECT DISTINCT p.* FROM projects p LEFT JOIN tasks t ON p.id = t.project_id LEFT JOIN task_labels tl ON t.id = tl.task_id LEFT JOIN labels l ON tl.label_id = l.id WHERE p.status = ? AND l.title IN (?) AND p.deadline > ?]
-	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:84)
-	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:34)
-	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:115)
-	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:290)
-	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.getResultSet(DeferredResultSetAccess.java:190)
-	at org.hibernate.sql.results.jdbc.internal.AbstractResultSetAccess.getResultSetMetaData(AbstractResultSetAccess.java:52)
-	at org.hibernate.sql.results.jdbc.internal.AbstractResultSetAccess.getColumnCount(AbstractResultSetAccess.java:66)
-	at org.hibernate.query.results.internal.ResultSetMappingImpl.resolve(ResultSetMappingImpl.java:188)
-	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.resolveJdbcValues(JdbcSelectExecutorStandardImpl.java:380)
-	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.resolveJdbcValuesSource(JdbcSelectExecutorStandardImpl.java:354)
-	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:135)
-	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:100)
-	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.executeQuery(JdbcSelectExecutor.java:63)
-	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:137)
-	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:114)
-	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:104)
-	at org.hibernate.query.sql.internal.NativeSelectQueryPlanImpl.performList(NativeSelectQueryPlanImpl.java:138)
-	at org.hibernate.query.sql.internal.NativeQueryImpl.doList(NativeQueryImpl.java:756)
-	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:153)
-	at org.hibernate.query.Query.getResultList(Query.java:121)
-	at org.springframework.data.jpa.repository.query.JpaQueryExecution$CollectionExecution.doExecute(JpaQueryExecution.java:132)
-	at org.springframework.data.jpa.repository.query.JpaQueryExecution.execute(JpaQueryExecution.java:99)
-	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.doExecute(AbstractJpaQuery.java:164)
-	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.execute(AbstractJpaQuery.java:154)
-	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:169)
-	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:167)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:146)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:69)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:135)
-	... 71 common frames omitted
-Caused by: org.postgresql.util.PSQLException: ERROR: timestamp out of range: "169087565-03-15 04:51:43+03"
-  Where: unnamed portal parameter $3 = '...'
-	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2846)
-	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2531)
-	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)
-	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)
-	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)
-	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)
-	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:139)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
-	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:271)
-	... 103 common frames omitted
-2026-02-24 01:42:14.496 [http-nio-8080-exec-5] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: ProjectServiceImpl.getFilteredProjectsNative с аргументами: [COMPLETED, [TASK], true]
-2026-02-24 01:42:14.499 [http-nio-8080-exec-5] ERROR c.y.labs.aop.ServiceLoggingAspect - Ошибка при выполнении метода ProjectServiceImpl.getFilteredProjectsNative: JDBC exception executing SQL [ERROR: timestamp out of range: "169087565-03-15 04:51:43+03"
-  Where: unnamed portal parameter $3 = '...'] [SELECT DISTINCT p.* FROM projects p LEFT JOIN tasks t ON p.id = t.project_id LEFT JOIN task_labels tl ON t.id = tl.task_id LEFT JOIN labels l ON tl.label_id = l.id WHERE p.status = ? AND l.title IN (?) AND p.deadline > ?]; SQL [SELECT DISTINCT p.* FROM projects p LEFT JOIN tasks t ON p.id = t.project_id LEFT JOIN task_labels tl ON t.id = tl.task_id LEFT JOIN labels l ON tl.label_id = l.id WHERE p.status = ? AND l.title IN (?) AND p.deadline > ?]
-org.springframework.dao.DataIntegrityViolationException: JDBC exception executing SQL [ERROR: timestamp out of range: "169087565-03-15 04:51:43+03"
-  Where: unnamed portal parameter $3 = '...'] [SELECT DISTINCT p.* FROM projects p LEFT JOIN tasks t ON p.id = t.project_id LEFT JOIN task_labels tl ON t.id = tl.task_id LEFT JOIN labels l ON tl.label_id = l.id WHERE p.status = ? AND l.title IN (?) AND p.deadline > ?]; SQL [SELECT DISTINCT p.* FROM projects p LEFT JOIN tasks t ON p.id = t.project_id LEFT JOIN task_labels tl ON t.id = tl.task_id LEFT JOIN labels l ON tl.label_id = l.id WHERE p.status = ? AND l.title IN (?) AND p.deadline > ?]
-	at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.convertHibernateAccessException(HibernateExceptionTranslator.java:172)
-	at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.convertHibernateAccessException(HibernateExceptionTranslator.java:131)
-	at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.translateExceptionIfPossible(HibernateExceptionTranslator.java:105)
-	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:199)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:556)
-	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61)
-	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:346)
-	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:157)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:137)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:222)
-	at jdk.proxy2/jdk.proxy2.$Proxy167.findProjectsByStatusAndLabelsNative(Unknown Source)
-	at com.yafimchyk.labs.service.impl.ProjectServiceImpl.getFilteredProjectsNative(ProjectServiceImpl.java:128)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
-	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:82)
-	at com.yafimchyk.labs.aop.ServiceLoggingAspect.logExecutionTime(ServiceLoggingAspect.java:34)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:648)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:630)
-	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:96)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
-	at com.yafimchyk.labs.service.impl.ProjectServiceImpl$$SpringCGLIB$$0.getFilteredProjectsNative(<generated>)
-	at com.yafimchyk.labs.controller.ProjectController.getFilteredProjectsNative(ProjectController.java:76)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1003)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:892)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:622)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1778)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-Caused by: org.hibernate.exception.DataException: JDBC exception executing SQL [ERROR: timestamp out of range: "169087565-03-15 04:51:43+03"
-  Where: unnamed portal parameter $3 = '...'] [SELECT DISTINCT p.* FROM projects p LEFT JOIN tasks t ON p.id = t.project_id LEFT JOIN task_labels tl ON t.id = tl.task_id LEFT JOIN labels l ON tl.label_id = l.id WHERE p.status = ? AND l.title IN (?) AND p.deadline > ?]
-	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:84)
-	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:34)
-	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:115)
-	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:290)
-	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.getResultSet(DeferredResultSetAccess.java:190)
-	at org.hibernate.sql.results.jdbc.internal.AbstractResultSetAccess.getResultSetMetaData(AbstractResultSetAccess.java:52)
-	at org.hibernate.sql.results.jdbc.internal.AbstractResultSetAccess.getColumnCount(AbstractResultSetAccess.java:66)
-	at org.hibernate.query.results.internal.ResultSetMappingImpl.resolve(ResultSetMappingImpl.java:188)
-	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.resolveJdbcValues(JdbcSelectExecutorStandardImpl.java:380)
-	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.resolveJdbcValuesSource(JdbcSelectExecutorStandardImpl.java:354)
-	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:135)
-	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:100)
-	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.executeQuery(JdbcSelectExecutor.java:63)
-	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:137)
-	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:114)
-	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:104)
-	at org.hibernate.query.sql.internal.NativeSelectQueryPlanImpl.performList(NativeSelectQueryPlanImpl.java:138)
-	at org.hibernate.query.sql.internal.NativeQueryImpl.doList(NativeQueryImpl.java:756)
-	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:153)
-	at org.hibernate.query.Query.getResultList(Query.java:121)
-	at org.springframework.data.jpa.repository.query.JpaQueryExecution$CollectionExecution.doExecute(JpaQueryExecution.java:132)
-	at org.springframework.data.jpa.repository.query.JpaQueryExecution.execute(JpaQueryExecution.java:99)
-	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.doExecute(AbstractJpaQuery.java:164)
-	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.execute(AbstractJpaQuery.java:154)
-	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:169)
-	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:167)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:146)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:69)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:135)
-	... 71 common frames omitted
-Caused by: org.postgresql.util.PSQLException: ERROR: timestamp out of range: "169087565-03-15 04:51:43+03"
-  Where: unnamed portal parameter $3 = '...'
-	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2846)
-	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2531)
-	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)
-	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)
-	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)
-	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)
-	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:139)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
-	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:271)
-	... 103 common frames omitted
-2026-02-24 01:43:21.424 [http-nio-8080-exec-9] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: ProjectServiceImpl.getAllProjects с аргументами: []
-2026-02-24 01:43:21.441 [http-nio-8080-exec-9] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод ProjectServiceImpl.getAllProjects выполнился за 17 мс
-2026-02-24 01:44:05.696 [http-nio-8080-exec-10] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: ProjectServiceImpl.getFilteredProjectsNative с аргументами: [COMPLETED, [Bug], true]
-2026-02-24 01:44:05.700 [http-nio-8080-exec-10] ERROR c.y.labs.aop.ServiceLoggingAspect - Ошибка при выполнении метода ProjectServiceImpl.getFilteredProjectsNative: JDBC exception executing SQL [ERROR: timestamp out of range: "169087565-03-15 04:51:43+03"
-  Where: unnamed portal parameter $3 = '...'] [SELECT DISTINCT p.* FROM projects p LEFT JOIN tasks t ON p.id = t.project_id LEFT JOIN task_labels tl ON t.id = tl.task_id LEFT JOIN labels l ON tl.label_id = l.id WHERE p.status = ? AND l.title IN (?) AND p.deadline > ?]; SQL [SELECT DISTINCT p.* FROM projects p LEFT JOIN tasks t ON p.id = t.project_id LEFT JOIN task_labels tl ON t.id = tl.task_id LEFT JOIN labels l ON tl.label_id = l.id WHERE p.status = ? AND l.title IN (?) AND p.deadline > ?]
-org.springframework.dao.DataIntegrityViolationException: JDBC exception executing SQL [ERROR: timestamp out of range: "169087565-03-15 04:51:43+03"
-  Where: unnamed portal parameter $3 = '...'] [SELECT DISTINCT p.* FROM projects p LEFT JOIN tasks t ON p.id = t.project_id LEFT JOIN task_labels tl ON t.id = tl.task_id LEFT JOIN labels l ON tl.label_id = l.id WHERE p.status = ? AND l.title IN (?) AND p.deadline > ?]; SQL [SELECT DISTINCT p.* FROM projects p LEFT JOIN tasks t ON p.id = t.project_id LEFT JOIN task_labels tl ON t.id = tl.task_id LEFT JOIN labels l ON tl.label_id = l.id WHERE p.status = ? AND l.title IN (?) AND p.deadline > ?]
-	at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.convertHibernateAccessException(HibernateExceptionTranslator.java:172)
-	at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.convertHibernateAccessException(HibernateExceptionTranslator.java:131)
-	at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.translateExceptionIfPossible(HibernateExceptionTranslator.java:105)
-	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:199)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:556)
-	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61)
-	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:346)
-	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:157)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:137)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:222)
-	at jdk.proxy2/jdk.proxy2.$Proxy167.findProjectsByStatusAndLabelsNative(Unknown Source)
-	at com.yafimchyk.labs.service.impl.ProjectServiceImpl.getFilteredProjectsNative(ProjectServiceImpl.java:128)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
-	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:82)
-	at com.yafimchyk.labs.aop.ServiceLoggingAspect.logExecutionTime(ServiceLoggingAspect.java:34)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:648)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:630)
-	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:96)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
-	at com.yafimchyk.labs.service.impl.ProjectServiceImpl$$SpringCGLIB$$0.getFilteredProjectsNative(<generated>)
-	at com.yafimchyk.labs.controller.ProjectController.getFilteredProjectsNative(ProjectController.java:76)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1003)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:892)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:622)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1778)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-Caused by: org.hibernate.exception.DataException: JDBC exception executing SQL [ERROR: timestamp out of range: "169087565-03-15 04:51:43+03"
-  Where: unnamed portal parameter $3 = '...'] [SELECT DISTINCT p.* FROM projects p LEFT JOIN tasks t ON p.id = t.project_id LEFT JOIN task_labels tl ON t.id = tl.task_id LEFT JOIN labels l ON tl.label_id = l.id WHERE p.status = ? AND l.title IN (?) AND p.deadline > ?]
-	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:84)
-	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:34)
-	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:115)
-	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:290)
-	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.getResultSet(DeferredResultSetAccess.java:190)
-	at org.hibernate.sql.results.jdbc.internal.AbstractResultSetAccess.getResultSetMetaData(AbstractResultSetAccess.java:52)
-	at org.hibernate.sql.results.jdbc.internal.AbstractResultSetAccess.getColumnCount(AbstractResultSetAccess.java:66)
-	at org.hibernate.query.results.internal.ResultSetMappingImpl.resolve(ResultSetMappingImpl.java:188)
-	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.resolveJdbcValues(JdbcSelectExecutorStandardImpl.java:380)
-	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.resolveJdbcValuesSource(JdbcSelectExecutorStandardImpl.java:354)
-	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:135)
-	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:100)
-	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.executeQuery(JdbcSelectExecutor.java:63)
-	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:137)
-	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:114)
-	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:104)
-	at org.hibernate.query.sql.internal.NativeSelectQueryPlanImpl.performList(NativeSelectQueryPlanImpl.java:138)
-	at org.hibernate.query.sql.internal.NativeQueryImpl.doList(NativeQueryImpl.java:756)
-	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:153)
-	at org.hibernate.query.Query.getResultList(Query.java:121)
-	at org.springframework.data.jpa.repository.query.JpaQueryExecution$CollectionExecution.doExecute(JpaQueryExecution.java:132)
-	at org.springframework.data.jpa.repository.query.JpaQueryExecution.execute(JpaQueryExecution.java:99)
-	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.doExecute(AbstractJpaQuery.java:164)
-	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.execute(AbstractJpaQuery.java:154)
-	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:169)
-	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:167)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:146)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:69)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:135)
-	... 71 common frames omitted
-Caused by: org.postgresql.util.PSQLException: ERROR: timestamp out of range: "169087565-03-15 04:51:43+03"
-  Where: unnamed portal parameter $3 = '...'
-	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2846)
-	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2531)
-	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)
-	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)
-	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)
-	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)
-	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:139)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
-	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:271)
-	... 103 common frames omitted
-2026-02-24 01:44:10.429 [http-nio-8080-exec-2] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: ProjectServiceImpl.getFilteredProjects с аргументами: [COMPLETED, [Bug, FEATURE], false]
-2026-02-24 01:44:10.473 [http-nio-8080-exec-2] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод ProjectServiceImpl.getFilteredProjects выполнился за 44 мс
-2026-02-24 01:44:22.247 [http-nio-8080-exec-3] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: ProjectServiceImpl.getFilteredProjectsNative с аргументами: [COMPLETED, [Bug], false]
-2026-02-24 01:44:22.278 [http-nio-8080-exec-3] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод ProjectServiceImpl.getFilteredProjectsNative выполнился за 30 мс
-2026-02-24 01:44:34.208 [http-nio-8080-exec-4] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: ProjectServiceImpl.getFilteredProjectsNative с аргументами: [COMPLETED, [Bug], true]
-2026-02-24 01:44:34.211 [http-nio-8080-exec-4] ERROR c.y.labs.aop.ServiceLoggingAspect - Ошибка при выполнении метода ProjectServiceImpl.getFilteredProjectsNative: JDBC exception executing SQL [ERROR: timestamp out of range: "169087565-03-15 04:51:43+03"
-  Where: unnamed portal parameter $3 = '...'] [SELECT DISTINCT p.* FROM projects p LEFT JOIN tasks t ON p.id = t.project_id LEFT JOIN task_labels tl ON t.id = tl.task_id LEFT JOIN labels l ON tl.label_id = l.id WHERE p.status = ? AND l.title IN (?) AND p.deadline > ?]; SQL [SELECT DISTINCT p.* FROM projects p LEFT JOIN tasks t ON p.id = t.project_id LEFT JOIN task_labels tl ON t.id = tl.task_id LEFT JOIN labels l ON tl.label_id = l.id WHERE p.status = ? AND l.title IN (?) AND p.deadline > ?]
-org.springframework.dao.DataIntegrityViolationException: JDBC exception executing SQL [ERROR: timestamp out of range: "169087565-03-15 04:51:43+03"
-  Where: unnamed portal parameter $3 = '...'] [SELECT DISTINCT p.* FROM projects p LEFT JOIN tasks t ON p.id = t.project_id LEFT JOIN task_labels tl ON t.id = tl.task_id LEFT JOIN labels l ON tl.label_id = l.id WHERE p.status = ? AND l.title IN (?) AND p.deadline > ?]; SQL [SELECT DISTINCT p.* FROM projects p LEFT JOIN tasks t ON p.id = t.project_id LEFT JOIN task_labels tl ON t.id = tl.task_id LEFT JOIN labels l ON tl.label_id = l.id WHERE p.status = ? AND l.title IN (?) AND p.deadline > ?]
-	at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.convertHibernateAccessException(HibernateExceptionTranslator.java:172)
-	at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.convertHibernateAccessException(HibernateExceptionTranslator.java:131)
-	at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.translateExceptionIfPossible(HibernateExceptionTranslator.java:105)
-	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:199)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:556)
-	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61)
-	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:346)
-	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:157)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:137)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:222)
-	at jdk.proxy2/jdk.proxy2.$Proxy167.findProjectsByStatusAndLabelsNative(Unknown Source)
-	at com.yafimchyk.labs.service.impl.ProjectServiceImpl.getFilteredProjectsNative(ProjectServiceImpl.java:128)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
-	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:82)
-	at com.yafimchyk.labs.aop.ServiceLoggingAspect.logExecutionTime(ServiceLoggingAspect.java:34)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:648)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:630)
-	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:96)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
-	at com.yafimchyk.labs.service.impl.ProjectServiceImpl$$SpringCGLIB$$0.getFilteredProjectsNative(<generated>)
-	at com.yafimchyk.labs.controller.ProjectController.getFilteredProjectsNative(ProjectController.java:76)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1003)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:892)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:622)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1778)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-Caused by: org.hibernate.exception.DataException: JDBC exception executing SQL [ERROR: timestamp out of range: "169087565-03-15 04:51:43+03"
-  Where: unnamed portal parameter $3 = '...'] [SELECT DISTINCT p.* FROM projects p LEFT JOIN tasks t ON p.id = t.project_id LEFT JOIN task_labels tl ON t.id = tl.task_id LEFT JOIN labels l ON tl.label_id = l.id WHERE p.status = ? AND l.title IN (?) AND p.deadline > ?]
-	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:84)
-	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:34)
-	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:115)
-	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:290)
-	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.getResultSet(DeferredResultSetAccess.java:190)
-	at org.hibernate.sql.results.jdbc.internal.AbstractResultSetAccess.getResultSetMetaData(AbstractResultSetAccess.java:52)
-	at org.hibernate.sql.results.jdbc.internal.AbstractResultSetAccess.getColumnCount(AbstractResultSetAccess.java:66)
-	at org.hibernate.query.results.internal.ResultSetMappingImpl.resolve(ResultSetMappingImpl.java:188)
-	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.resolveJdbcValues(JdbcSelectExecutorStandardImpl.java:380)
-	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.resolveJdbcValuesSource(JdbcSelectExecutorStandardImpl.java:354)
-	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:135)
-	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:100)
-	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.executeQuery(JdbcSelectExecutor.java:63)
-	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:137)
-	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:114)
-	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:104)
-	at org.hibernate.query.sql.internal.NativeSelectQueryPlanImpl.performList(NativeSelectQueryPlanImpl.java:138)
-	at org.hibernate.query.sql.internal.NativeQueryImpl.doList(NativeQueryImpl.java:756)
-	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:153)
-	at org.hibernate.query.Query.getResultList(Query.java:121)
-	at org.springframework.data.jpa.repository.query.JpaQueryExecution$CollectionExecution.doExecute(JpaQueryExecution.java:132)
-	at org.springframework.data.jpa.repository.query.JpaQueryExecution.execute(JpaQueryExecution.java:99)
-	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.doExecute(AbstractJpaQuery.java:164)
-	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.execute(AbstractJpaQuery.java:154)
-	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:169)
-	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:167)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:146)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:69)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:135)
-	... 71 common frames omitted
-Caused by: org.postgresql.util.PSQLException: ERROR: timestamp out of range: "169087565-03-15 04:51:43+03"
-  Where: unnamed portal parameter $3 = '...'
-	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2846)
-	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2531)
-	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)
-	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)
-	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)
-	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)
-	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:139)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
-	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:271)
-	... 103 common frames omitted
-2026-02-24 01:44:59.091 [http-nio-8080-exec-6] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: ProjectServiceImpl.getFilteredProjectsNative с аргументами: [COMPLETED, [Bug], false]
-2026-02-24 01:44:59.107 [http-nio-8080-exec-6] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод ProjectServiceImpl.getFilteredProjectsNative выполнился за 15 мс
-2026-02-24 01:47:45.057 [http-nio-8080-exec-9] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: MeetingServiceImpl.bulkCreateMeetings с аргументами: [1, MeetingBulkRequestDto[meetings=[MeetingRequestDto[title=Планирование спринта 51, meetingDate=2024-06-01T10:00, description=Планирование задач на следующий спринт], MeetingRequestDto[title=Ежедневный стендап1, meetingDate=2024-07-02T09:30, description=Утренняя синхронизация команды], MeetingRequestDto[title=Демо спринта1, meetingDate=2024-08-05T15:00, description=Демонстрация результатов заказчику]]]]
-2026-02-24 01:47:45.062 [http-nio-8080-exec-9] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: ProjectServiceImpl.getProjectEntityById с аргументами: [1]
-2026-02-24 01:47:45.066 [http-nio-8080-exec-9] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод ProjectServiceImpl.getProjectEntityById выполнился за 4 мс
-2026-02-24 01:47:45.111 [http-nio-8080-exec-9] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод MeetingServiceImpl.bulkCreateMeetings выполнился за 54 мс
-2026-02-24 01:48:00.196 [http-nio-8080-exec-10] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: CommentServiceImpl.getCommentById с аргументами: [1]
-2026-02-24 01:48:00.201 [http-nio-8080-exec-10] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод CommentServiceImpl.getCommentById выполнился за 4 мс
-2026-02-24 01:48:07.933 [http-nio-8080-exec-1] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: CommentServiceImpl.getAllCommentsByTaskId с аргументами: [1]
-2026-02-24 01:48:07.986 [http-nio-8080-exec-1] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод CommentServiceImpl.getAllCommentsByTaskId выполнился за 53 мс
-2026-02-24 01:48:17.122 [http-nio-8080-exec-2] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: CommentServiceImpl.createComment с аргументами: [1, CommentRequestDto[content=Отличная работа! Нужно только поправить форматирование.]]
-2026-02-24 01:48:17.123 [http-nio-8080-exec-2] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: TaskEntityServiceImpl.getTaskEntityById с аргументами: [1]
-2026-02-24 01:48:17.126 [http-nio-8080-exec-2] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод TaskEntityServiceImpl.getTaskEntityById выполнился за 2 мс
-2026-02-24 01:48:17.134 [http-nio-8080-exec-2] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод CommentServiceImpl.createComment выполнился за 12 мс
-2026-02-24 01:48:26.760 [http-nio-8080-exec-3] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: CommentServiceImpl.updateComment с аргументами: [1, CommentRequestDto[content=Обновленный комментарий с исправлениями]]
-2026-02-24 01:48:26.765 [http-nio-8080-exec-3] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод CommentServiceImpl.updateComment выполнился за 4 мс
-2026-02-24 02:00:00.581 [SpringApplicationShutdownHook] INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2026-02-24 02:00:00.583 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
-2026-02-24 02:00:00.586 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-02-24 02:00:00.587 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-02-24 02:00:00.589 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+2026-03-03 20:18:14.407 [SpringApplicationShutdownHook] INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-03 20:18:14.413 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-03-03 20:18:14.415 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-03 20:18:14.415 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-03-03 20:18:14.415 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-03-03 20:18:17.956 [main] INFO  com.yafimchyk.labs.LabsApplication - Starting LabsApplication using Java 23.0.1 with PID 12348 (C:\Users\Maksim\Desktop\labs_yo_yo\target\classes started by Maksim in C:\Users\Maksim\Desktop\labs_yo_yo)
+2026-03-03 20:18:17.956 [main] DEBUG com.yafimchyk.labs.LabsApplication - Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-03-03 20:18:17.956 [main] INFO  com.yafimchyk.labs.LabsApplication - No active profile set, falling back to 1 default profile: "default"
+2026-03-03 20:18:18.603 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-03 20:18:18.654 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 45 ms. Found 5 JPA repository interfaces.
+2026-03-03 20:18:19.119 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-03-03 20:18:19.129 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-03-03 20:18:19.130 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-03-03 20:18:19.130 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-03-03 20:18:19.179 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1185 ms
+2026-03-03 20:18:19.739 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-03 20:18:19.765 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-03-03 20:18:19.899 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@69cc49ec
+2026-03-03 20:18:19.900 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-03-03 20:18:20.891 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-03 20:18:20.979 [main] INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-03 20:18:21.860 [main] WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-03 20:18:22.283 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-03-03 20:18:22.297 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-03-03 20:18:22.302 [main] INFO  com.yafimchyk.labs.LabsApplication - Started LabsApplication in 4.786 seconds (process running for 5.36)
+2026-03-03 20:18:22.304 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-03-03 20:18:22.304 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-03-03 20:18:34.760 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-03 20:18:34.761 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-03-03 20:18:34.762 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-03-03 20:18:34.906 [http-nio-8080-exec-1] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: TaskServiceImpl.createTask с аргументами: [1, TaskRequestDto[title=Новая задача, description=Описание новой задачи]]
+2026-03-03 20:18:34.908 [http-nio-8080-exec-1] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: ProjectServiceImpl.getProjectEntityById с аргументами: [1]
+2026-03-03 20:18:34.951 [http-nio-8080-exec-1] WARN  c.y.labs.aop.ServiceLoggingAspect - Бизнес-исключение в методе ProjectServiceImpl.getProjectEntityById: Project not found with id: 1
+2026-03-03 20:18:34.952 [http-nio-8080-exec-1] WARN  c.y.labs.aop.ServiceLoggingAspect - Бизнес-исключение в методе TaskServiceImpl.createTask: Project not found with id: 1
+2026-03-03 20:18:42.342 [http-nio-8080-exec-3] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: TaskServiceImpl.updateTaskById с аргументами: [1, TaskRequestDto[title=Обновленная задача, description=Обновленное описание]]
+2026-03-03 20:18:42.384 [http-nio-8080-exec-3] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод TaskServiceImpl.updateTaskById выполнился за 41 мс
+2026-03-03 20:18:46.441 [http-nio-8080-exec-4] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: TaskServiceImpl.updateTaskById с аргументами: [1, TaskRequestDto[title=Обновленная задача, description=Обновленное описание]]
+2026-03-03 20:18:46.446 [http-nio-8080-exec-4] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод TaskServiceImpl.updateTaskById выполнился за 4 мс
+2026-03-03 20:18:56.790 [http-nio-8080-exec-5] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: TaskServiceImpl.createTask с аргументами: [153, TaskRequestDto[title=Новая задача, description=Описание новой задачи]]
+2026-03-03 20:18:56.790 [http-nio-8080-exec-5] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: ProjectServiceImpl.getProjectEntityById с аргументами: [153]
+2026-03-03 20:18:56.797 [http-nio-8080-exec-5] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод ProjectServiceImpl.getProjectEntityById выполнился за 6 мс
+2026-03-03 20:18:56.814 [http-nio-8080-exec-5] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод TaskServiceImpl.createTask выполнился за 23 мс
+2026-03-03 20:18:59.009 [http-nio-8080-exec-6] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: TaskServiceImpl.createTask с аргументами: [153, TaskRequestDto[title=Новая задача, description=Описание новой задачи]]
+2026-03-03 20:18:59.009 [http-nio-8080-exec-6] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: ProjectServiceImpl.getProjectEntityById с аргументами: [153]
+2026-03-03 20:18:59.011 [http-nio-8080-exec-6] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод ProjectServiceImpl.getProjectEntityById выполнился за 1 мс
+2026-03-03 20:18:59.012 [http-nio-8080-exec-6] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод TaskServiceImpl.createTask выполнился за 4 мс
+2026-03-03 20:18:59.904 [http-nio-8080-exec-7] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: TaskServiceImpl.createTask с аргументами: [153, TaskRequestDto[title=Новая задача, description=Описание новой задачи]]
+2026-03-03 20:18:59.904 [http-nio-8080-exec-7] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: ProjectServiceImpl.getProjectEntityById с аргументами: [153]
+2026-03-03 20:18:59.905 [http-nio-8080-exec-7] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод ProjectServiceImpl.getProjectEntityById выполнился за 1 мс
+2026-03-03 20:18:59.907 [http-nio-8080-exec-7] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод TaskServiceImpl.createTask выполнился за 3 мс
+2026-03-03 20:19:05.058 [http-nio-8080-exec-8] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: ProjectServiceImpl.createProject с аргументами: [ProjectRequestDto[title=Новый проект API, description=Описание нового проекта, startDate=2024-03-01T10:00, deadline=2024-12-31T18:00, status=ACTIVE]]
+2026-03-03 20:19:05.127 [http-nio-8080-exec-8] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод ProjectServiceImpl.createProject выполнился за 69 мс
+2026-03-03 20:19:30.198 [http-nio-8080-exec-9] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: TaskServiceImpl.createTaskWoTx с аргументами: [153, TaskCreationDto[taskTitle=Задача без транзакции_FINAL, taskDescription=Описание_FINAL, labelTitle=BUG_FINAL, commentContent=Комментарий к задаче_FINAL, initiateProblem=true]]
+2026-03-03 20:19:30.201 [http-nio-8080-exec-9] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: ProjectServiceImpl.getProjectEntityById с аргументами: [153]
+2026-03-03 20:19:30.203 [http-nio-8080-exec-9] DEBUG c.y.labs.aop.ServiceLoggingAspect - Метод ProjectServiceImpl.getProjectEntityById выполнился за 1 мс
+2026-03-03 20:19:30.209 [http-nio-8080-exec-9] DEBUG c.y.labs.aop.ServiceLoggingAspect - Выполнение метода: LabelServiceImpl.createLabelEntity с аргументами: [BUG_FINAL]
+2026-03-03 20:19:30.215 [http-nio-8080-exec-9] WARN  c.y.labs.aop.ServiceLoggingAspect - Бизнес-исключение в методе LabelServiceImpl.createLabelEntity: Label already exists!
+2026-03-03 20:19:30.215 [http-nio-8080-exec-9] WARN  c.y.labs.aop.ServiceLoggingAspect - Бизнес-исключение в методе TaskServiceImpl.createTaskWoTx: Label already exists!
+2026-03-03 21:23:52.508 [SpringApplicationShutdownHook] INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-03 21:23:52.514 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-03-03 21:23:52.517 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-03 21:23:52.522 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-03-03 21:23:52.522 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

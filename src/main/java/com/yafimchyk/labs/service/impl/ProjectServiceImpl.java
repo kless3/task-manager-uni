@@ -15,7 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -96,13 +95,13 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<ProjectResponseDto> findProjectsByStatusDeadlineAndLabelJPQL(
+    public List<ProjectResponseDto> findProjectsByStatusDeadlineAndLabelJpql(
             ProjectStatus status,
             LocalDateTime startDate,
             LocalDateTime endDate,
             String labelTitle) {
 
-        List<Project> projects = projectRepository.findProjectsByStatusDeadlineAndLabelJPQL(
+        List<Project> projects = projectRepository.findProjectsByStatusDeadlineAndLabelJpql(
                 status, startDate, endDate, labelTitle
         );
 

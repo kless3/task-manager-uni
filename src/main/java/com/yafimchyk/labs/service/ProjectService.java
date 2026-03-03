@@ -7,7 +7,6 @@ import com.yafimchyk.labs.model.enums.ProjectStatus;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Set;
 
 public interface ProjectService {
 
@@ -23,7 +22,7 @@ public interface ProjectService {
 
     void deleteProjectById(Long id);
 
-    List<ProjectResponseDto> findProjectsByStatusDeadlineAndLabelJPQL(
+    List<ProjectResponseDto> findProjectsByStatusDeadlineAndLabelJpql(
             ProjectStatus status,
             LocalDateTime startDate,
             LocalDateTime endDate,

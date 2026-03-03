@@ -23,7 +23,7 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
             "WHERE p.status = :status " +
             "AND p.deadline BETWEEN :startDate AND :endDate " +
             "AND l.title = :labelTitle")
-    List<Project> findProjectsByStatusDeadlineAndLabelJPQL(
+    List<Project> findProjectsByStatusDeadlineAndLabelJpql(
             @Param("status") ProjectStatus status,
             @Param("startDate") LocalDateTime startDate,
             @Param("endDate") LocalDateTime endDate,

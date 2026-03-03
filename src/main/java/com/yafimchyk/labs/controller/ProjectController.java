@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Set;
 
 @RestController
 @RequestMapping("/api/v1/projects")
@@ -66,13 +65,13 @@ public class ProjectController implements ProjectControllerApi {
     }
 
     @GetMapping("/search/complex/jpql")
-    public ResponseEntity<List<ProjectResponseDto>> searchProjectsComplexJPQL(
+    public ResponseEntity<List<ProjectResponseDto>> searchProjectsComplexJpql(
             @RequestParam ProjectStatus status,
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime startDate,
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime endDate,
             @RequestParam String labelTitle) {
 
-        return ResponseEntity.ok(projectService.findProjectsByStatusDeadlineAndLabelJPQL(
+        return ResponseEntity.ok(projectService.findProjectsByStatusDeadlineAndLabelJpql(
                 status, startDate, endDate, labelTitle
         ));
     }
