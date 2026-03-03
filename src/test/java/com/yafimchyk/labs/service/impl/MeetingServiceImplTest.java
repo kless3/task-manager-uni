@@ -179,13 +179,6 @@ class MeetingServiceImplTest {
 
     @Test
     void bulkCreateWithTx_ShouldCreateAllMeetings() {
-        List<MeetingRequestDto> requests = List.of(
-                new MeetingRequestDto("Meeting 1", now, "Room 1"),
-                new MeetingRequestDto("Meeting 2", now.plusHours(1), "Room 2")
-        );
-
-        MeetingBulkRequestDto bulkRequest = new MeetingBulkRequestDto(requests, false);
-
         Meeting meeting1 = new Meeting();
         meeting1.setId(1L);
         meeting1.setTitle("Meeting 1");
@@ -197,9 +190,16 @@ class MeetingServiceImplTest {
         MeetingResponseDto response1 = new MeetingResponseDto(1L, "Meeting 1", now, "Room 1");
         MeetingResponseDto response2 = new MeetingResponseDto(2L, "Meeting 2", now.plusHours(1), "Room 2");
 
+        List<MeetingRequestDto> requests = List.of(
+                new MeetingRequestDto("Meeting 1", now, "Room 1"),
+                new MeetingRequestDto("Meeting 2", now.plusHours(1), "Room 2")
+        );
+
         when(projectService.getProjectEntityById(1L)).thenReturn(project);
         when(meetingMapper.toEntity(requests.get(0))).thenReturn(meeting1);
         when(meetingMapper.toEntity(requests.get(1))).thenReturn(meeting2);
+
+        MeetingBulkRequestDto bulkRequest = new MeetingBulkRequestDto(requests, false);
         when(meetingRepository.save(meeting1)).thenReturn(meeting1);
         when(meetingRepository.save(meeting2)).thenReturn(meeting2);
         when(meetingMapper.toDto(meeting1)).thenReturn(response1);
@@ -217,20 +217,20 @@ class MeetingServiceImplTest {
 
     @Test
     void bulkCreateMeetings_WhenInitiatedProblem_ShouldThrowAfterFirst() {
+        Meeting meeting1 = new Meeting();
+        meeting1.setId(1L);
+        meeting1.setTitle("Meeting 1");
+
         List<MeetingRequestDto> requests = List.of(
                 new MeetingRequestDto("Meeting 1", now, "Room 1"),
                 new MeetingRequestDto("Meeting 2", now.plusHours(1), "Room 2"),
                 new MeetingRequestDto("Meeting 3", now.plusHours(2), "Room 3")
         );
 
-        MeetingBulkRequestDto bulkRequest = new MeetingBulkRequestDto(requests, true);
-
-        Meeting meeting1 = new Meeting();
-        meeting1.setId(1L);
-        meeting1.setTitle("Meeting 1");
-
         when(projectService.getProjectEntityById(1L)).thenReturn(project);
         when(meetingMapper.toEntity(requests.getFirst())).thenReturn(meeting1);
+
+        MeetingBulkRequestDto bulkRequest = new MeetingBulkRequestDto(requests, true);
         when(meetingRepository.save(meeting1)).thenReturn(meeting1);
 
         assertThatThrownBy(() -> meetingService.bulkCreateMeetings(1L, bulkRequest))
@@ -242,20 +242,20 @@ class MeetingServiceImplTest {
 
     @Test
     void bulkCreateWoTx_ShouldCreateButWithoutTransaction() {
-        List<MeetingRequestDto> requests = List.of(
-                new MeetingRequestDto("Meeting 1", now, "Room 1")
-        );
-
-        MeetingBulkRequestDto bulkRequest = new MeetingBulkRequestDto(requests, false);
-
         Meeting meeting1 = new Meeting();
         meeting1.setId(1L);
         meeting1.setTitle("Meeting 1");
 
         MeetingResponseDto response1 = new MeetingResponseDto(1L, "Meeting 1", now, "Room 1");
 
+        List<MeetingRequestDto> requests = List.of(
+                new MeetingRequestDto("Meeting 1", now, "Room 1")
+        );
+
         when(projectService.getProjectEntityById(1L)).thenReturn(project);
         when(meetingMapper.toEntity(requests.getFirst())).thenReturn(meeting1);
+
+        MeetingBulkRequestDto bulkRequest = new MeetingBulkRequestDto(requests, false);
         when(meetingRepository.save(meeting1)).thenReturn(meeting1);
         when(meetingMapper.toDto(meeting1)).thenReturn(response1);
 

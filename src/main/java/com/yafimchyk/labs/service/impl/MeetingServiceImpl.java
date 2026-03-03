@@ -24,8 +24,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MeetingServiceImpl implements MeetingService {
 
+    private static final int AMOUNT_OF_SAVED_MEETINGS = 1;
     private static final String MEETING_NOT_FOUND = "Meeting not found with id: ";
-    private static final String MEETING_ALREADY_EXISTS = "Meeting already exists!";
     private static final String INITIATED_PROBLEM = "Initiated problem was called!";
 
     private final ProjectService projectService;
@@ -107,7 +107,7 @@ public class MeetingServiceImpl implements MeetingService {
         int counter = 0;
         for (MeetingRequestDto request : requests) {
 
-            if (bulkRequest.initiatedProblem() && counter == 1) {
+            if (bulkRequest.initiatedProblem() && counter == AMOUNT_OF_SAVED_MEETINGS) {
                 throw new InitiatedProblemException(INITIATED_PROBLEM);
             }
 

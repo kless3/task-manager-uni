@@ -252,7 +252,7 @@ class ProjectServiceImplTest {
     }
 
     @Test
-    void findProjectsByStatusDeadlineAndLabelJPQL_ShouldReturnList() {
+    void findProjectsByStatusDeadlineAndLabelJpql_ShouldReturnList() {
         when(projectRepository.findProjectsByStatusDeadlineAndLabelJpql(
                 any(), any(), any(), any())).thenReturn(List.of(project));
         when(projectMapper.toDto(project)).thenReturn(responseDto);

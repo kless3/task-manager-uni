@@ -66,8 +66,8 @@ public class ServiceLoggingAspect {
     }
 
     private boolean shouldNotWrap(Exception e) {
-        return e instanceof ResourceNotFoundException ||
-                e instanceof DuplicateResourceException ||
-                e instanceof InitiatedProblemException;
+        return e instanceof ResourceNotFoundException
+                || e instanceof DuplicateResourceException
+                || e instanceof InitiatedProblemException;
     }
 }

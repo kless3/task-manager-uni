@@ -66,8 +66,6 @@ class TaskServiceImplTest {
 
     @BeforeEach
     void setUp() {
-        LocalDateTime now = LocalDateTime.now();
-
         project = new Project();
         project.setId(1L);
 
@@ -82,7 +80,12 @@ class TaskServiceImplTest {
         label.setTitle("BUG");
 
         LabelResponseDto labelResponseDto = new LabelResponseDto(1L, "BUG");
-        CommentResponseDto commentResponseDto = new CommentResponseDto(1L, "Test Comment", now, now);
+        CommentResponseDto commentResponseDto = new CommentResponseDto(
+                1L,
+                "Test Comment",
+                LocalDateTime.now(),
+                LocalDateTime.now()
+        );
 
         requestDto = new TaskRequestDto("Test Task", "Test Description");
 

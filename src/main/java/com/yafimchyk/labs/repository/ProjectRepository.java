@@ -17,12 +17,12 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
 
     List<Project> findByStatus(ProjectStatus status);
 
-    @Query("SELECT DISTINCT p FROM Project p " +
-            "JOIN p.tasks t " +
-            "JOIN t.labels l " +
-            "WHERE p.status = :status " +
-            "AND p.deadline BETWEEN :startDate AND :endDate " +
-            "AND l.title = :labelTitle")
+    @Query("SELECT DISTINCT p FROM Project p "
+            + "JOIN p.tasks t "
+            + "JOIN t.labels l "
+            + "WHERE p.status = :status "
+            + "AND p.deadline BETWEEN :startDate AND :endDate "
+            + "AND l.title = :labelTitle")
     List<Project> findProjectsByStatusDeadlineAndLabelJpql(
             @Param("status") ProjectStatus status,
             @Param("startDate") LocalDateTime startDate,
