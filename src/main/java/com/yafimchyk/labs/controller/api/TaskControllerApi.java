@@ -5,18 +5,14 @@ import com.yafimchyk.labs.dto.request.TaskRequestDto;
 import com.yafimchyk.labs.dto.response.TaskResponseDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,17 +20,28 @@ import java.util.List;
 public interface TaskControllerApi {
 
     @Operation(summary = "Получить все задачи",
-            description = "Возвращает список всех задач без привязки к проекту")
+            description = "Возвращает список всех задач с использованием entity graph для оптимизации запросов")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Список задач успешно получен")
+            @ApiResponse(responseCode = "200", description = "Список задач успешно получен",
+                    content = @Content(schema = @Schema(implementation = TaskResponseDto.class)))
     })
     @GetMapping
     ResponseEntity<List<TaskResponseDto>> getAllTasks();
 
+    @Operation(summary = "Получить все задачи без использования entity graph",
+            description = "Возвращает список всех задач стандартным способом (для сравнения производительности)")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Список задач успешно получен",
+                    content = @Content(schema = @Schema(implementation = TaskResponseDto.class)))
+    })
+    @GetMapping("/woGraph")
+    ResponseEntity<List<TaskResponseDto>> getAllTasksWoGraph();
+
     @Operation(summary = "Получить задачу по ID",
             description = "Возвращает детальную информацию о задаче по её идентификатору")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Задача найдена"),
+            @ApiResponse(responseCode = "200", description = "Задача найдена",
+                    content = @Content(schema = @Schema(implementation = TaskResponseDto.class))),
             @ApiResponse(responseCode = "404", description = "Задача с указанным ID не найдена")
     })
     @GetMapping("/{id}")
@@ -46,7 +53,8 @@ public interface TaskControllerApi {
     @Operation(summary = "Получить задачу по названию",
             description = "Поиск задачи по точному совпадению названия")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Задача найдена"),
+            @ApiResponse(responseCode = "200", description = "Задача найдена",
+                    content = @Content(schema = @Schema(implementation = TaskResponseDto.class))),
             @ApiResponse(responseCode = "404", description = "Задача с указанным названием не найдена")
     })
     @GetMapping("/byTitle")
@@ -58,7 +66,8 @@ public interface TaskControllerApi {
     @Operation(summary = "Получить все задачи по ID проекта",
             description = "Возвращает список всех задач, принадлежащих указанному проекту")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Список задач успешно получен"),
+            @ApiResponse(responseCode = "200", description = "Список задач успешно получен",
+                    content = @Content(schema = @Schema(implementation = TaskResponseDto.class))),
             @ApiResponse(responseCode = "404", description = "Проект с указанным ID не найден")
     })
     @GetMapping("/byProject/{projectId}")
@@ -70,7 +79,8 @@ public interface TaskControllerApi {
     @Operation(summary = "Создать новую задачу в проекте",
             description = "Создает задачу с указанными параметрами в существующем проекте")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Задача успешно создана"),
+            @ApiResponse(responseCode = "201", description = "Задача успешно создана",
+                    content = @Content(schema = @Schema(implementation = TaskResponseDto.class))),
             @ApiResponse(responseCode = "400", description = "Неверные данные запроса (ошибка валидации)"),
             @ApiResponse(responseCode = "404", description = "Проект с указанным ID не найден")
     })
@@ -86,7 +96,8 @@ public interface TaskControllerApi {
     @Operation(summary = "Обновить существующую задачу",
             description = "Полностью обновляет данные задачи по её ID")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Задача успешно обновлена"),
+            @ApiResponse(responseCode = "200", description = "Задача успешно обновлена",
+                    content = @Content(schema = @Schema(implementation = TaskResponseDto.class))),
             @ApiResponse(responseCode = "400", description = "Неверные данные запроса (ошибка валидации)"),
             @ApiResponse(responseCode = "404", description = "Задача с указанным ID не найдена")
     })
@@ -100,7 +111,7 @@ public interface TaskControllerApi {
     );
 
     @Operation(summary = "Удалить задачу по ID",
-            description = "Безвозвратно удаляет задачу и все связанные с ней комментарии")
+            description = "Безвозвратно удаляет задачу и все связанные с ней комментарии и связи с метками")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "204", description = "Задача успешно удалена"),
             @ApiResponse(responseCode = "404", description = "Задача с указанным ID не найдена")
@@ -112,11 +123,12 @@ public interface TaskControllerApi {
     );
 
     @Operation(summary = "Создать задачу с меткой и комментарием (без транзакции)",
-            description = "Демонстрационный метод, показывающий проблемы с транзакциями. "
-                    + "При initiateProblem = true создаст ошибку после сохранения комментария, "
-                    + "но до сохранения задачи - комментарий останется в БД без задачи")
+            description = "Демонстрационный метод, показывающий проблемы с транзакциями. " +
+                    "При initiateProblem = true создаст ошибку после сохранения комментария, " +
+                    "но до сохранения задачи - комментарий останется в БД без задачи")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Задача успешно создана (если initiateProblem = false)"),
+            @ApiResponse(responseCode = "201", description = "Задача успешно создана (если initiateProblem = false)",
+                    content = @Content(schema = @Schema(implementation = TaskResponseDto.class))),
             @ApiResponse(responseCode = "400", description = "Неверные данные запроса"),
             @ApiResponse(responseCode = "404", description = "Проект с указанным ID не найден"),
             @ApiResponse(responseCode = "500", description = "Ошибка транзакции - комментарий сохранен без задачи")
@@ -131,10 +143,11 @@ public interface TaskControllerApi {
     );
 
     @Operation(summary = "Создать задачу с меткой и комментарием (с транзакцией)",
-            description = "Демонстрационный метод, показывающий правильную работу транзакций. "
-                    + "При возникновении ошибки все изменения откатываются")
+            description = "Демонстрационный метод, показывающий правильную работу транзакций. " +
+                    "При возникновении ошибки все изменения откатываются")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Задача успешно создана"),
+            @ApiResponse(responseCode = "201", description = "Задача успешно создана",
+                    content = @Content(schema = @Schema(implementation = TaskResponseDto.class))),
             @ApiResponse(responseCode = "400", description = "Неверные данные запроса"),
             @ApiResponse(responseCode = "404", description = "Проект с указанным ID не найден"),
             @ApiResponse(responseCode = "500", description = "Ошибка транзакции - все изменения откачены")

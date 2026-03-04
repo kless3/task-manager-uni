@@ -17,6 +17,9 @@ import org.springframework.util.StopWatch;
 @Component
 public class ServiceLoggingAspect {
 
+    private static final int SLOW_THRESHOLD_MS = 500;
+    private static final int VERY_SLOW_THRESHOLD_MS = 1000;
+
     private static final String ERROR_EXECUTING_METHOD = "Error executing method!";
 
     private static final Logger logger = LoggerFactory.getLogger(ServiceLoggingAspect.class);
@@ -43,10 +46,10 @@ public class ServiceLoggingAspect {
             stopWatch.stop();
             long executionTime = stopWatch.getTotalTimeMillis();
 
-            if (executionTime > 1000) {
+            if (executionTime > VERY_SLOW_THRESHOLD_MS) {
                 logger.warn("Метод {} выполнился за {} мс (превышает порог в 1000 мс)",
                         fullMethodName, executionTime);
-            } else if (executionTime > 500) {
+            } else if (executionTime > SLOW_THRESHOLD_MS) {
                 logger.info("Метод {} выполнился за {} мс", fullMethodName, executionTime);
             } else {
                 logger.debug("Метод {} выполнился за {} мс", fullMethodName, executionTime);

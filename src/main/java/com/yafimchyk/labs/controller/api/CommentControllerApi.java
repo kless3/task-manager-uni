@@ -11,12 +11,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -39,7 +34,8 @@ public interface CommentControllerApi {
     @Operation(summary = "Получить все комментарии по ID задачи",
             description = "Возвращает список всех комментариев, принадлежащих указанной задаче")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Список комментариев успешно получен"),
+            @ApiResponse(responseCode = "200", description = "Список комментариев успешно получен",
+                    content = @Content(schema = @Schema(implementation = CommentResponseDto.class))),
             @ApiResponse(responseCode = "404", description = "Задача с указанным ID не найдена")
     })
     @GetMapping("/byTask/{taskId}")
@@ -51,7 +47,8 @@ public interface CommentControllerApi {
     @Operation(summary = "Создать новый комментарий для задачи",
             description = "Создает комментарий и привязывает его к указанной задаче")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Комментарий успешно создан"),
+            @ApiResponse(responseCode = "201", description = "Комментарий успешно создан",
+                    content = @Content(schema = @Schema(implementation = CommentResponseDto.class))),
             @ApiResponse(responseCode = "400", description = "Неверные данные запроса (ошибка валидации)"),
             @ApiResponse(responseCode = "404", description = "Задача с указанным ID не найдена")
     })
@@ -67,9 +64,10 @@ public interface CommentControllerApi {
     @Operation(summary = "Обновить существующий комментарий",
             description = "Полностью обновляет данные комментария по его ID")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Комментарий успешно обновлен"),
+            @ApiResponse(responseCode = "200", description = "Комментарий успешно обновлен",
+                    content = @Content(schema = @Schema(implementation = CommentResponseDto.class))),
             @ApiResponse(responseCode = "400", description = "Неверные данные запроса (ошибка валидации)"),
-            @ApiResponse(responseCode = "404", description = "Комментарий с указанным ID не найдена")
+            @ApiResponse(responseCode = "404", description = "Комментарий с указанным ID не найден")
     })
     @PutMapping("/{id}")
     ResponseEntity<CommentResponseDto> updateComment(
