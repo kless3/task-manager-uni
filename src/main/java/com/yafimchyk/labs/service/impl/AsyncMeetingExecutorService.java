@@ -1,6 +1,7 @@
 package com.yafimchyk.labs.service.impl;
 
 import com.yafimchyk.labs.dto.request.MeetingRequestDto;
+import com.yafimchyk.labs.exception.InitiatedProblemException;
 import com.yafimchyk.labs.model.AsyncTask;
 import com.yafimchyk.labs.model.Meeting;
 import com.yafimchyk.labs.model.Project;
@@ -77,7 +78,7 @@ public class AsyncMeetingExecutorService {
             task.setStatus(AsyncTaskStatus.FAILED);
             task.setEndTime(LocalDateTime.now());
             task.setResult("Задача была прервана во время ожидания");
-            throw new RuntimeException("Task interrupted", e);
+            throw new InitiatedProblemException("Task interrupted");
         }
     }
 }
