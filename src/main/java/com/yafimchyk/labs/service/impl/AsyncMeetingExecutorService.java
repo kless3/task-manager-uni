@@ -36,6 +36,13 @@ public class AsyncMeetingExecutorService {
             int total = meetings.size();
 
             for (int i = 0; i < total; i++) {
+                if (Thread.currentThread().isInterrupted()) {
+                    task.setStatus(AsyncTaskStatus.FAILED);
+                    task.setEndTime(LocalDateTime.now());
+                    task.setResult("Задача была прервана");
+                    return;
+                }
+
                 MeetingRequestDto request = meetings.get(i);
                 Meeting meeting = new Meeting();
                 meeting.setTitle(request.title());
@@ -46,7 +53,16 @@ public class AsyncMeetingExecutorService {
 
                 int progress = (i + 1) * 100 / total;
                 task.setProgress(progress);
-                Thread.sleep(2000);
+
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                    task.setStatus(AsyncTaskStatus.FAILED);
+                    task.setEndTime(LocalDateTime.now());
+                    task.setResult("Задача была прервана во время ожидания");
+                    return;
+                }
             }
 
             task.setStatus(AsyncTaskStatus.COMPLETED);
