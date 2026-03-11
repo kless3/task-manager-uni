@@ -54,15 +54,7 @@ public class AsyncMeetingExecutorService {
                 int progress = (i + 1) * 100 / total;
                 task.setProgress(progress);
 
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    Thread.currentThread().interrupt();
-                    task.setStatus(AsyncTaskStatus.FAILED);
-                    task.setEndTime(LocalDateTime.now());
-                    task.setResult("Задача была прервана во время ожидания");
-                    return;
-                }
+                sleepWithInterruptionHandling(task);
             }
 
             task.setStatus(AsyncTaskStatus.COMPLETED);
@@ -74,6 +66,18 @@ public class AsyncMeetingExecutorService {
             task.setStatus(AsyncTaskStatus.FAILED);
             task.setEndTime(LocalDateTime.now());
             task.setResult("Ошибка: " + e.getMessage());
+        }
+    }
+
+    private void sleepWithInterruptionHandling(AsyncTask task) {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            task.setStatus(AsyncTaskStatus.FAILED);
+            task.setEndTime(LocalDateTime.now());
+            task.setResult("Задача была прервана во время ожидания");
+            throw new RuntimeException("Task interrupted", e);
         }
     }
 }
