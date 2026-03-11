@@ -12,7 +12,13 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -123,9 +129,9 @@ public interface TaskControllerApi {
     );
 
     @Operation(summary = "Создать задачу с меткой и комментарием (без транзакции)",
-            description = "Демонстрационный метод, показывающий проблемы с транзакциями. " +
-                    "При initiateProblem = true создаст ошибку после сохранения комментария, " +
-                    "но до сохранения задачи - комментарий останется в БД без задачи")
+            description = "Демонстрационный метод, показывающий проблемы с транзакциями. "
+                    + "При initiateProblem = true создаст ошибку после сохранения комментария, "
+                    + "но до сохранения задачи - комментарий останется в БД без задачи")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Задача успешно создана (если initiateProblem = false)",
                     content = @Content(schema = @Schema(implementation = TaskResponseDto.class))),
@@ -143,8 +149,8 @@ public interface TaskControllerApi {
     );
 
     @Operation(summary = "Создать задачу с меткой и комментарием (с транзакцией)",
-            description = "Демонстрационный метод, показывающий правильную работу транзакций. " +
-                    "При возникновении ошибки все изменения откатываются")
+            description = "Демонстрационный метод, показывающий правильную работу транзакций. "
+                    + "При возникновении ошибки все изменения откатываются")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Задача успешно создана",
                     content = @Content(schema = @Schema(implementation = TaskResponseDto.class))),

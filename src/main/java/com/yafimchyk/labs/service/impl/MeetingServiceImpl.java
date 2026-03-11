@@ -6,8 +6,10 @@ import com.yafimchyk.labs.dto.response.MeetingResponseDto;
 import com.yafimchyk.labs.exception.InitiatedProblemException;
 import com.yafimchyk.labs.exception.ResourceNotFoundException;
 import com.yafimchyk.labs.mapper.MeetingMapper;
+import com.yafimchyk.labs.model.AsyncTask;
 import com.yafimchyk.labs.model.Meeting;
 import com.yafimchyk.labs.model.Project;
+import com.yafimchyk.labs.model.enums.AsyncTaskStatus;
 import com.yafimchyk.labs.repository.MeetingRepository;
 import com.yafimchyk.labs.service.MeetingService;
 import com.yafimchyk.labs.service.ProjectService;
@@ -17,8 +19,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -31,6 +36,8 @@ public class MeetingServiceImpl implements MeetingService {
     private final ProjectService projectService;
     private final MeetingRepository meetingRepository;
     private final MeetingMapper meetingMapper;
+    private final AsyncTaskStorage asyncTaskStorage;
+    private final AsyncMeetingExecutorService asyncMeetingExecutor;
 
     @Override
     @Transactional
@@ -97,16 +104,13 @@ public class MeetingServiceImpl implements MeetingService {
         return bulkCreateMeetings(projectId, bulkRequestDto);
     }
 
-    public List<MeetingResponseDto> bulkCreateMeetings(Long projectId, MeetingBulkRequestDto bulkRequest) {
-
+    private List<MeetingResponseDto> bulkCreateMeetings(Long projectId, MeetingBulkRequestDto bulkRequest) {
         Project projectEntity = projectService.getProjectEntityById(projectId);
         List<MeetingRequestDto> requests = bulkRequest.meetings();
-
         List<Meeting> meetings = new ArrayList<>();
 
         int counter = 0;
         for (MeetingRequestDto request : requests) {
-
             if (bulkRequest.initiatedProblem() && counter == AMOUNT_OF_SAVED_MEETINGS) {
                 throw new InitiatedProblemException(INITIATED_PROBLEM);
             }
@@ -121,5 +125,29 @@ public class MeetingServiceImpl implements MeetingService {
         return meetings.stream()
                 .map(meetingMapper::toDto)
                 .toList();
+    }
+
+    public String createMeetingsAsync(Long projectId, MeetingBulkRequestDto request) {
+        String taskId = UUID.randomUUID().toString();
+
+        AsyncTask task = AsyncTask.builder()
+                .taskId(taskId)
+                .status(AsyncTaskStatus.PENDING)
+                .startTime(LocalDateTime.now())
+                .progress(0)
+                .build();
+
+        asyncTaskStorage.saveTask(task);
+        asyncMeetingExecutor.executeMeetingsCreation(taskId, projectId, request.meetings());
+
+        return taskId;
+    }
+
+    public AsyncTask getMeetingTaskStatus(String taskId) {
+        return asyncTaskStorage.getTask(taskId);
+    }
+
+    public Map<String, AsyncTask> getAllAsyncTasks() {
+        return asyncTaskStorage.getAllTasks();
     }
 }
