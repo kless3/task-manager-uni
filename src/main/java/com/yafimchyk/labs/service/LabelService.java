@@ -14,6 +14,8 @@ public interface LabelService {
 
     LabelResponseDto createLabel(Long taskId, LabelRequestDto request);
 
+    LabelResponseDto attachLabelToTask(Long labelId, Long taskId);
+
     LabelResponseDto updateLabel(Long id, LabelRequestDto request);
 
     void deleteLabel(Long id);

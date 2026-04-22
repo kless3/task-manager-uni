@@ -44,6 +44,13 @@ public class LabelController implements LabelControllerApi {
         return new ResponseEntity<>(createdLabel, HttpStatus.CREATED);
     }
 
+    @PostMapping("/{labelId}/attach/task/{taskId}")
+    public ResponseEntity<LabelResponseDto> attachLabelToTask(
+            @PathVariable Long labelId,
+            @PathVariable Long taskId) {
+        return ResponseEntity.ok(labelService.attachLabelToTask(labelId, taskId));
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<LabelResponseDto> updateLabel(
             @PathVariable Long id,

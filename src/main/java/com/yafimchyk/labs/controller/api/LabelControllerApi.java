@@ -62,6 +62,22 @@ public interface LabelControllerApi {
             @Valid @RequestBody LabelRequestDto request
     );
 
+    @Operation(summary = "Attach existing label to task",
+            description = "Attaches an already created label to an existing task")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Label attached to task",
+                    content = @Content(schema = @Schema(implementation = LabelResponseDto.class))),
+            @ApiResponse(responseCode = "404", description = "Label or task not found")
+    })
+    @PostMapping("/{labelId}/attach/task/{taskId}")
+    ResponseEntity<LabelResponseDto> attachLabelToTask(
+            @Parameter(description = "Label ID", required = true, example = "1")
+            @PathVariable Long labelId,
+
+            @Parameter(description = "Task ID", required = true, example = "1")
+            @PathVariable Long taskId
+    );
+
     @Operation(summary = "Обновить существующую метку",
             description = "Полностью обновляет данные метки по её ID")
     @ApiResponses(value = {

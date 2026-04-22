@@ -16,6 +16,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -60,18 +61,36 @@ public class LabelServiceImpl implements LabelService {
     public LabelResponseDto createLabel(Long taskId, LabelRequestDto request) {
         cacheManager.invalidate(Label.class, Task.class);
 
-        if (labelRepository.existsByTitle(request.title())) {
-            throw new DuplicateResourceException(LABEL_ALREADY_EXISTS);
-        }
-
         Task taskEntity = taskEntityService.getTaskEntityById(taskId);
-        Label label = labelMapper.toEntity(request);
+        Label label = labelRepository.findByTitle(request.title())
+                .orElseGet(() -> labelMapper.toEntity(request));
 
         taskEntity.getLabels().add(label);
         label.getTasks().add(taskEntity);
 
         Label savedLabel = labelRepository.save(label);
         return labelMapper.toDto(savedLabel);
+    }
+
+    @Override
+    @Transactional
+    public LabelResponseDto attachLabelToTask(Long labelId, Long taskId) {
+        cacheManager.invalidate(Label.class, Task.class);
+
+        Label label = labelRepository.findById(labelId)
+                .orElseThrow(() -> new ResourceNotFoundException(LABEL_NOT_FOUND + labelId));
+
+        Task taskEntity = taskEntityService.getTaskEntityById(taskId);
+
+        boolean alreadyAttached = taskEntity.getLabels().stream()
+                .anyMatch(existingLabel -> existingLabel.getId().equals(labelId));
+
+        if (!alreadyAttached) {
+            taskEntity.getLabels().add(label);
+            label.getTasks().add(taskEntity);
+        }
+
+        return labelMapper.toDto(label);
     }
 
     @Override
@@ -98,6 +117,13 @@ public class LabelServiceImpl implements LabelService {
 
         Label targetLabel = labelRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(LABEL_NOT_FOUND + id));
+
+        // Detach label from owner side of many-to-many to clear join table rows first.
+        List<Task> relatedTasks = new ArrayList<>(targetLabel.getTasks());
+        for (Task task : relatedTasks) {
+            task.getLabels().remove(targetLabel);
+        }
+        targetLabel.getTasks().clear();
 
         labelRepository.delete(targetLabel);
     }
