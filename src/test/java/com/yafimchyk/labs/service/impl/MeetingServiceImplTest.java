@@ -216,7 +216,7 @@ class MeetingServiceImplTest {
     }
 
     @Test
-    void bulkCreateMeetings_WhenInitiatedProblem_ShouldThrowAfterFirst() {
+    void bulkCreateWithTx_WhenInitiatedProblem_ShouldThrowAfterFirst() {
         Meeting meeting1 = new Meeting();
         meeting1.setId(1L);
         meeting1.setTitle("Meeting 1");
@@ -233,7 +233,7 @@ class MeetingServiceImplTest {
         MeetingBulkRequestDto bulkRequest = new MeetingBulkRequestDto(requests, true);
         when(meetingRepository.save(meeting1)).thenReturn(meeting1);
 
-        assertThatThrownBy(() -> meetingService.bulkCreateMeetings(1L, bulkRequest))
+        assertThatThrownBy(() -> meetingService.bulkCreateWithTx(1L, bulkRequest))
                 .isInstanceOf(InitiatedProblemException.class)
                 .hasMessageContaining("Initiated problem was called!");
 
