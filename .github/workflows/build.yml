@@ -37,9 +37,9 @@ jobs:
           --health-retries=10
     env:
       # Переменные подключения backend к тестовой БД
-      DB_URL: jdbc:postgresql://localhost:5432/chesov
-      DB_USERNAME: postgres
-      DB_PASSWORD: postgres
+      DB_URL: ${{ secrets.DB_URL }}
+      DB_USERNAME: ${{ secrets.DB_USERNAME }}
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
     steps:
       # Забираем код репозитория
       - name: Checkout
