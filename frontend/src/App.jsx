@@ -1,6 +1,7 @@
 ﻿import { useEffect, useMemo, useState } from "react";
 import { api } from "./api";
 import AppHeader from "./components/AppHeader";
+import Modal from "./components/Modal";
 import ProjectDetailView from "./components/ProjectDetailView";
 import ProjectListView from "./components/ProjectListView";
 import StatusBanners from "./components/StatusBanners";
@@ -23,7 +24,6 @@ function App() {
   const [selectedExistingLabelId, setSelectedExistingLabelId] = useState("");
   const [meetingPage, setMeetingPage] = useState(0);
 
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
@@ -41,6 +41,7 @@ function App() {
   const [editingMeetingId, setEditingMeetingId] = useState(null);
   const [editingLabelId, setEditingLabelId] = useState(null);
   const [editingCommentId, setEditingCommentId] = useState(null);
+  const [activeModal, setActiveModal] = useState(null);
 
   const openedProject = useMemo(
     () => projects.find((project) => project.id === openedProjectId) || null,
@@ -86,6 +87,10 @@ function App() {
   function notifyError(err) {
     setSuccess("");
     setError(err?.message || "Unknown error");
+  }
+
+  function closeModal() {
+    setActiveModal(null);
   }
 
   async function loadProjects({ keepOpenProjectId = openedProjectId, keepTaskId = selectedTaskId } = {}) {
@@ -139,8 +144,7 @@ function App() {
   }
 
   useEffect(() => {
-    setLoading(true);
-    Promise.all([loadProjects(), loadLabels()]).finally(() => setLoading(false));
+    Promise.all([loadProjects(), loadLabels()]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -164,6 +168,7 @@ function App() {
       }
       setProjectForm(EMPTY_PROJECT);
       setEditingProjectId(null);
+      closeModal();
       await loadProjects({ keepOpenProjectId: openedProjectId, keepTaskId: selectedTaskId });
     } catch (err) {
       notifyError(err);
@@ -184,6 +189,7 @@ function App() {
       }
       setTaskForm(EMPTY_TASK);
       setEditingTaskId(null);
+      closeModal();
       await loadProjects({ keepOpenProjectId: openedProjectId, keepTaskId: selectedTaskId });
     } catch (err) {
       notifyError(err);
@@ -210,6 +216,7 @@ function App() {
       }
       setMeetingForm(EMPTY_MEETING);
       setEditingMeetingId(null);
+      closeModal();
       await loadProjects({ keepOpenProjectId: openedProjectId, keepTaskId: selectedTaskId });
     } catch (err) {
       notifyError(err);
@@ -230,6 +237,7 @@ function App() {
       }
       setLabelForm(EMPTY_LABEL);
       setEditingLabelId(null);
+      closeModal();
       await loadLabels();
       await loadProjects({ keepOpenProjectId: openedProjectId, keepTaskId: selectedTaskId });
     } catch (err) {
@@ -290,6 +298,7 @@ function App() {
       }
       setCommentForm(EMPTY_COMMENT);
       setEditingCommentId(null);
+      closeModal();
       await loadProjects({ keepOpenProjectId: openedProjectId, keepTaskId: selectedTaskId });
     } catch (err) {
       notifyError(err);
@@ -358,11 +367,13 @@ function App() {
       deadline: project.deadline?.slice(0, 16) || "",
       status: project.status,
     });
+    setActiveModal("project");
   }
 
   function resetProjectForm() {
     setEditingProjectId(null);
     setProjectForm(EMPTY_PROJECT);
+    closeModal();
   }
 
   function openProject(project) {
@@ -383,11 +394,13 @@ function App() {
   function startEditTask(task) {
     setEditingTaskId(task.id);
     setTaskForm({ title: task.title, description: task.description });
+    setActiveModal("task");
   }
 
   function resetTaskForm() {
     setEditingTaskId(null);
     setTaskForm(EMPTY_TASK);
+    closeModal();
   }
 
   function startEditMeeting(meeting) {
@@ -397,31 +410,67 @@ function App() {
       meetingDate: meeting.meetingDate?.slice(0, 16) || "",
       description: meeting.description || "",
     });
+    setActiveModal("meeting");
   }
 
   function resetMeetingForm() {
     setEditingMeetingId(null);
     setMeetingForm(EMPTY_MEETING);
+    closeModal();
   }
 
   function startEditLabel(label) {
     setEditingLabelId(label.id);
     setLabelForm({ title: label.title });
+    setActiveModal("label");
   }
 
   function resetLabelForm() {
     setEditingLabelId(null);
     setLabelForm(EMPTY_LABEL);
+    closeModal();
   }
 
   function startEditComment(comment) {
     setEditingCommentId(comment.id);
     setCommentForm({ content: comment.content });
+    setActiveModal("comment");
   }
 
   function resetCommentForm() {
     setEditingCommentId(null);
     setCommentForm(EMPTY_COMMENT);
+    closeModal();
+  }
+
+  function openCreateProjectModal() {
+    setEditingProjectId(null);
+    setProjectForm(EMPTY_PROJECT);
+    setActiveModal("project");
+  }
+
+  function openCreateTaskModal() {
+    setEditingTaskId(null);
+    setTaskForm(EMPTY_TASK);
+    setActiveModal("task");
+  }
+
+  function openCreateMeetingModal() {
+    setEditingMeetingId(null);
+    setMeetingForm(EMPTY_MEETING);
+    setActiveModal("meeting");
+  }
+
+  function openCreateLabelModal() {
+    setEditingLabelId(null);
+    setLabelForm(EMPTY_LABEL);
+    setActiveModal("label");
+  }
+
+  function openCreateCommentModal() {
+    setEditingCommentId(null);
+    setCommentForm(EMPTY_COMMENT);
+    setActiveModal("comment");
   }
 
   return (
@@ -439,13 +488,9 @@ function App() {
           projectStatuses={PROJECT_STATUSES}
           onRefresh={() => loadProjects({ keepOpenProjectId: null, keepTaskId: null })}
           onOpenProject={openProject}
+          onOpenCreateProjectModal={openCreateProjectModal}
           onStartEditProject={startEditProject}
           onRemoveProject={removeProject}
-          editingProjectId={editingProjectId}
-          projectForm={projectForm}
-          onProjectFormChange={(field, value) => setProjectForm((prev) => ({ ...prev, [field]: value }))}
-          onSubmitProject={submitProject}
-          onResetProjectForm={resetProjectForm}
           formatDate={formatDate}
           toArray={toArray}
         />
@@ -461,24 +506,16 @@ function App() {
           }}
           onRemoveProject={removeProject}
           formatDate={formatDate}
-          submitTask={submitTask}
-          taskForm={taskForm}
-          onTaskFormChange={(field, value) => setTaskForm((prev) => ({ ...prev, [field]: value }))}
-          editingTaskId={editingTaskId}
-          onResetTaskForm={resetTaskForm}
           projectTasks={projectTasks}
           selectedTaskId={selectedTaskId}
           onSelectTask={setSelectedTaskId}
+          onOpenCreateTaskModal={openCreateTaskModal}
           onStartEditTask={startEditTask}
           onRemoveTask={removeTask}
           toArray={toArray}
-          submitMeeting={submitMeeting}
-          meetingForm={meetingForm}
-          onMeetingFormChange={(field, value) => setMeetingForm((prev) => ({ ...prev, [field]: value }))}
-          editingMeetingId={editingMeetingId}
-          onResetMeetingForm={resetMeetingForm}
           pagedMeetings={pagedMeetings}
           sortedMeetings={sortedMeetings}
+          onOpenCreateMeetingModal={openCreateMeetingModal}
           onStartEditMeeting={startEditMeeting}
           onRemoveMeeting={removeMeeting}
           meetingPage={meetingPage}
@@ -490,24 +527,161 @@ function App() {
           onExistingLabelChange={setSelectedExistingLabelId}
           attachableLabels={attachableLabels}
           onAttachExistingLabel={attachExistingLabel}
-          submitLabel={submitLabel}
-          labelForm={labelForm}
-          onLabelFormChange={(title) => setLabelForm({ title })}
-          editingLabelId={editingLabelId}
-          onResetLabelForm={resetLabelForm}
+          onOpenCreateLabelModal={openCreateLabelModal}
           onStartEditLabel={startEditLabel}
           onRemoveLabel={removeLabel}
-          submitComment={submitComment}
-          commentForm={commentForm}
-          onCommentFormChange={(content) => setCommentForm({ content })}
-          editingCommentId={editingCommentId}
-          onResetCommentForm={resetCommentForm}
+          onOpenCreateCommentModal={openCreateCommentModal}
           onStartEditComment={startEditComment}
           onRemoveComment={removeComment}
         />
       )}
 
-      <div className="small-note">{loading ? "Loading..." : "Synced with API"}</div>
+      <Modal
+        title={editingProjectId ? "Edit project" : "Create project"}
+        isOpen={activeModal === "project"}
+        onClose={resetProjectForm}
+      >
+        <form className="inline-form" onSubmit={submitProject}>
+          <div className="row">
+            <input
+              placeholder="Title"
+              value={projectForm.title}
+              onChange={(event) => setProjectForm((prev) => ({ ...prev, title: event.target.value }))}
+              required
+            />
+            <select
+              value={projectForm.status}
+              onChange={(event) => setProjectForm((prev) => ({ ...prev, status: event.target.value }))}
+            >
+              {PROJECT_STATUSES.map((status) => (
+                <option key={status} value={status}>
+                  {status}
+                </option>
+              ))}
+            </select>
+          </div>
+          <textarea
+            placeholder="Description"
+            value={projectForm.description}
+            onChange={(event) => setProjectForm((prev) => ({ ...prev, description: event.target.value }))}
+            required
+          />
+          <div className="row">
+            <input
+              type="datetime-local"
+              value={projectForm.startDate}
+              onChange={(event) => setProjectForm((prev) => ({ ...prev, startDate: event.target.value }))}
+              required
+            />
+            <input
+              type="datetime-local"
+              value={projectForm.deadline}
+              onChange={(event) => setProjectForm((prev) => ({ ...prev, deadline: event.target.value }))}
+              required
+            />
+          </div>
+          <div className="btn-group">
+            <button type="submit">{editingProjectId ? "Save" : "Create"}</button>
+            <button type="button" className="secondary" onClick={resetProjectForm}>
+              Cancel
+            </button>
+          </div>
+        </form>
+      </Modal>
+
+      <Modal title={editingTaskId ? "Edit task" : "Create task"} isOpen={activeModal === "task"} onClose={resetTaskForm}>
+        <form className="inline-form" onSubmit={submitTask}>
+          <input
+            placeholder="Task title"
+            value={taskForm.title}
+            onChange={(event) => setTaskForm((prev) => ({ ...prev, title: event.target.value }))}
+            required
+          />
+          <textarea
+            placeholder="Task description"
+            value={taskForm.description}
+            onChange={(event) => setTaskForm((prev) => ({ ...prev, description: event.target.value }))}
+            required
+          />
+          <div className="btn-group">
+            <button type="submit">{editingTaskId ? "Save" : "Add"}</button>
+            <button type="button" className="secondary" onClick={resetTaskForm}>
+              Cancel
+            </button>
+          </div>
+        </form>
+      </Modal>
+
+      <Modal
+        title={editingMeetingId ? "Edit meeting" : "Create meeting"}
+        isOpen={activeModal === "meeting"}
+        onClose={resetMeetingForm}
+      >
+        <form className="inline-form" onSubmit={submitMeeting}>
+          <input
+            placeholder="Meeting title"
+            value={meetingForm.title}
+            onChange={(event) => setMeetingForm((prev) => ({ ...prev, title: event.target.value }))}
+            required
+          />
+          <input
+            type="datetime-local"
+            value={meetingForm.meetingDate}
+            onChange={(event) => setMeetingForm((prev) => ({ ...prev, meetingDate: event.target.value }))}
+            required
+          />
+          <textarea
+            placeholder="Meeting description"
+            value={meetingForm.description}
+            onChange={(event) => setMeetingForm((prev) => ({ ...prev, description: event.target.value }))}
+          />
+          <div className="btn-group">
+            <button type="submit">{editingMeetingId ? "Save" : "Add"}</button>
+            <button type="button" className="secondary" onClick={resetMeetingForm}>
+              Cancel
+            </button>
+          </div>
+        </form>
+      </Modal>
+
+      <Modal title={editingLabelId ? "Edit label" : "Create label"} isOpen={activeModal === "label"} onClose={resetLabelForm}>
+        <form className="inline-form" onSubmit={submitLabel}>
+          <input
+            placeholder="Label title"
+            value={labelForm.title}
+            onChange={(event) => setLabelForm({ title: event.target.value })}
+            required
+          />
+          <div className="btn-group">
+            <button type="submit">{editingLabelId ? "Save" : "Add"}</button>
+            <button type="button" className="secondary" onClick={resetLabelForm}>
+              Cancel
+            </button>
+          </div>
+        </form>
+      </Modal>
+
+      <Modal
+        title={editingCommentId ? "Edit comment" : "Create comment"}
+        isOpen={activeModal === "comment"}
+        onClose={resetCommentForm}
+      >
+        <form className="inline-form" onSubmit={submitComment}>
+          <textarea
+            placeholder="Comment text"
+            value={commentForm.content}
+            onChange={(event) => setCommentForm({ content: event.target.value })}
+            required
+          />
+          <div className="btn-group">
+            <button type="submit">{editingCommentId ? "Save" : "Add"}</button>
+            <button type="button" className="secondary" onClick={resetCommentForm}>
+              Cancel
+            </button>
+          </div>
+        </form>
+      </Modal>
+
     </div>
   );
 }

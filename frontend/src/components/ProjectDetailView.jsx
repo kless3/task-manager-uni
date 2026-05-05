@@ -1,27 +1,19 @@
-﻿function ProjectDetailView({
+function ProjectDetailView({
   openedProject,
   onBackToProjects,
   onStartEditOpenedProject,
   onRemoveProject,
   formatDate,
-  submitTask,
-  taskForm,
-  onTaskFormChange,
-  editingTaskId,
-  onResetTaskForm,
   projectTasks,
   selectedTaskId,
   onSelectTask,
+  onOpenCreateTaskModal,
   onStartEditTask,
   onRemoveTask,
   toArray,
-  submitMeeting,
-  meetingForm,
-  onMeetingFormChange,
-  editingMeetingId,
-  onResetMeetingForm,
   pagedMeetings,
   sortedMeetings,
+  onOpenCreateMeetingModal,
   onStartEditMeeting,
   onRemoveMeeting,
   meetingPage,
@@ -33,18 +25,10 @@
   onExistingLabelChange,
   attachableLabels,
   onAttachExistingLabel,
-  submitLabel,
-  labelForm,
-  onLabelFormChange,
-  editingLabelId,
-  onResetLabelForm,
+  onOpenCreateLabelModal,
   onStartEditLabel,
   onRemoveLabel,
-  submitComment,
-  commentForm,
-  onCommentFormChange,
-  editingCommentId,
-  onResetCommentForm,
+  onOpenCreateCommentModal,
   onStartEditComment,
   onRemoveComment,
 }) {
@@ -75,28 +59,8 @@
         <article className="subpanel subpanel-entity">
           <div className="subpanel-head">
             <h3>Tasks</h3>
+            <button onClick={onOpenCreateTaskModal}>Add task</button>
           </div>
-
-          <form className="inline-form" onSubmit={submitTask}>
-            <input
-              placeholder="Task title"
-              value={taskForm.title}
-              onChange={(event) => onTaskFormChange("title", event.target.value)}
-              required
-            />
-            <textarea
-              placeholder="Task description"
-              value={taskForm.description}
-              onChange={(event) => onTaskFormChange("description", event.target.value)}
-              required
-            />
-            <div className="btn-group">
-              <button type="submit">{editingTaskId ? "Save" : "Add"}</button>
-              <button type="button" className="secondary" onClick={onResetTaskForm}>
-                Reset
-              </button>
-            </div>
-          </form>
 
           <div className="list compact entity-list">
             {projectTasks.map((task) => (
@@ -143,32 +107,10 @@
         </article>
 
         <article className="subpanel subpanel-entity">
-          <h3>Meetings</h3>
-          <form className="inline-form" onSubmit={submitMeeting}>
-            <input
-              placeholder="Meeting title"
-              value={meetingForm.title}
-              onChange={(event) => onMeetingFormChange("title", event.target.value)}
-              required
-            />
-            <input
-              type="datetime-local"
-              value={meetingForm.meetingDate}
-              onChange={(event) => onMeetingFormChange("meetingDate", event.target.value)}
-              required
-            />
-            <textarea
-              placeholder="Meeting description"
-              value={meetingForm.description}
-              onChange={(event) => onMeetingFormChange("description", event.target.value)}
-            />
-            <div className="btn-group">
-              <button type="submit">{editingMeetingId ? "Save" : "Add"}</button>
-              <button type="button" className="secondary" onClick={onResetMeetingForm}>
-                Reset
-              </button>
-            </div>
-          </form>
+          <div className="subpanel-head">
+            <h3>Meetings</h3>
+            <button onClick={onOpenCreateMeetingModal}>Add meeting</button>
+          </div>
 
           <div className="list compact entity-list">
             {pagedMeetings.map((meeting) => (
@@ -217,7 +159,10 @@
             <p className="meta">Current task: {selectedTask.title}</p>
             <div className="split">
               <div>
-                <h4>Labels</h4>
+                <div className="subpanel-head">
+                  <h4>Labels</h4>
+                  <button onClick={onOpenCreateLabelModal}>Add label</button>
+                </div>
                 <div className="row row-attach">
                   <select value={selectedExistingLabelId} onChange={(event) => onExistingLabelChange(event.target.value)}>
                     <option value="">Select existing label</option>
@@ -231,20 +176,6 @@
                     Attach
                   </button>
                 </div>
-                <form className="inline-form" onSubmit={submitLabel}>
-                  <input
-                    placeholder="Label title"
-                    value={labelForm.title}
-                    onChange={(event) => onLabelFormChange(event.target.value)}
-                    required
-                  />
-                  <div className="btn-group">
-                    <button type="submit">{editingLabelId ? "Save" : "Add"}</button>
-                    <button type="button" className="secondary" onClick={onResetLabelForm}>
-                      Reset
-                    </button>
-                  </div>
-                </form>
 
                 <div className="tags labels-wrap">
                   {toArray(selectedTask.labels).map((label) => (
@@ -262,27 +193,16 @@
               </div>
 
               <div>
-                <h4>Comments</h4>
-                <form className="inline-form" onSubmit={submitComment}>
-                  <textarea
-                    placeholder="Comment text"
-                    value={commentForm.content}
-                    onChange={(event) => onCommentFormChange(event.target.value)}
-                    required
-                  />
-                  <div className="btn-group">
-                    <button type="submit">{editingCommentId ? "Save" : "Add"}</button>
-                    <button type="button" className="secondary" onClick={onResetCommentForm}>
-                      Reset
-                    </button>
-                  </div>
-                </form>
+                <div className="subpanel-head">
+                  <h4>Comments</h4>
+                  <button onClick={onOpenCreateCommentModal}>Add comment</button>
+                </div>
 
                 <div className="list compact">
                   {toArray(selectedTask.comments).map((comment) => (
                     <article key={comment.id} className="item">
                       <div className="item-title">
-                        <strong>#{comment.id}</strong>
+                        <span className="small-note">Comment</span>
                         <div className="btn-group">
                           <button className="secondary" onClick={() => onStartEditComment(comment)}>
                             Edit
@@ -293,9 +213,6 @@
                         </div>
                       </div>
                       <p className="meta">{comment.content}</p>
-                      <p className="meta">
-                        {formatDate(comment.createdDate)} {comment.updatedDate ? `| upd ${formatDate(comment.updatedDate)}` : ""}
-                      </p>
                     </article>
                   ))}
                   {!toArray(selectedTask.comments).length && <p className="small-note">No comments yet.</p>}
