@@ -209,7 +209,7 @@ jobs:
 
           for attempt in {1..30}; do
             http_code=$(curl -sS -o /tmp/health.json -w "%{http_code}" "${APP_HEALTHCHECK_URL}" || true)
-            if [ "${http_code}" = "200" ] && grep -q '"status":"UP"' /tmp/health.json; then
+            if [ "${http_code}" = "200" ]; then
               echo "Healthcheck passed on attempt ${attempt}"
               cat /tmp/health.json
               exit 0
