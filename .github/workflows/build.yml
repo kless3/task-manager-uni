@@ -21,6 +21,7 @@ jobs:
       contents: read
     timeout-minutes: 20
     services:
+    
       # Временная PostgreSQL для тестов backend
       postgres:
         image: postgres:16
