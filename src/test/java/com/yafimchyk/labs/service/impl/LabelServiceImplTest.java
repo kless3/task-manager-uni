@@ -122,8 +122,8 @@ class LabelServiceImplTest {
 
     @Test
     void createLabel_WhenValid_ShouldCreate() {
-        when(labelRepository.existsByTitle("BUG")).thenReturn(false);
         when(taskEntityService.getTaskEntityById(1L)).thenReturn(task);
+        when(labelRepository.findByTitle("BUG")).thenReturn(Optional.empty());
         when(labelMapper.toEntity(requestDto)).thenReturn(label);
         when(labelRepository.save(label)).thenReturn(label);
         when(labelMapper.toDto(label)).thenReturn(responseDto);
@@ -138,12 +138,19 @@ class LabelServiceImplTest {
     }
 
     @Test
-    void createLabel_WhenTitleExists_ShouldThrow() {
-        when(labelRepository.existsByTitle("BUG")).thenReturn(true);
+    void createLabel_WhenTitleExists_ShouldAttachExistingLabel() {
+        when(taskEntityService.getTaskEntityById(1L)).thenReturn(task);
+        when(labelRepository.findByTitle("BUG")).thenReturn(Optional.of(label));
+        when(labelRepository.save(label)).thenReturn(label);
+        when(labelMapper.toDto(label)).thenReturn(responseDto);
 
-        assertThatThrownBy(() -> labelService.createLabel(1L, requestDto))
-                .isInstanceOf(DuplicateResourceException.class)
-                .hasMessageContaining("Label already exists!");
+        var result = labelService.createLabel(1L, requestDto);
+
+        assertThat(result).isNotNull();
+        assertThat(result.title()).isEqualTo("BUG");
+        assertThat(task.getLabels()).contains(label);
+        assertThat(label.getTasks()).contains(task);
+        verify(labelMapper, org.mockito.Mockito.never()).toEntity(requestDto);
     }
 
     @Test
