@@ -1,0 +1,224 @@
+name: CI/CD
+
+# Когда запускать workflow
+on:
+  # На каждый push в любую ветку
+  push:
+    branches:
+      - "**"
+  # На события pull request
+  pull_request:
+    types: [opened, synchronize, reopened]
+  # Ручной запуск из GitHub UI
+  workflow_dispatch:
+
+jobs:
+  # Сборка и проверка backend
+  backend:
+    name: Backend Build and Test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    timeout-minutes: 20
+    services:
+      # Временная PostgreSQL для тестов backend
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: chesov
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready -U postgres -d chesov"
+          --health-interval=5s
+          --health-timeout=5s
+          --health-retries=10
+    env:
+      # Переменные подключения backend к тестовой БД
+      DB_URL: jdbc:postgresql://localhost:5432/chesov
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
+    steps:
+      # Забираем код репозитория
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Ставим Java 21 и включаем кэш Maven
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: "21"
+          distribution: temurin
+          cache: maven
+
+      # Кэш для SonarQube, чтобы ускорить повторные запуски
+      - name: Cache SonarQube packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+
+      # Проверяем, что проект собирается
+      - name: Build (without tests)
+        run: mvn -B -DskipTests package
+
+      # Запускаем тесты и считаем покрытие
+      - name: Run tests and coverage report
+        run: mvn -B verify
+
+      # Анализ качества кода в Sonar (если есть токен)
+      - name: SonarQube analysis
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          if [ -z "${SONAR_TOKEN}" ]; then
+            echo "SONAR_TOKEN is not set. Skipping SonarQube analysis."
+            exit 0
+          fi
+          mvn -B org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=kris-js-art_cheese-map
+
+  # Сборка frontend
+  frontend:
+    name: Frontend Build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    timeout-minutes: 10
+    defaults:
+      run:
+        # Все команды frontend выполняем из папки frontend
+        working-directory: frontend
+    steps:
+      # Забираем код репозитория
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Ставим Node.js и кэш npm
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      # Устанавливаем зависимости
+      - name: Install dependencies
+        run: npm ci
+
+      # Собираем frontend
+      - name: Build frontend
+        run: npm run build
+
+  # Деплой в Railway (только из main)
+  deploy:
+    name: Deploy to Railway
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    timeout-minutes: 15
+    # Деплой выполняется только после успешных backend и frontend job
+    needs: [backend, frontend]
+    # Не деплоим из PR, только push в main
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    steps:
+      # Забираем код репозитория
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Ставим Railway CLI
+      - name: Install Railway CLI
+        run: npm install -g @railway/cli
+
+      # Проверяем, что все нужные секреты заданы
+      - name: Validate Railway configuration
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+          RAILWAY_ENVIRONMENT_ID: ${{ secrets.RAILWAY_ENVIRONMENT_ID }}
+          RAILWAY_BACKEND_SERVICE_ID: ${{ secrets.RAILWAY_BACKEND_SERVICE_ID }}
+          RAILWAY_FRONTEND_SERVICE_ID: ${{ secrets.RAILWAY_FRONTEND_SERVICE_ID }}
+        run: |
+          RAILWAY_TOKEN="$(printf '%s' "${RAILWAY_TOKEN}" | tr -d '\r\n' | xargs)"
+          RAILWAY_ENVIRONMENT_ID="$(printf '%s' "${RAILWAY_ENVIRONMENT_ID}" | tr -d '\r\n' | xargs)"
+          RAILWAY_BACKEND_SERVICE_ID="$(printf '%s' "${RAILWAY_BACKEND_SERVICE_ID}" | tr -d '\r\n' | xargs)"
+          RAILWAY_FRONTEND_SERVICE_ID="$(printf '%s' "${RAILWAY_FRONTEND_SERVICE_ID}" | tr -d '\r\n' | xargs)"
+
+          if [ -z "${RAILWAY_TOKEN}" ] || [ -z "${RAILWAY_ENVIRONMENT_ID}" ] || [ -z "${RAILWAY_BACKEND_SERVICE_ID}" ] || [ -z "${RAILWAY_FRONTEND_SERVICE_ID}" ]; then
+            echo "Missing required GitHub config."
+            echo "Required:"
+            echo "- secret RAILWAY_TOKEN"
+            echo "- secret RAILWAY_ENVIRONMENT_ID"
+            echo "- secret RAILWAY_BACKEND_SERVICE_ID"
+            echo "- secret RAILWAY_FRONTEND_SERVICE_ID"
+            exit 1
+          fi
+
+      # Деплой backend-сервиса
+      - name: Deploy backend to Railway
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+          RAILWAY_ENVIRONMENT_ID: ${{ secrets.RAILWAY_ENVIRONMENT_ID }}
+          RAILWAY_BACKEND_SERVICE_ID: ${{ secrets.RAILWAY_BACKEND_SERVICE_ID }}
+        run: |
+          railway up \
+            --service "${RAILWAY_BACKEND_SERVICE_ID}" \
+            --environment "${RAILWAY_ENVIRONMENT_ID}" \
+            --path-as-root . \
+            --detach
+
+      # Деплой frontend-сервиса
+      - name: Deploy frontend to Railway
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+          RAILWAY_ENVIRONMENT_ID: ${{ secrets.RAILWAY_ENVIRONMENT_ID }}
+          RAILWAY_FRONTEND_SERVICE_ID: ${{ secrets.RAILWAY_FRONTEND_SERVICE_ID }}
+        run: |
+          railway up \
+            --service "${RAILWAY_FRONTEND_SERVICE_ID}" \
+            --environment "${RAILWAY_ENVIRONMENT_ID}" \
+            --path-as-root frontend \
+            --detach
+
+  # Проверка, что после деплоя приложение реально работает
+  healthcheck:
+    name: Post-deploy Healthcheck
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    # Запускаем healthcheck только после деплоя
+    needs: deploy
+    # Только для push в main
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    steps:
+      # Пытаемся получить healthy-ответ от приложения
+      - name: Check deployed app health
+        env:
+          APP_HEALTHCHECK_URL: ${{ secrets.APP_HEALTHCHECK_URL }}
+        run: |
+          APP_HEALTHCHECK_URL="$(printf '%s' "${APP_HEALTHCHECK_URL}" | tr -d '\r\n' | xargs)"
+
+          if [ -z "${APP_HEALTHCHECK_URL}" ]; then
+            echo "Missing required GitHub variable APP_HEALTHCHECK_URL"
+            exit 1
+          fi
+
+          echo "Healthcheck URL: ${APP_HEALTHCHECK_URL}"
+
+          for attempt in {1..30}; do
+            http_code=$(curl -sS -o /tmp/health.json -w "%{http_code}" "${APP_HEALTHCHECK_URL}" || true)
+            if [ "${http_code}" = "200" ] && grep -q '"status":"UP"' /tmp/health.json; then
+              echo "Healthcheck passed on attempt ${attempt}"
+              cat /tmp/health.json
+              exit 0
+            fi
+
+            echo "Attempt ${attempt}/30 failed (HTTP ${http_code}). Retrying in 10s..."
+            sleep 10
+          done
+
+          echo "Healthcheck failed after all retries. Last response:"
+          cat /tmp/health.json || true
+          exit 1
