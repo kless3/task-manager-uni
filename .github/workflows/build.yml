@@ -196,7 +196,7 @@ jobs:
       # Пытаемся получить healthy-ответ от приложения
       - name: Check deployed app health
         env:
-          APP_HEALTHCHECK_URL: ${{ secrets.APP_HEALTHCHECK_URL }}
+          APP_HEALTHCHECK_URL: ${{ vars.APP_HEALTHCHECK_URL }}
         run: |
           APP_HEALTHCHECK_URL="$(printf '%s' "${APP_HEALTHCHECK_URL}" | tr -d '\r\n' | xargs)"
 
