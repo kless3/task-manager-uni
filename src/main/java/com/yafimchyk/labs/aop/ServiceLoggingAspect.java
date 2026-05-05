@@ -2,7 +2,6 @@ package com.yafimchyk.labs.aop;
 
 import com.yafimchyk.labs.exception.DuplicateResourceException;
 import com.yafimchyk.labs.exception.InitiatedProblemException;
-import com.yafimchyk.labs.exception.LoggingException;
 import com.yafimchyk.labs.exception.ResourceNotFoundException;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -19,8 +18,6 @@ public class ServiceLoggingAspect {
 
     private static final int SLOW_THRESHOLD_MS = 500;
     private static final int VERY_SLOW_THRESHOLD_MS = 1000;
-
-    private static final String ERROR_EXECUTING_METHOD = "Error executing method!";
 
     private static final Logger logger = LoggerFactory.getLogger(ServiceLoggingAspect.class);
 
@@ -65,18 +62,18 @@ public class ServiceLoggingAspect {
 
             return result;
 
-        } catch (Exception e) {
+        } catch (Throwable e) {
             if (shouldNotWrap(e)) {
                 logger.warn("Бизнес-исключение в методе {}: {}", fullMethodName, e.getMessage());
                 throw e;
             }
 
             logger.error("Ошибка при выполнении метода {}: {}", fullMethodName, e.getMessage(), e);
-            throw new LoggingException(ERROR_EXECUTING_METHOD);
+            throw e;
         }
     }
 
-    private boolean shouldNotWrap(Exception e) {
+    private boolean shouldNotWrap(Throwable e) {
         return e instanceof ResourceNotFoundException
                 || e instanceof DuplicateResourceException
                 || e instanceof InitiatedProblemException;
