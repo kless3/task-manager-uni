@@ -1,3 +1,4 @@
+const API_BASE = import.meta.env.VITE_API_BASE || "";
 const API_PREFIX = "/api/v1";
 
 function toQuery(params = {}) {
@@ -12,7 +13,7 @@ function toQuery(params = {}) {
 }
 
 async function request(path, options = {}) {
-  const response = await fetch(`${API_PREFIX}${path}`, {
+  const response = await fetch(`${API_BASE}${API_PREFIX}${path}`, {
     headers: {
       "Content-Type": "application/json",
       ...(options.headers ?? {}),
