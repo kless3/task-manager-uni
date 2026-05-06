@@ -1,19 +1,14 @@
 name: CI/CD
 
-# Когда запускать workflow
 on:
-  # На каждый push в любую ветку
   push:
     branches:
       - "**"
-  # На события pull request
   pull_request:
     types: [opened, synchronize, reopened]
-  # Ручной запуск из GitHub UI
   workflow_dispatch:
 
 jobs:
-  # Сборка и проверка backend
   backend:
     name: Backend Build and Test
     runs-on: ubuntu-latest
@@ -21,8 +16,6 @@ jobs:
       contents: read
     timeout-minutes: 20
     services:
-  
-      # Временная PostgreSQL для тестов backend
       postgres:
         image: postgres:16
         env:
@@ -37,18 +30,15 @@ jobs:
           --health-timeout=5s
           --health-retries=10
     env:
-      # Переменные подключения backend к тестовой БД
       DB_URL: ${{ secrets.DB_URL }}
       DB_USERNAME: ${{ secrets.DB_USERNAME }}
       DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
     steps:
-      # Забираем код репозитория
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # Ставим Java 21 и включаем кэш Maven
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
@@ -56,7 +46,6 @@ jobs:
           distribution: temurin
           cache: maven
 
-      # Кэш для SonarQube, чтобы ускорить повторные запуски
       - name: Cache SonarQube packages
         uses: actions/cache@v4
         with:
@@ -64,15 +53,12 @@ jobs:
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
 
-      # Проверяем, что проект собирается
       - name: Build (without tests)
         run: mvn -B -DskipTests package
 
-      # Запускаем тесты и считаем покрытие
       - name: Run tests and coverage report
         run: mvn -B verify
 
-      # Анализ качества кода в Sonar (если есть токен)
       - name: SonarQube analysis
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -83,7 +69,6 @@ jobs:
           fi
           mvn -B org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=kris-js-art_cheese-map
 
-  # Сборка frontend
   frontend:
     name: Frontend Build
     runs-on: ubuntu-latest
@@ -92,14 +77,11 @@ jobs:
     timeout-minutes: 10
     defaults:
       run:
-        # Все команды frontend выполняем из папки frontend
         working-directory: frontend
     steps:
-      # Забираем код репозитория
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Ставим Node.js и кэш npm
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -107,35 +89,27 @@ jobs:
           cache: npm
           cache-dependency-path: frontend/package-lock.json
 
-      # Устанавливаем зависимости
       - name: Install dependencies
         run: npm ci
 
-      # Собираем frontend
       - name: Build frontend
         run: npm run build
 
-  # Деплой в Railway (только из main)
   deploy:
     name: Deploy to Railway
     runs-on: ubuntu-latest
     permissions:
       contents: read
     timeout-minutes: 15
-    # Деплой выполняется только после успешных backend и frontend job
     needs: [backend, frontend]
-    # Не деплоим из PR, только push в main
     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     steps:
-      # Забираем код репозитория
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Ставим Railway CLI
       - name: Install Railway CLI
         run: npm install -g @railway/cli
 
-      # Проверяем, что все нужные секреты заданы
       - name: Validate Railway configuration
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
@@ -158,7 +132,6 @@ jobs:
             exit 1
           fi
 
-      # Деплой backend-сервиса
       - name: Deploy backend to Railway
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
@@ -171,7 +144,6 @@ jobs:
             --path-as-root . \
             --detach
 
-      # Деплой frontend-сервиса
       - name: Deploy frontend to Railway
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
@@ -184,17 +156,13 @@ jobs:
             --path-as-root frontend \
             --detach
 
-  # Проверка, что после деплоя приложение реально работает
   healthcheck:
     name: Post-deploy Healthcheck
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    # Запускаем healthcheck только после деплоя
     needs: deploy
-    # Только для push в main
     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     steps:
-      # Пытаемся получить healthy-ответ от приложения
       - name: Check deployed app health
         env:
           APP_HEALTHCHECK_URL: ${{ vars.APP_HEALTHCHECK_URL }}
